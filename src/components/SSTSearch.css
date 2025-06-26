@@ -215,6 +215,43 @@ label {
   padding: 15px 20px 15px 0;
 }
 
+/* Reduce vertical spacing in CriteriaRow sections */
+#ContentPlaceHolder1_CriteriaRow1,
+#ContentPlaceHolder1_CriteriaRow2 {
+  line-height: 1.2;
+}
+
+#ContentPlaceHolder1_CriteriaRow1 td,
+#ContentPlaceHolder1_CriteriaRow2 td {
+  padding: 4px 8px;
+  vertical-align: top;
+}
+
+#ContentPlaceHolder1_CriteriaRow1 table,
+#ContentPlaceHolder1_CriteriaRow2 table {
+  margin: 0;
+  border-spacing: 2px;
+}
+
+#ContentPlaceHolder1_CriteriaRow1 table td,
+#ContentPlaceHolder1_CriteriaRow2 table td {
+  padding: 2px 4px;
+}
+
+/* Reduce spacing for form elements in criteria rows */
+#ContentPlaceHolder1_CriteriaRow1 .labelBlue,
+#ContentPlaceHolder1_CriteriaRow2 .labelBlue {
+  margin-bottom: 2px;
+  display: block;
+}
+
+#ContentPlaceHolder1_CriteriaRow1 select,
+#ContentPlaceHolder1_CriteriaRow2 select,
+#ContentPlaceHolder1_CriteriaRow1 input,
+#ContentPlaceHolder1_CriteriaRow2 input {
+  margin-bottom: 4px;
+}
+
 /* Product and Search By alignment */
 #ContentPlaceHolder1_ProdSelect {
   width: 200px;

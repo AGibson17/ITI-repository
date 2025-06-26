@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
+import { getCAImagePath, getAssetPath } from '../utils/paths';
 
 export default function SSTSearch({ onNavigate }) {
   const [searchBy, setSearchBy] = useState('sst-dates');
@@ -14,7 +15,7 @@ export default function SSTSearch({ onNavigate }) {
   const [vinValue, setVinValue] = useState('');
   const [vipValue, setVipValue] = useState('');
   const [dlnValue, setDlnValue] = useState('');
-  
+
   // Search results state
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -30,23 +31,23 @@ export default function SSTSearch({ onNavigate }) {
     setIsLoading(true);
     try {
       // Load the transaction data
-      const response = await fetch('/ITI-repository/TransData/CA/FullTransactionDetails_9TRK281.json');
+      const response = await fetch(getAssetPath('TransData/CA/FullTransactionDetails_9TRK281.json'));
       const data = await response.json();
-      
+
       // Filter transactions by plate number
       const results = data.transactions.filter(transaction => {
         // Check in vehicles array
         if (transaction.Vehicles && transaction.Vehicles.length > 0) {
-          return transaction.Vehicles.some(vehicle => 
+          return transaction.Vehicles.some(vehicle =>
             vehicle.Plate && vehicle.Plate.toLowerCase().includes(plateValue.toLowerCase())
           );
         }
-        
+
         // Check in request info as fallback
         const requestInfo = transaction['Request Info'] || '';
         return requestInfo.toLowerCase().includes(plateValue.toLowerCase());
       });
-      
+
       setSearchResults(results);
       setShowResults(true);
     } catch (error) {
@@ -75,7 +76,7 @@ export default function SSTSearch({ onNavigate }) {
       {/* Header */}
       <div className="header">
         <img
-          src="/images/CA/text.png"
+          src={getCAImagePath('text.png')}
           alt="CA DMV Header"
           className='header-img-search'
         />
@@ -127,7 +128,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnPrev"
                                     id="imgBtnPrev"
-                                    src="/images/CA/btn-previous.png"
+                                    src={getCAImagePath('btn-previous.png')}
                                     alt="Previous"
                                     onClick={() => onNavigate && onNavigate('findTransactions')}
                                     style={{ cursor: 'pointer' }}
@@ -136,7 +137,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnHome"
                                     id="imgBtnHome"
-                                    src="/images/CA/btn-main-menu.png"
+                                    src={getCAImagePath('btn-main-menu.png')}
                                     alt="Main Menu"
                                     onClick={() => onNavigate && onNavigate('dashboard')}
                                     style={{ cursor: 'pointer' }}
@@ -145,7 +146,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnLogout"
                                     id="imgBtnLogout"
-                                    src="/images/CA/btn-logout.png"
+                                    src={getCAImagePath('btn-logout.png')}
                                     alt="Logout"
                                     onClick={() => onNavigate && onNavigate('stateLanding')}
                                     style={{ cursor: 'pointer' }}
@@ -253,27 +254,27 @@ export default function SSTSearch({ onNavigate }) {
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input 
-                                                      type="date" 
-                                                      className="InputGreySmall" 
+                                                    <input
+                                                      type="date"
+                                                      className="InputGreySmall"
                                                       value={fromDate}
                                                       onChange={(e) => setFromDate(e.target.value)}
                                                     />
-                                                    <img 
-                                                      src="/images/calendar.gif" 
+                                                    <img
+                                                      src={getCAImagePath('calendar.gif')}
                                                       alt="Calendar"
                                                       style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
                                                     />
                                                   </td>
                                                   <td>
-                                                    <input 
-                                                      type="date" 
+                                                    <input
+                                                      type="date"
                                                       className="InputGreySmall"
                                                       value={toDate}
                                                       onChange={(e) => setToDate(e.target.value)}
                                                     />
-                                                    <img 
-                                                      src="/images/calendar.gif" 
+                                                    <img
+                                                      src={getCAImagePath('calendar.gif')}
                                                       alt="Calendar"
                                                       style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
                                                     />
@@ -294,8 +295,8 @@ export default function SSTSearch({ onNavigate }) {
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input 
-                                                      type="text" 
+                                                    <input
+                                                      type="text"
                                                       className="InputGrey"
                                                       value={transNo}
                                                       onChange={(e) => setTransNo(e.target.value)}
@@ -377,9 +378,9 @@ export default function SSTSearch({ onNavigate }) {
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input 
-                                                      type="text" 
-                                                      className="InputGrey" 
+                                                    <input
+                                                      type="text"
+                                                      className="InputGrey"
                                                       maxLength="17"
                                                       value={vinValue}
                                                       onChange={(e) => setVinValue(e.target.value)}
@@ -401,8 +402,8 @@ export default function SSTSearch({ onNavigate }) {
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input 
-                                                      type="text" 
+                                                    <input
+                                                      type="text"
                                                       className="InputGrey"
                                                       value={vipValue}
                                                       onChange={(e) => setVipValue(e.target.value)}
@@ -424,9 +425,9 @@ export default function SSTSearch({ onNavigate }) {
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input 
-                                                      type="text" 
-                                                      className="InputGrey" 
+                                                    <input
+                                                      type="text"
+                                                      className="InputGrey"
                                                       maxLength="4"
                                                       value={dlnValue}
                                                       onChange={(e) => setDlnValue(e.target.value)}
@@ -448,7 +449,7 @@ export default function SSTSearch({ onNavigate }) {
                                     name="btnShowReport"
                                     id="ContentPlaceHolder1_btnShowReport"
                                     tabIndex="8"
-                                    src="/images/CA/btn-ShowReport.png"
+                                    src={getCAImagePath('btn-ShowReport.png')}
                                     alt="Show Report"
                                     onClick={handleShowReport}
                                     style={{ cursor: 'pointer' }}
@@ -482,8 +483,8 @@ export default function SSTSearch({ onNavigate }) {
 
       {/* Search Results Section */}
       {showResults && (
-        <SearchResults 
-          results={searchResults} 
+        <SearchResults
+          results={searchResults}
           onTransactionClick={(transaction) => {
             // TODO: Navigate to transaction details page
             console.log('Transaction clicked:', transaction);

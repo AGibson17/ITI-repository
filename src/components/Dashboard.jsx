@@ -1,5 +1,6 @@
 import '../styles/defaultStyles.css';
 import '../components/Dashboard.css';
+import { getCAImagePath } from '../utils/paths';
 
 export default function Dashboard({ onNavigate }) {
   return (
@@ -7,7 +8,7 @@ export default function Dashboard({ onNavigate }) {
       {/* Header */}
       <div className="header">
         <img
-          src="/images/CA/header-short.png"
+          src={getCAImagePath('header-short.png')}
           alt="CA DMV Header"
           className="header-img"
         />
@@ -29,7 +30,7 @@ export default function Dashboard({ onNavigate }) {
                   <tbody>
                     <tr>
                       <td>
-                        <img src="/images/CA/login.png" className="LoginImg" alt="Login" />
+                        <img src={getCAImagePath('login.png')} className="LoginImg" alt="Login" />
                       </td>
                     </tr>
                     <tr>
@@ -53,14 +54,14 @@ export default function Dashboard({ onNavigate }) {
                     </tr>
                     <tr>
                       <td>
-                        <img className="loginBtn" src="/images/CA/submit.png" alt="Submit" />
+                        <img className="loginBtn" src={getCAImagePath('submit.png')} alt="Submit" />
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </td>
               <td>
-                <img className="welcome" src="/images/CA/welcome.png" alt="Welcome" />
+                <img className="welcome" src={getCAImagePath('welcome.png')} alt="Welcome" />
               </td>
             </tr>
             <tr>
@@ -72,7 +73,7 @@ export default function Dashboard({ onNavigate }) {
                         <input
                           type="image"
                           className="homeSelections"
-                          src="/images/CA/find-transactions.png"
+                          src={getCAImagePath('find-transactions.png')}
                           alt="Find Transactions"
                           onClick={() => onNavigate && onNavigate('findTransactions')}
                           style={{ cursor: 'pointer' }}
@@ -82,7 +83,7 @@ export default function Dashboard({ onNavigate }) {
                         <input
                           type="image"
                           className="homeSelections"
-                          src="/images/CA/view-reports.png"
+                          src={getCAImagePath('view-reports.png')}
                           alt="View Reports"
                           onClick={() => onNavigate && onNavigate('reports')}
                           style={{ cursor: 'pointer' }}
@@ -92,7 +93,7 @@ export default function Dashboard({ onNavigate }) {
                         <input
                           type="image"
                           className="homeSelections"
-                          src="/images/CA/admin.png"
+                          src={getCAImagePath('admin.png')}
                           alt="Administration"
                           onClick={() => onNavigate && onNavigate('admin')}
                           style={{ cursor: 'pointer' }}
@@ -102,7 +103,7 @@ export default function Dashboard({ onNavigate }) {
                         <input
                           type="image"
                           className="homeSelections"
-                          src="/images/CA/documents.png"
+                          src={getCAImagePath('documents.png')}
                           alt="Documents"
                           onClick={() => onNavigate && onNavigate('documents')}
                           style={{ cursor: 'pointer' }}

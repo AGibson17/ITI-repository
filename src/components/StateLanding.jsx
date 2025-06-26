@@ -1,7 +1,9 @@
 import React from 'react';
 import './StateLanding.css';
+import { getCAImagePath } from '../utils/paths';
 
 const StateLanding = ({ onNavigate }) => {
+
   const handleStateClick = (stateCode) => {
     if (stateCode === 'CA') {
       // Navigate to CA dashboard
@@ -37,7 +39,7 @@ const StateLanding = ({ onNavigate }) => {
     <div className="state-landing-container">
       {/* Header */}
       <div className="landing-header">
-        <img src="/images/CA/text.png" alt="DMV Repository Header" className="landing-header-image" />
+        <img src={getCAImagePath('text.png')} alt="DMV Repository Header" className="landing-header-image" />
       </div>
 
       {/* Title Section */}
