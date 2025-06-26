@@ -1,0 +1,153 @@
+.state-landing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.landing-header {
+  background-color: #1e4a6b;
+  padding: auto 0;
+  margin: 0;
+}
+
+.landing-header-image {
+  object-fit: contain;
+  display: block;
+}
+
+.landing-title-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: white;
+}
+
+.landing-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #1e4a6b;
+  margin: 0 0 10px 0;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.landing-subtitle {
+  font-size: 24px;
+  color: #666;
+  margin: 0;
+  font-weight: normal;
+}
+
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.state-tile {
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.state-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.state-tile.available {
+  border-color: #26608f;
+  background-color: #f0f4f8;
+}
+
+.state-tile.available:hover {
+  border-color: #1e4a6b;
+  background-color: #e6f0f6;
+}
+
+.state-tile.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.state-tile.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.state-code {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1e4a6b;
+  margin-bottom: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.state-name {
+  font-size: 16px;
+  color: #666;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.coming-soon-label {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.landing-footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .states-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .state-tile {
+    padding: 20px 15px;
+    min-height: 100px;
+  }
+  
+  .state-code {
+    font-size: 24px;
+  }
+  
+  .state-name {
+    font-size: 14px;
+  }
+  
+  .landing-title {
+    font-size: 36px;
+  }
+  
+  .landing-subtitle {
+    font-size: 20px;
+  }
+}

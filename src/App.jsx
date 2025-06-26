@@ -1,19 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dashboard from './components/Dashboard';
 import SSTSearch from './components/SSTSearch';
+import FindTransactions from './components/FindTransactions';
+import StateLanding from './components/StateLanding';
 import './App.css';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('dashboard');
+  // Initialize state from localStorage or default to 'stateLanding'
+  const [currentPage, setCurrentPage] = useState(() => {
+    return localStorage.getItem('currentPage') || 'stateLanding';
+  });
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
+    // Save the current page to localStorage
+    localStorage.setItem('currentPage', page);
   };
+
+  // Optional: Save to localStorage whenever currentPage changes
+  useEffect(() => {
+    localStorage.setItem('currentPage', currentPage);
+  }, [currentPage]);
 
   const renderCurrentPage = () => {
     switch (currentPage) {
-      case 'sst-search':
+      case 'sstSearch':
         return <SSTSearch onNavigate={handleNavigation} />;
+      case 'findTransactions':
+        return <FindTransactions onNavigate={handleNavigation} />;
+      case 'dashboard':
+        return <Dashboard onNavigate={handleNavigation} />;
       case 'reports':
         // Placeholder for future reports page
         return <div>Reports page - Coming Soon</div>;
@@ -23,9 +39,9 @@ export default function App() {
       case 'documents':
         // Placeholder for future documents page
         return <div>Documents page - Coming Soon</div>;
-      case 'dashboard':
+      case 'stateLanding':
       default:
-        return <Dashboard onNavigate={handleNavigation} />;
+        return <StateLanding onNavigate={handleNavigation} />;
     }
   };
 

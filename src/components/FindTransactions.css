@@ -1,0 +1,116 @@
+.find-transactions-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
+
+.header-section {
+  background-color: #1e4a6b;
+  padding: 0;
+  margin: 0;
+}
+
+.header-image {
+  max-width: 1024px;
+  object-fit: contain;
+  display: block;
+}
+
+.title-nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.title-area {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1e4a6b;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  cursor: pointer;
+  height: auto;
+  max-height: 40px;
+}
+
+.nav-button:hover {
+  opacity: 0.8;
+}
+
+.menu-content {
+  padding: 20px;
+  background-color: white;
+}
+
+.menu-section {
+  min-width: 900px;
+}
+
+.menu-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.menu-divider {
+  height: 2px;
+  background-color: #ccc;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-link {
+  font-family: 'Arial Black', Gadget, sans-serif;
+  color: #26608f;
+  font-size: 20px;
+  line-height: 35px;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link:hover {
+  opacity: 0.8;
+}
+
+.menu-link:visited {
+  color: #26608f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .find-transactions-container {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .menu-section {
+    min-width: auto;
+  }
+}

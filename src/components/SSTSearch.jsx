@@ -73,7 +73,7 @@ export default function SSTSearch({ onNavigate }) {
                                     id="imgBtnPrev"
                                     src="/images/CA/btn-previous.png"
                                     alt="Previous"
-                                    onClick={() => onNavigate && onNavigate('dashboard')}
+                                    onClick={() => onNavigate && onNavigate('findTransactions')}
                                     style={{ cursor: 'pointer' }}
                                   />
                                   <input
@@ -91,7 +91,7 @@ export default function SSTSearch({ onNavigate }) {
                                     id="imgBtnLogout"
                                     src="/images/CA/btn-logout.png"
                                     alt="Logout"
-                                    onClick={() => onNavigate && onNavigate('dashboard')}
+                                    onClick={() => onNavigate && onNavigate('stateLanding')}
                                     style={{ cursor: 'pointer' }}
                                   />
                                 </td>

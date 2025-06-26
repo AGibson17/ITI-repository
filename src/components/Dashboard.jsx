@@ -74,7 +74,7 @@ export default function Dashboard({ onNavigate }) {
                           className="homeSelections"
                           src="/images/CA/find-transactions.png"
                           alt="Find Transactions"
-                          onClick={() => onNavigate && onNavigate('sst-search')}
+                          onClick={() => onNavigate && onNavigate('findTransactions')}
                           style={{ cursor: 'pointer' }}
                         />
                       </td>
