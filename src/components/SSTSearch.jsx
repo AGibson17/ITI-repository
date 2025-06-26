@@ -2,8 +2,8 @@ import { useState } from 'react';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
 
-export default function SSTSearch() {
-  const [searchBy, setSearchBy] = useState('plate');
+export default function SSTSearch({ onNavigate }) {
+  const [searchBy, setSearchBy] = useState('sst-dates');
   const [plateType, setPlateType] = useState('full');
   const [product, setProduct] = useState('<ALL>');
   const [plateValue, setPlateValue] = useState('');
@@ -14,91 +14,14 @@ export default function SSTSearch() {
   const [vipValue, setVipValue] = useState('');
   const [dlnValue, setDlnValue] = useState('');
 
-  const renderConditionalFields = () => {
-    switch (searchBy) {
-      case 'sst-dates':
-        return (
-          <div style={{ marginBottom: '15px' }}>
-            <label className="labelBlue">From Date:</label>{' '}
-            <input 
-              type="date" 
-              className="InputGrey" 
-              value={fromDate}
-              onChange={(e) => setFromDate(e.target.value)}
-              style={{ marginRight: '20px' }} 
-            />
-            <label className="labelBlue">To Date:</label>{' '}
-            <input 
-              type="date" 
-              className="InputGrey"
-              value={toDate}
-              onChange={(e) => setToDate(e.target.value)}
-            />
-          </div>
-        );
-      case 'sst-transno':
-        return (
-          <div style={{ marginBottom: '15px' }}>
-            <label className="labelBlue">Transaction No:</label>{' '}
-            <input 
-              type="text" 
-              className="InputGrey"
-              value={transNo}
-              onChange={(e) => setTransNo(e.target.value)}
-            />
-          </div>
-        );
-      case 'vin':
-        return (
-          <div style={{ marginBottom: '15px' }}>
-            <label className="labelBlue">VIN:</label>{' '}
-            <input 
-              type="text" 
-              className="InputGrey" 
-              maxLength="17"
-              value={vinValue}
-              onChange={(e) => setVinValue(e.target.value)}
-            />
-          </div>
-        );
-      case 'vip-plate':
-        return (
-          <div style={{ marginBottom: '15px' }}>
-            <label className="labelBlue">VIP Plate or VIN:</label>{' '}
-            <input 
-              type="text" 
-              className="InputGrey"
-              value={vipValue}
-              onChange={(e) => setVipValue(e.target.value)}
-            />
-          </div>
-        );
-      case 'last4-dln':
-        return (
-          <div style={{ marginBottom: '15px' }}>
-            <label className="labelBlue">Last 4 DLN:</label>{' '}
-            <input 
-              type="text" 
-              className="InputGrey" 
-              maxLength="4"
-              value={dlnValue}
-              onChange={(e) => setDlnValue(e.target.value)}
-            />
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <>
+    <div className="sst-container">
       {/* Header */}
       <div className="header">
         <img
           src="/images/CA/text.png"
           alt="CA DMV Header"
-          className='header-img'
+          className='header-img-search'
         />
       </div>
 
@@ -150,6 +73,8 @@ export default function SSTSearch() {
                                     id="imgBtnPrev"
                                     src="/images/CA/btn-previous.png"
                                     alt="Previous"
+                                    onClick={() => onNavigate && onNavigate('dashboard')}
+                                    style={{ cursor: 'pointer' }}
                                   />
                                   <input
                                     type="image"
@@ -157,6 +82,8 @@ export default function SSTSearch() {
                                     id="imgBtnHome"
                                     src="/images/CA/btn-main-menu.png"
                                     alt="Main Menu"
+                                    onClick={() => onNavigate && onNavigate('dashboard')}
+                                    style={{ cursor: 'pointer' }}
                                   />
                                   <input
                                     type="image"
@@ -164,6 +91,8 @@ export default function SSTSearch() {
                                     id="imgBtnLogout"
                                     src="/images/CA/btn-logout.png"
                                     alt="Logout"
+                                    onClick={() => onNavigate && onNavigate('dashboard')}
+                                    style={{ cursor: 'pointer' }}
                                   />
                                 </td>
                               </tr>
@@ -254,6 +183,73 @@ export default function SSTSearch() {
                                   <table>
                                     <tbody>
                                       <tr align="left" valign="top">
+                                        {searchBy === 'sst-dates' && (
+                                          <td id="ContentPlaceHolder1_DateEntry">
+                                            <table width="300px">
+                                              <tbody>
+                                                <tr>
+                                                  <td style={{ width: '150px' }}>
+                                                    <span className="labelBlue">Start Date:</span>
+                                                  </td>
+                                                  <td style={{ width: '150px' }}>
+                                                    <span className="labelBlue">End Date:</span>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input 
+                                                      type="date" 
+                                                      className="InputGreySmall" 
+                                                      value={fromDate}
+                                                      onChange={(e) => setFromDate(e.target.value)}
+                                                    />
+                                                    <img 
+                                                      src="/images/calendar.gif" 
+                                                      alt="Calendar"
+                                                      style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
+                                                    />
+                                                  </td>
+                                                  <td>
+                                                    <input 
+                                                      type="date" 
+                                                      className="InputGreySmall"
+                                                      value={toDate}
+                                                      onChange={(e) => setToDate(e.target.value)}
+                                                    />
+                                                    <img 
+                                                      src="/images/calendar.gif" 
+                                                      alt="Calendar"
+                                                      style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        )}
+                                        {searchBy === 'sst-transno' && (
+                                          <td id="ContentPlaceHolder1_TransNoEntry">
+                                            <table>
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <span className="labelBlue">Transaction No:</span>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input 
+                                                      type="text" 
+                                                      className="InputGrey"
+                                                      value={transNo}
+                                                      onChange={(e) => setTransNo(e.target.value)}
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        )}
                                         {searchBy === 'plate' && (
                                           <td id="ContentPlaceHolder1_GenericTextEntry1">
                                             <table>
@@ -312,7 +308,77 @@ export default function SSTSearch() {
                                             </table>
                                           </td>
                                         )}
-                                        {renderConditionalFields()}
+                                        {searchBy === 'vin' && (
+                                          <td id="ContentPlaceHolder1_VinEntry">
+                                            <table>
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <span className="labelBlue">VIN:</span>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input 
+                                                      type="text" 
+                                                      className="InputGrey" 
+                                                      maxLength="17"
+                                                      value={vinValue}
+                                                      onChange={(e) => setVinValue(e.target.value)}
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        )}
+                                        {searchBy === 'vip-plate' && (
+                                          <td id="ContentPlaceHolder1_VipEntry">
+                                            <table>
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <span className="labelBlue">VIP Plate or VIN:</span>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input 
+                                                      type="text" 
+                                                      className="InputGrey"
+                                                      value={vipValue}
+                                                      onChange={(e) => setVipValue(e.target.value)}
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        )}
+                                        {searchBy === 'last4-dln' && (
+                                          <td id="ContentPlaceHolder1_DlnEntry">
+                                            <table>
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <span className="labelBlue">Last 4 DLN:</span>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input 
+                                                      type="text" 
+                                                      className="InputGrey" 
+                                                      maxLength="4"
+                                                      value={dlnValue}
+                                                      onChange={(e) => setDlnValue(e.target.value)}
+                                                    />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        )}
                                       </tr>
                                     </tbody>
                                   </table>
@@ -354,6 +420,6 @@ export default function SSTSearch() {
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

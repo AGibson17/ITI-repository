@@ -1,16 +1,34 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e0e0e0;
+}
+
+/* Global layout fixes */
 .sst-container {
   font-family: Tahoma, Verdana, Arial, sans-serif;
   background-color: #ffffff;
   color: #000;
   padding-bottom: 40px;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .page-container {
-  width: 1200px;              /* increased width for better match */
-  margin: 0 auto;            /* centers it horizontally */
-  background-color: white;   /* keeps the center pane clean */
-  padding: 0 20px 40px 20px; /* gives breathing room */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* subtle edge like production */
+  max-width: 1024px;          /* match header image width */
+  margin: 0 auto;              /* centers it horizontally */
+  background-color: white;     /* keeps the center pane clean */
+  padding: 0 40px 40px 40px;   /* gives more breathing room */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Main table styling */
+table[width="100%"] {
+  width: 100% !important;
+  table-layout: auto;
+  border-collapse: collapse;
 }
 
 .sst-header {
@@ -175,33 +193,37 @@ label {
 
 /* Content area styling */
 .content {
-  padding: 30px;
+  padding: 20px 30px;
+  max-width: none;
+  width: 100%;
 }
 
 /* Criteria row spacing */
 #ContentPlaceHolder1_CriteriaRow1 td {
-  padding: 15px 10px;
+  padding: 15px 20px 15px 0;
 }
 
 #ContentPlaceHolder1_CriteriaRow2 td {
-  padding: 15px 10px;
+  padding: 15px 20px 15px 0;
 }
 
 /* Product and Search By alignment */
 #ContentPlaceHolder1_ProdSelect {
-  width: 25%;
+  width: 200px;
   vertical-align: top;
+  padding-right: 30px;
 }
 
 #ContentPlaceHolder1_SearchByList {
   vertical-align: top;
-  width: 70%;
+  width: auto;
 }
 
 /* Nested table radio button styling */
 #ContentPlaceHolder1_rbtnlistSearchBy td {
-  padding: 0 15px 0 0;
+  padding: 0 20px 0 0;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 #ContentPlaceHolder1_rbtnListGenericTextSubRow1 td {
@@ -216,6 +238,21 @@ label {
   width: 200px;
 }
 
+/* Date entry styling */
+#ContentPlaceHolder1_DateEntry {
+  vertical-align: top;
+  padding-right: 40px;
+}
+
+#ContentPlaceHolder1_DateEntry table {
+  width: 300px;
+}
+
+#ContentPlaceHolder1_DateEntry td {
+  padding: 5px 15px 5px 0;
+  vertical-align: top;
+}
+
 /* Plate input styling */
 #ContentPlaceHolder1_GenericTextEntry1 {
   vertical-align: top;
@@ -228,4 +265,12 @@ label {
   padding: 3px;
   font-size: 12px;
   width: 150px;
+}
+
+.InputGreySmall {
+  background-color: #e7e7e7;
+  border: 1px solid #999;
+  padding: 3px;
+  font-size: 12px;
+  width: 75px;
 }

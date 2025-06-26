@@ -1,0 +1,115 @@
+.dashboard-container {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1024px; /* Match the header image width */
+  margin: 0 auto; /* Center the entire page */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Add shadow for definition */
+}
+
+.header {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.header-img-search {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.redbar {
+  background-color: #c00;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 3px solid white;
+}
+
+.content {
+  padding: 20px;
+  background-color: white;
+}
+
+.LoginImg {
+  max-width: 100%;
+  height: auto;
+}
+
+.LoginEntryFlds {
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.loginBtn {
+  cursor: pointer;
+  margin: 10px;
+}
+
+.welcome {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+.homeSelections {
+  margin: 5px 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  max-width: 200px;
+  height: auto;
+}
+
+.homeSelections:hover {
+  transform: scale(1.05);
+}
+
+.footer {
+  height: 50px;
+  background-color: #f5f5f5;
+  margin-top: 40px;
+}
+
+/* Table styling to match original */
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+}
+
+/* Specific styling for menu icon table cells */
+.menu-icons-row td {
+  padding: 10px 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .homeSelections {
+    max-width: 150px;
+    margin: 10px;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+}
