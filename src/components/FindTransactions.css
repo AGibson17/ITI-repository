@@ -3,6 +3,7 @@
   margin: 0 auto;
   background-color: white;
   font-family: Arial, sans-serif;
+  text-align: left;
 }
 
 .header-section {
@@ -46,7 +47,8 @@
 .nav-button {
   cursor: pointer;
   height: auto;
-  max-height: 40px;
+  max-height: 80px;
+  min-height: 60px;
 }
 
 .nav-button:hover {
