@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
 
@@ -13,6 +14,61 @@ export default function SSTSearch({ onNavigate }) {
   const [vinValue, setVinValue] = useState('');
   const [vipValue, setVipValue] = useState('');
   const [dlnValue, setDlnValue] = useState('');
+  
+  // Search results state
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Function to load and search transaction data
+  const performSearch = async () => {
+    if (!plateValue.trim()) {
+      alert('Please enter a plate number to search.');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      // Load the transaction data
+      const response = await fetch('/ITI-repository/TransData/CA/FullTransactionDetails_9TRK281.json');
+      const data = await response.json();
+      
+      // Filter transactions by plate number
+      const results = data.transactions.filter(transaction => {
+        // Check in vehicles array
+        if (transaction.Vehicles && transaction.Vehicles.length > 0) {
+          return transaction.Vehicles.some(vehicle => 
+            vehicle.Plate && vehicle.Plate.toLowerCase().includes(plateValue.toLowerCase())
+          );
+        }
+        
+        // Check in request info as fallback
+        const requestInfo = transaction['Request Info'] || '';
+        return requestInfo.toLowerCase().includes(plateValue.toLowerCase());
+      });
+      
+      setSearchResults(results);
+      setShowResults(true);
+    } catch (error) {
+      console.error('Error loading transaction data:', error);
+      alert('Error loading transaction data. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Handle Show Report button click
+  const handleShowReport = () => {
+    performSearch();
+  };
+
+  // Handle Enter key in plate input
+  const handlePlateKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch();
+    }
+  };
 
   return (
     <div className="sst-container">
@@ -269,6 +325,8 @@ export default function SSTSearch({ onNavigate }) {
                                                       className="InputGrey"
                                                       value={plateValue}
                                                       onChange={(e) => setPlateValue(e.target.value)}
+                                                      onKeyPress={handlePlateKeyPress}
+                                                      placeholder="Enter plate number"
                                                     />
                                                   </td>
                                                 </tr>
@@ -392,8 +450,9 @@ export default function SSTSearch({ onNavigate }) {
                                     tabIndex="8"
                                     src="/images/CA/btn-ShowReport.png"
                                     alt="Show Report"
-                                    onClick={() => console.log('Show Report clicked')}
+                                    onClick={handleShowReport}
                                     style={{ cursor: 'pointer' }}
+                                    disabled={isLoading}
                                   />
                                 </td>
                               </tr>
@@ -420,6 +479,23 @@ export default function SSTSearch({ onNavigate }) {
           </tr>
         </tbody>
       </table>
+
+      {/* Search Results Section */}
+      {showResults && (
+        <SearchResults 
+          results={searchResults} 
+          onTransactionClick={(transaction) => {
+            // TODO: Navigate to transaction details page
+            console.log('Transaction clicked:', transaction);
+          }}
+        />
+      )}
+
+      {isLoading && (
+        <div style={{ textAlign: 'center', padding: '20px' }}>
+          <p>Searching transactions...</p>
+        </div>
+      )}
     </div>
   );
 }

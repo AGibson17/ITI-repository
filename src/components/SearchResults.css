@@ -1,0 +1,101 @@
+.search-results-container {
+  max-width: 1024px;
+  margin: 20px auto;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.ReptGridView {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+
+.ReptGridView th {
+  background-color: #f5f5f5;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  color: #333;
+}
+
+.ReptGridView th a {
+  color: #333;
+  text-decoration: none;
+}
+
+.ReptGridView th a:hover {
+  text-decoration: underline;
+}
+
+.ReptGridView td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+
+.ReptGridView tr.odd-row {
+  background-color: white;
+}
+
+.ReptGridView tr.even-row {
+  background-color: #E7E7E7;
+}
+
+.ReptGridView tr {
+  border-color: white;
+}
+
+.transaction-link {
+  color: #0066cc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.transaction-link:hover {
+  color: #0052a3;
+}
+
+.trans-info strong {
+  font-weight: bold;
+}
+
+.status.completed {
+  color: green;
+}
+
+.status.incomplete {
+  color: red;
+}
+
+.status strong {
+  font-weight: bold;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .search-results-container {
+    max-width: 100%;
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+  
+  .ReptGridView {
+    font-size: 11px;
+  }
+  
+  .ReptGridView th,
+  .ReptGridView td {
+    padding: 6px;
+  }
+}

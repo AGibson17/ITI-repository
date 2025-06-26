@@ -1,0 +1,133 @@
+{
+    "transactions": [
+        {
+            "SST": "Albertsons Cupertino - KDW 519",
+            "TransStatus": "Completed",
+            "Product": "Vehicle Renewal",
+            "SST Trans": "73112",
+            "Date": "6/26/2025 8:15:22 AM",
+            "Request Info": "RIN: 741259 Plate: 9TRK281",
+            "Grade": "6",
+            "Vehicles": [
+                {
+                    "Plate": "9TRK281",
+                    "Expires": "6/26/2026",
+                    "VIN": "2HGFB2F59CH564381",
+                    "Vehicle": "2012 HOND CIVIC",
+                    "Owner": "MARTINEZ JONATHAN R",
+                    "Fees": "$228.00",
+                    "Contact Info": "4300 STEVENS CREEK BLVD  CUPERTINO, CA 95014",
+                    "Renew Type": "REG"
+                }
+            ],
+            "Session Length": "2 mins. 39 secs.",
+            "Payments": [
+                {
+                    "PayID": "1798991121",
+                    "PayType": "Credit",
+                    "CardType": "VISA",
+                    "Last4": "4412",
+                    "Amt": "$228.00",
+                    "PayStatus": "Authorized",
+                    "Error": "None",
+                    "Conf": "260625C22-AF01-4412-AE32-9EE1C3D85D2F",
+                    "ReprintReqdYN": "N"
+                }
+            ],
+            "Last Form": "ThankYou",
+            "Language": "English",
+            "Errors": "None"
+        },
+        {
+            "SST": "Albertsons Cupertino - KDW 519",
+            "TransStatus": "Incomplete (Errors)",
+            "Product": "Vehicle Renewal",
+            "SST Trans": "73111",
+            "Date": "6/26/2025 8:08:19 AM",
+            "Request Info": "RIN: 741259 Plate: 9TRK281",
+            "Grade": "6",
+            "Vehicles": [],
+            "Session Length": "1 mins. 17 secs.",
+            "Payments": [],
+            "Last Form": "ErrPaymentMethodUnavailable",
+            "Language": "English",
+            "Errors": "None"
+        },
+        {
+            "SST": "Albertsons Cupertino - KDW 519",
+            "TransStatus": "Completed",
+            "Product": "Duplicate Reg",
+            "SST Trans": "65841",
+            "Date": "6/27/2024 3:12:44 PM",
+            "Request Info": "RIN: 741259 Plate: 9TRK281",
+            "Grade": "6",
+            "Vehicles": [
+                {
+                    "Plate": "9TRK281",
+                    "Expires": "6/26/2025",
+                    "VIN": "2HGFB2F59CH564381",
+                    "Vehicle": "2012 HOND CIVIC",
+                    "Owner": "MARTINEZ JONATHAN R",
+                    "Fees": "$27.00",
+                    "Contact Info": "4300 STEVENS CREEK BLVD  CUPERTINO, CA 95014",
+                    "Renew Type": "DUP"
+                }
+            ],
+            "Session Length": "2 mins. 21 secs.",
+            "Payments": [
+                {
+                    "PayID": "1742187093",
+                    "PayType": "Credit",
+                    "CardType": "VISA",
+                    "Last4": "4412",
+                    "Amt": "$27.00",
+                    "PayStatus": "Authorized",
+                    "Error": "None",
+                    "Conf": "260624C22-AB88-4122-AD76-9CD145F76B29",
+                    "ReprintReqdYN": "N"
+                }
+            ],
+            "Last Form": "ThankYou",
+            "Language": "English",
+            "Errors": "None"
+        },
+        {
+            "SST": "Albertsons Cupertino - KDW 519",
+            "TransStatus": "Completed",
+            "Product": "Vehicle Renewal",
+            "SST Trans": "58199",
+            "Date": "6/10/2023 10:24:01 AM",
+            "Request Info": "RIN: 741259 Plate: 9TRK281",
+            "Grade": "6",
+            "Vehicles": [
+                {
+                    "Plate": "9TRK281",
+                    "Expires": "6/26/2024",
+                    "VIN": "2HGFB2F59CH564381",
+                    "Vehicle": "2012 HOND CIVIC",
+                    "Owner": "MARTINEZ JONATHAN R",
+                    "Fees": "$196.00",
+                    "Contact Info": "4300 STEVENS CREEK BLVD  CUPERTINO, CA 95014",
+                    "Renew Type": "REG"
+                }
+            ],
+            "Session Length": "3 mins. 02 secs.",
+            "Payments": [
+                {
+                    "PayID": "1683349021",
+                    "PayType": "Credit",
+                    "CardType": "VISA",
+                    "Last4": "4412",
+                    "Amt": "$196.00",
+                    "PayStatus": "Authorized",
+                    "Error": "None",
+                    "Conf": "260623C21-FC87-4811-AB91-8F129FC34C87",
+                    "ReprintReqdYN": "N"
+                }
+            ],
+            "Last Form": "ThankYou",
+            "Language": "English",
+            "Errors": "None"
+        }
+    ]
+}
