@@ -1,0 +1,231 @@
+.sst-container {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000;
+  padding-bottom: 40px;
+}
+
+.page-container {
+  width: 1200px;              /* increased width for better match */
+  margin: 0 auto;            /* centers it horizontally */
+  background-color: white;   /* keeps the center pane clean */
+  padding: 0 20px 40px 20px; /* gives breathing room */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* subtle edge like production */
+}
+
+.sst-header {
+  background-color: #17456d;
+  padding: 0;
+  margin: 0;
+}
+
+.header-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.sst-banner {
+  background-color: #c00;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 3px solid white;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20px 0 0;
+}
+
+.nav-icons img {
+  height: 74px;
+  width: 56px;
+  cursor: pointer;
+}
+
+.search-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.search-title {
+  font-size: 22px;
+  color: #271f50;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.form-label {
+  min-width: 80px;
+  font-weight: bold;
+  color: #26608f;
+  font-size: 14px;
+}
+
+.form-input {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 2px;
+  background-color: white;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.radio-label {
+  font-size: 13px;
+  color: #000;
+}
+
+.show-report-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.show-report-btn:hover {
+  opacity: 0.9;
+}
+
+.show-report-btn img {
+  display: block;
+}
+
+.right-align {
+  justify-content: flex-end;
+}
+
+/* ASP.NET WebForms compatible styles */
+.headline {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 16px;
+  color: #271f50;
+  padding: 10px 0px 0px 0px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.select {
+  background-color: #e7e7e7;
+  border: 1px solid #999;
+  width: 160px;
+  text-align: left;
+  vertical-align: top;
+  font-family: tahoma, arial, sans-serif;
+  font-size: 12px;
+  padding: 3px;
+}
+
+/* Table styling to match original */
+table {
+  font-family: tahoma, arial, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  vertical-align: top;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td {
+  vertical-align: top;
+  text-align: left;
+  font-size: 12px;
+  padding: 8px 15px;
+}
+
+/* Header section alignment */
+#HeaderRow td {
+  vertical-align: middle;
+  padding: 15px 30px;
+}
+
+/* Radio button and label styling */
+input[type="radio"] {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+label {
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Content area styling */
+.content {
+  padding: 30px;
+}
+
+/* Criteria row spacing */
+#ContentPlaceHolder1_CriteriaRow1 td {
+  padding: 15px 10px;
+}
+
+#ContentPlaceHolder1_CriteriaRow2 td {
+  padding: 15px 10px;
+}
+
+/* Product and Search By alignment */
+#ContentPlaceHolder1_ProdSelect {
+  width: 25%;
+  vertical-align: top;
+}
+
+#ContentPlaceHolder1_SearchByList {
+  vertical-align: top;
+  width: 70%;
+}
+
+/* Nested table radio button styling */
+#ContentPlaceHolder1_rbtnlistSearchBy td {
+  padding: 0 15px 0 0;
+  vertical-align: middle;
+}
+
+#ContentPlaceHolder1_rbtnListGenericTextSubRow1 td {
+  padding: 0 15px 0 0;
+  vertical-align: middle;
+}
+
+/* Show Report button alignment */
+#ShowReport {
+  vertical-align: middle;
+  text-align: right;
+  width: 200px;
+}
+
+/* Plate input styling */
+#ContentPlaceHolder1_GenericTextEntry1 {
+  vertical-align: top;
+}
+
+/* Input field styling */
+.InputGrey {
+  background-color: #e7e7e7;
+  border: 1px solid #999;
+  padding: 3px;
+  font-size: 12px;
+  width: 150px;
+}
