@@ -15,6 +15,10 @@ export default function SSTSearch({ onNavigate }) {
   const [vinValue, setVinValue] = useState('');
   const [vipValue, setVipValue] = useState('');
   const [dlnValue, setDlnValue] = useState('');
+  
+  // SST selector state
+  const [sstLocation, setSstLocation] = useState('<ALL>');
+  const [sstSortBy, setSstSortBy] = useState('location');
 
   // Search results state
   const [searchResults, setSearchResults] = useState([]);
@@ -234,48 +238,137 @@ export default function SSTSearch({ onNavigate }) {
                                     <tbody>
                                       <tr align="left" valign="top">
                                         {searchBy === 'sst-dates' && (
-                                          <td id="ContentPlaceHolder1_DateEntry">
-                                            <table width="300px">
-                                              <tbody>
-                                                <tr>
-                                                  <td style={{ width: '150px' }}>
-                                                    <span className="labelBlue">Start Date:</span>
-                                                  </td>
-                                                  <td style={{ width: '150px' }}>
-                                                    <span className="labelBlue">End Date:</span>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td>
-                                                    <input
-                                                      type="date"
-                                                      className="InputGreySmall"
-                                                      value={fromDate}
-                                                      onChange={(e) => setFromDate(e.target.value)}
-                                                    />
-                                                    <img
-                                                      src={getCAImagePath('calendar.gif')}
-                                                      alt="Calendar"
-                                                      style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
-                                                    />
-                                                  </td>
-                                                  <td>
-                                                    <input
-                                                      type="date"
-                                                      className="InputGreySmall"
-                                                      value={toDate}
-                                                      onChange={(e) => setToDate(e.target.value)}
-                                                    />
-                                                    <img
-                                                      src={getCAImagePath('calendar.gif')}
-                                                      alt="Calendar"
-                                                      style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
-                                                    />
-                                                  </td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                          </td>
+                                          <>
+                                            <td id="ContentPlaceHolder1_SSTEntry" style={{ paddingRight: '0px', verticalAlign: 'top' }}>
+                                              <table>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <div style={{ float: 'left', marginRight: '10px' }}>
+                                                        <span className="labelBlue">SST:</span>
+                                                      </div>
+                                                      <div style={{ float: 'left' }}>
+                                                        <table id="ContentPlaceHolder1_rbtnlistSSTSortBy" style={{ borderSpacing: '0', margin: '0', padding: '0' }}>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_0"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="location"
+                                                                  checked={sstSortBy === 'location'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_0" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By Location
+                                                                </label>
+                                                              </td>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_1"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="id"
+                                                                  checked={sstSortBy === 'id'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_1" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By ID
+                                                                </label>
+                                                              </td>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_2"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="clientid"
+                                                                  checked={sstSortBy === 'clientid'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_2" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By Client ID
+                                                                </label>
+                                                              </td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </div>
+                                                      <div style={{ clear: 'both' }}></div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style={{ paddingTop: '2px' }}>
+                                                      <select
+                                                        name="ddlbSSTList"
+                                                        id="ContentPlaceHolder1_ddlbSSTList"
+                                                        className="select"
+                                                        value={sstLocation}
+                                                        onChange={(e) => setSstLocation(e.target.value)}
+                                                        style={{ width: '350px' }}
+                                                      >
+                                                        <option value="<ALL>">&lt;ALL&gt;</option>
+                                                        <option value="528">Albertsons Alhambra - KAN - 528</option>
+                                                        <option value="521">Albertsons Apple Valley - KDW - 521</option>
+                                                        <option value="461">Albertsons Banning - KDR - 461</option>
+                                                        <option value="348">Albertsons Buena Park - KN6 - 348</option>
+                                                        <option value="349">Albertsons Chula Vista - KN5 - 349</option>
+                                                        <option value="492">Albertsons Downey - KAF - 492</option>
+                                                        <option value="360">Albertsons Escondido - KN3 - 360</option>
+                                                        <option value="364">Albertsons Fountain Valley - KN7 - 364</option>
+                                                        <option value="476">Albertsons Fullerton Malvern - KEF - 476</option>
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                            <td id="ContentPlaceHolder1_DateEntry" align="left" style={{ paddingLeft: '10px' }}>
+                                              <table width="220px">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <span className="labelBlue">Start Date:</span>
+                                                    </td>
+                                                    <td>
+                                                      <span className="labelBlue">End Date:</span>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <input
+                                                        type="date"
+                                                        className="InputGreySmall"
+                                                        value={fromDate}
+                                                        onChange={(e) => setFromDate(e.target.value)}
+                                                      />
+                                                      <img
+                                                        src={getCAImagePath('calendar.gif')}
+                                                        alt="Calendar"
+                                                        style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
+                                                      />
+                                                    </td>
+                                                    <td>
+                                                      <input
+                                                        type="date"
+                                                        className="InputGreySmall"
+                                                        value={toDate}
+                                                        onChange={(e) => setToDate(e.target.value)}
+                                                      />
+                                                      <img
+                                                        src={getCAImagePath('calendar.gif')}
+                                                        alt="Calendar"
+                                                        style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </>
                                         )}
                                         {searchBy === 'sst-transno' && (
                                           <td id="ContentPlaceHolder1_TransNoEntry">

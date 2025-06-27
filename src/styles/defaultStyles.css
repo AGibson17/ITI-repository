@@ -296,12 +296,7 @@ hr {
 	outline: 0;
 }
 
-table {
-    margin: 1px 1px 1px 1px;
-    vertical-align: top;
-    text-align: left;
-    border-collapse: collapse;
-} 
+
 
 table.grid {
 	border: 1px #CCCCCC solid;
