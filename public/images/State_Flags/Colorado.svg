@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 300">
+  <g id="_Ñëîé_1" data-name="Ñëîé 1">
+    <g>
+      <rect width="450" height="300" fill="#102e82"/>
+      <rect y="100" width="450" height="100" fill="#fff"/>
+      <path d="M282.7,187.5c-20.71,51.2-79,75.91-130.2,55.2-51.2-20.71-75.91-79-55.2-130.2,20.71-51.2,79-75.91,130.2-55.2,25.12,10.16,45.04,30.08,55.2,55.2l-92.7,37.5,92.7,37.5Z" fill="#bf2c34"/>
+      <circle cx="190" cy="150" r="50" fill="#f6d047"/>
+    </g>
+  </g>
+</svg>

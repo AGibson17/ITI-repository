@@ -2,15 +2,15 @@ import { useState } from 'react';
 import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
-import { getCAImagePath, getAssetPath } from '../utils/paths';
+import { getCAImagePath, getAssetPath, getGlobalImagePath } from '../utils/paths';
 
 export default function SSTSearch({ onNavigate }) {
   const [searchBy, setSearchBy] = useState('sst-dates');
   const [plateType, setPlateType] = useState('full');
   const [product, setProduct] = useState('<ALL>');
   const [plateValue, setPlateValue] = useState('');
-  const [fromDate, setFromDate] = useState('');
-  const [toDate, setToDate] = useState('');
+  const [fromDate, setFromDate] = useState(new Date().toISOString().split('T')[0]);
+  const [toDate, setToDate] = useState(new Date().toISOString().split('T')[0]);
   const [transNo, setTransNo] = useState('');
   const [vinValue, setVinValue] = useState('');
   const [vipValue, setVipValue] = useState('');
@@ -27,8 +27,25 @@ export default function SSTSearch({ onNavigate }) {
 
   // Function to load and search transaction data
   const performSearch = async () => {
-    if (!plateValue.trim()) {
+    // Validate search criteria based on search type
+    if (searchBy === 'plate' && !plateValue.trim()) {
       alert('Please enter a plate number to search.');
+      return;
+    }
+    if (searchBy === 'sst-transno' && !transNo.trim()) {
+      alert('Please enter a transaction number to search.');
+      return;
+    }
+    if (searchBy === 'vin' && !vinValue.trim()) {
+      alert('Please enter a VIN to search.');
+      return;
+    }
+    if (searchBy === 'vip-plate' && !vipValue.trim()) {
+      alert('Please enter a VIP plate or VIN to search.');
+      return;
+    }
+    if (searchBy === 'last4-dln' && !dlnValue.trim()) {
+      alert('Please enter the last 4 digits of DLN to search.');
       return;
     }
 
@@ -38,18 +55,65 @@ export default function SSTSearch({ onNavigate }) {
       const response = await fetch(getAssetPath('TransData/CA/FullTransactionDetails_9TRK281.json'));
       const data = await response.json();
 
-      // Filter transactions by plate number
-      const results = data.transactions.filter(transaction => {
-        // Check in vehicles array
-        if (transaction.Vehicles && transaction.Vehicles.length > 0) {
-          return transaction.Vehicles.some(vehicle =>
-            vehicle.Plate && vehicle.Plate.toLowerCase().includes(plateValue.toLowerCase())
-          );
+      // Filter transactions based on search criteria
+      let results = data.transactions.filter(transaction => {
+        // First filter by product if not <ALL>
+        if (product !== '<ALL>' && transaction.Product !== product) {
+          return false;
         }
 
-        // Check in request info as fallback
-        const requestInfo = transaction['Request Info'] || '';
-        return requestInfo.toLowerCase().includes(plateValue.toLowerCase());
+        // Then filter by search type
+        switch (searchBy) {
+          case 'sst-dates': {
+            // For SST/Dates, we can filter by date range and SST location if implemented
+            return true; // For now, show all transactions within date range
+          }
+          
+          case 'sst-transno': {
+            return transaction['SST Trans'] && 
+                   transaction['SST Trans'].toLowerCase().includes(transNo.toLowerCase());
+          }
+          
+          case 'plate': {
+            // Check in vehicles array
+            if (transaction.Vehicles && transaction.Vehicles.length > 0) {
+              return transaction.Vehicles.some(vehicle =>
+                vehicle.Plate && vehicle.Plate.toLowerCase().includes(plateValue.toLowerCase())
+              );
+            }
+            // Check in request info as fallback
+            const requestInfo = transaction['Request Info'] || '';
+            return requestInfo.toLowerCase().includes(plateValue.toLowerCase());
+          }
+          
+          case 'vin': {
+            if (transaction.Vehicles && transaction.Vehicles.length > 0) {
+              return transaction.Vehicles.some(vehicle =>
+                vehicle.VIN && vehicle.VIN.toLowerCase().includes(vinValue.toLowerCase())
+              );
+            }
+            return false;
+          }
+          
+          case 'vip-plate': {
+            if (transaction.Vehicles && transaction.Vehicles.length > 0) {
+              return transaction.Vehicles.some(vehicle =>
+                (vehicle.Plate && vehicle.Plate.toLowerCase().includes(vipValue.toLowerCase())) ||
+                (vehicle.VIN && vehicle.VIN.toLowerCase().includes(vipValue.toLowerCase()))
+              );
+            }
+            return false;
+          }
+          
+          case 'last4-dln': {
+            // This would need to be implemented based on actual data structure
+            return transaction.DLN && transaction.DLN.slice(-4) === dlnValue;
+          }
+          
+          default: {
+            return true;
+          }
+        }
       });
 
       setSearchResults(results);
@@ -125,7 +189,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnPrev"
                                     id="imgBtnPrev"
-                                    src={getCAImagePath('btn-previous.png')}
+                                    src={getGlobalImagePath('btn-previous.png')}
                                     alt="Previous"
                                     onClick={() => onNavigate && onNavigate('findTransactions')}
                                     style={{ cursor: 'pointer' }}
@@ -134,7 +198,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnHome"
                                     id="imgBtnHome"
-                                    src={getCAImagePath('btn-main-menu.png')}
+                                    src={getGlobalImagePath('btn-main-menu.png')}
                                     alt="Main Menu"
                                     onClick={() => onNavigate && onNavigate('dashboard')}
                                     style={{ cursor: 'pointer' }}
@@ -143,7 +207,7 @@ export default function SSTSearch({ onNavigate }) {
                                     type="image"
                                     name="imgBtnLogout"
                                     id="imgBtnLogout"
-                                    src={getCAImagePath('btn-logout.png')}
+                                    src={getGlobalImagePath('btn-logout.png')}
                                     alt="Logout"
                                     onClick={() => onNavigate && onNavigate('stateLanding')}
                                     style={{ cursor: 'pointer' }}
@@ -183,6 +247,16 @@ export default function SSTSearch({ onNavigate }) {
                                     onChange={(e) => setProduct(e.target.value)}
                                   >
                                     <option value="<ALL>">&lt;ALL&gt;</option>
+                                    <option value="ANU">Affidavit of Non Use</option>
+                                    <option value="DH">Driver History</option>
+                                    <option value="DLREN">Driver License Renewal</option>
+                                    <option value="KDDL">Duplicate Driver License</option>
+                                    <option value="VRD">Duplicate Reg</option>
+                                    <option value="INS">Insurance Reinstatement</option>
+                                    <option value="REIN">Reinstatement Fee</option>
+                                    <option value="REMOVEANU">Remove Affidavit of Non Use</option>
+                                    <option value="VR">Vehicle Renewal</option>
+                                    <option value="VH">Vehicle History</option>
                                   </select>
                                 </td>
                                 <td id="ContentPlaceHolder1_SearchByList" style={{paddingLeft: '0', verticalAlign: 'top', width: 'auto'}}>
@@ -345,11 +419,6 @@ export default function SSTSearch({ onNavigate }) {
                                                         value={fromDate}
                                                         onChange={(e) => setFromDate(e.target.value)}
                                                       />
-                                                      <img
-                                                        src={getCAImagePath('calendar.gif')}
-                                                        alt="Calendar"
-                                                        style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
-                                                      />
                                                     </td>
                                                     <td>
                                                       <input
@@ -357,11 +426,6 @@ export default function SSTSearch({ onNavigate }) {
                                                         className="InputGreySmall"
                                                         value={toDate}
                                                         onChange={(e) => setToDate(e.target.value)}
-                                                      />
-                                                      <img
-                                                        src={getCAImagePath('calendar.gif')}
-                                                        alt="Calendar"
-                                                        style={{ marginLeft: '5px', cursor: 'pointer', verticalAlign: 'middle' }}
                                                       />
                                                     </td>
                                                   </tr>
@@ -371,27 +435,116 @@ export default function SSTSearch({ onNavigate }) {
                                           </>
                                         )}
                                         {searchBy === 'sst-transno' && (
-                                          <td id="ContentPlaceHolder1_TransNoEntry">
-                                            <table>
-                                              <tbody>
-                                                <tr>
-                                                  <td>
-                                                    <span className="labelBlue">Transaction No:</span>
-                                                  </td>
-                                                </tr>
-                                                <tr>
-                                                  <td>
-                                                    <input
-                                                      type="text"
-                                                      className="InputGrey"
-                                                      value={transNo}
-                                                      onChange={(e) => setTransNo(e.target.value)}
-                                                    />
-                                                  </td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                          </td>
+                                          <>
+                                            <td id="ContentPlaceHolder1_SSTEntry" style={{ paddingRight: '20px', verticalAlign: 'top' }}>
+                                              <table>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <div style={{ float: 'left', marginRight: '10px' }}>
+                                                        <span className="labelBlue">SST:</span>
+                                                      </div>
+                                                      <div style={{ float: 'left' }}>
+                                                        <table id="ContentPlaceHolder1_rbtnlistSSTSortBy" style={{ borderSpacing: '0', margin: '0', padding: '0' }}>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_0"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="location"
+                                                                  checked={sstSortBy === 'location'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_0" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By Location
+                                                                </label>
+                                                              </td>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_1"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="id"
+                                                                  checked={sstSortBy === 'id'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_1" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By ID
+                                                                </label>
+                                                              </td>
+                                                              <td style={{ padding: '0 8px 0 0', verticalAlign: 'middle' }}>
+                                                                <input
+                                                                  id="ContentPlaceHolder1_rbtnlistSSTSortBy_2"
+                                                                  type="radio"
+                                                                  name="rbtnlistSSTSortBy"
+                                                                  value="clientid"
+                                                                  checked={sstSortBy === 'clientid'}
+                                                                  onChange={(e) => setSstSortBy(e.target.value)}
+                                                                  style={{ margin: '0 2px 0 0', verticalAlign: 'middle' }}
+                                                                />
+                                                                <label htmlFor="ContentPlaceHolder1_rbtnlistSSTSortBy_2" style={{ fontSize: '12px', cursor: 'pointer', verticalAlign: 'middle' }}>
+                                                                  By Client ID
+                                                                </label>
+                                                              </td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      </div>
+                                                      <div style={{ clear: 'both' }}></div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style={{ paddingTop: '2px' }}>
+                                                      <select
+                                                        name="ddlbSSTList"
+                                                        id="ContentPlaceHolder1_ddlbSSTList"
+                                                        className="select"
+                                                        value={sstLocation}
+                                                        onChange={(e) => setSstLocation(e.target.value)}
+                                                        style={{ width: '350px' }}
+                                                      >
+                                                        <option value="<ALL>">&lt;ALL&gt;</option>
+                                                        <option value="528">Albertsons Alhambra - KAN - 528</option>
+                                                        <option value="521">Albertsons Apple Valley - KDW - 521</option>
+                                                        <option value="461">Albertsons Banning - KDR - 461</option>
+                                                        <option value="348">Albertsons Buena Park - KN6 - 348</option>
+                                                        <option value="349">Albertsons Chula Vista - KN5 - 349</option>
+                                                        <option value="492">Albertsons Downey - KAF - 492</option>
+                                                        <option value="360">Albertsons Escondido - KN3 - 360</option>
+                                                        <option value="364">Albertsons Fountain Valley - KN7 - 364</option>
+                                                        <option value="476">Albertsons Fullerton Malvern - KEF - 476</option>
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                            <td id="ContentPlaceHolder1_TransNoEntry" style={{ paddingLeft: '10px' }}>
+                                              <table>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      <span className="labelBlue">Transaction No:</span>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <input
+                                                        type="text"
+                                                        className="InputGrey"
+                                                        value={transNo}
+                                                        onChange={(e) => setTransNo(e.target.value)}
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </td>
+                                          </>
                                         )}
                                         {searchBy === 'plate' && (
                                           <td id="ContentPlaceHolder1_GenericTextEntry1">
@@ -535,7 +688,7 @@ export default function SSTSearch({ onNavigate }) {
                                     name="btnShowReport"
                                     id="ContentPlaceHolder1_btnShowReport"
                                     tabIndex="8"
-                                    src={getCAImagePath('btn-ShowReport.png')}
+                                    src={getGlobalImagePath('btn-ShowReport.png')}
                                     alt="Show Report"
                                     onClick={handleShowReport}
                                     style={{ cursor: 'pointer' }}

@@ -1,6 +1,6 @@
 import '../styles/defaultStyles.css';
 import '../components/Dashboard.css';
-import { getCAImagePath } from '../utils/paths';
+import { getCAImagePath, getGlobalImagePath } from '../utils/paths';
 
 
 export default function Dashboard({ onNavigate }) {
@@ -31,7 +31,7 @@ export default function Dashboard({ onNavigate }) {
                   <tbody>
                     <tr>
                       <td>
-                        <img src={getCAImagePath('login.png')} className="LoginImg" alt="Login" />
+                        <img src={getGlobalImagePath('login.png')} className="LoginImg" alt="Login" />
                       </td>
                     </tr>
                     <tr>
@@ -55,7 +55,7 @@ export default function Dashboard({ onNavigate }) {
                     </tr>
                     <tr>
                       <td>
-                        <img className="loginBtn" src={getCAImagePath('submit.png')} alt="Submit" />
+                        <img className="loginBtn" src={getGlobalImagePath('submit.png')} alt="Submit" />
                       </td>
                     </tr>
                   </tbody>

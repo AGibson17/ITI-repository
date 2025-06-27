@@ -1,6 +1,6 @@
 import React from 'react';
 import './FindTransactions.css';
-import { getCAImagePath } from '../utils/paths';
+import { getCAImagePath, getGlobalImagePath } from '../utils/paths';
 
 const FindTransactions = ({ onNavigate }) => {
 
@@ -35,13 +35,13 @@ const FindTransactions = ({ onNavigate }) => {
         </div>
         <div className="nav-buttons">
           <img
-            src={getCAImagePath('btn-main-menu.png')}
+            src={getGlobalImagePath('btn-main-menu.png')}
             alt="Main Menu"
             className="nav-button"
             onClick={handleMainMenuClick}
           />
           <img
-            src={getCAImagePath('btn-logout.png')}
+            src={getGlobalImagePath('btn-logout.png')}
             alt="Logout"
             className="nav-button"
             onClick={handleLogoutClick}

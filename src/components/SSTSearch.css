@@ -72,7 +72,6 @@
 
 #DataSection .content {
   padding: 5px;
- /* display: flex;
 }
 
 /* ===== FORM ELEMENTS ===== */
@@ -108,7 +107,7 @@
   border: 1px solid #999;
   padding: 3px;
   font-size: 12px;
-  width: 75px;
+  width: 100px;
 }
 
 
@@ -150,5 +149,22 @@ table {
 
 #ContentPlaceHolder1_DateEntry td {
   padding: 2px 8px 2px 0;
+  vertical-align: top;
+}
+
+/* Transaction No entry styling - positioned to the right of SST */
+#ContentPlaceHolder1_TransNoEntry {
+  vertical-align: top;
+  padding-left: 10px;
+}
+
+#ContentPlaceHolder1_TransNoEntry table {
+  width: auto;
+  border-spacing: 0;
+  margin: 0;
+}
+
+#ContentPlaceHolder1_TransNoEntry td {
+  padding: 2px 0;
   vertical-align: top;
 }

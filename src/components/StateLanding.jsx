@@ -1,7 +1,6 @@
 import React from 'react';
 import './StateLanding.css';
-import { getCAImagePath } from '../utils/paths';
-import { getSelectorPath } from '../utils/paths';
+import { getStateFlagPath, getSelectorPath } from '../utils/paths';
 
 const StateLanding = ({ onNavigate }) => {
 
@@ -16,24 +15,24 @@ const StateLanding = ({ onNavigate }) => {
   };
 
   const states = [
-    { code: 'CA', name: 'California', available: true },
-    { code: 'TX', name: 'Texas', available: false },
-    { code: 'FL', name: 'Florida', available: false },
-    { code: 'NY', name: 'New York', available: false },
-    { code: 'PA', name: 'Pennsylvania', available: false },
-    { code: 'IL', name: 'Illinois', available: false },
-    { code: 'OH', name: 'Ohio', available: false },
-    { code: 'GA', name: 'Georgia', available: false },
-    { code: 'NC', name: 'North Carolina', available: false },
-    { code: 'MI', name: 'Michigan', available: false },
-    { code: 'NJ', name: 'New Jersey', available: false },
-    { code: 'VA', name: 'Virginia', available: false },
-    { code: 'WA', name: 'Washington', available: false },
-    { code: 'AZ', name: 'Arizona', available: false },
-    { code: 'MA', name: 'Massachusetts', available: false },
-    { code: 'TN', name: 'Tennessee', available: false },
-    { code: 'IN', name: 'Indiana', available: false },
-    { code: 'MO', name: 'Missouri', available: false }
+    { code: 'CA', name: 'California', flagName: 'California', available: true },
+    { code: 'CO', name: 'Colorado', flagName: 'Colorado', available: false },
+    { code: 'FL', name: 'Florida', flagName: 'Florida', available: false },
+    { code: 'GA', name: 'Georgia', flagName: 'Georgia', available: false },
+    { code: 'HI', name: 'Hawaii', flagName: 'Hawaii', available: false },
+    { code: 'IL', name: 'Illinois', flagName: 'Illinois', available: false },
+    { code: 'IN', name: 'Indiana', flagName: 'Indiana', available: false },
+    { code: 'MI', name: 'Michigan', flagName: 'Michigan', available: false },
+    { code: 'MN', name: 'Minnesota', flagName: 'Minnesota', available: false },
+    { code: 'NV', name: 'Nevada', flagName: 'Nevada', available: false },
+    { code: 'NM', name: 'New Mexico', flagName: 'NewMexico', available: false },
+    { code: 'NC', name: 'North Carolina', flagName: 'NorthCarolina', available: false },
+    { code: 'ND', name: 'North Dakota', flagName: 'NorthDakota', available: false },
+    { code: 'OH', name: 'Ohio', flagName: 'Ohio', available: false },
+    { code: 'OR', name: 'Oregon', flagName: 'Oregon', available: false },
+    { code: 'SC', name: 'South Carolina', flagName: 'South Carolina', available: false },
+    { code: 'SD', name: 'South Dakota', flagName: 'SouthDakota', available: false },
+    { code: 'WV', name: 'West Virginia', flagName: 'WestVirginia', available: false }
   ];
 
   return (
@@ -58,15 +57,11 @@ const StateLanding = ({ onNavigate }) => {
             onClick={() => handleStateClick(state.code)}
           >
             <div className="state-code">
-              {state.code === 'CA' ? (
-                <img 
-                  src={getCAImagePath('California.svg')} 
-                  alt="California" 
-                  className="state-image"
-                />
-              ) : (
-                state.code
-              )}
+              <img 
+                src={getStateFlagPath(state.flagName)} 
+                alt={state.name} 
+                className="state-image"
+              />
             </div>
             <div className="state-name">{state.name}</div>
             {!state.available && <div className="coming-soon-label">Coming Soon</div>}
