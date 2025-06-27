@@ -10,3 +10,7 @@ export const getAssetPath = (path) => {
 export const getCAImagePath = (imageName) => {
   return getAssetPath(`images/CA/${imageName}`);
 };
+
+export const getSelectorPath = (imageName) => {
+  return getAssetPath(`images/state-selector/${imageName}`);
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import './StateLanding.css';
 import { getCAImagePath } from '../utils/paths';
+import { getSelectorPath } from '../utils/paths';
 
 const StateLanding = ({ onNavigate }) => {
 
@@ -39,7 +40,7 @@ const StateLanding = ({ onNavigate }) => {
     <div className="state-landing-container">
       {/* Header */}
       <div className="landing-header">
-        <img src={getCAImagePath('text.png')} alt="DMV Repository Header" className="landing-header-image" />
+        <img src={getSelectorPath('ITI-TextLogo_White.png')} alt="DMV Repository Header" className="landing-header-image" />
       </div>
 
       {/* Title Section */}
@@ -56,7 +57,17 @@ const StateLanding = ({ onNavigate }) => {
             className={`state-tile ${state.available ? 'available' : 'coming-soon'}`}
             onClick={() => handleStateClick(state.code)}
           >
-            <div className="state-code">{state.code}</div>
+            <div className="state-code">
+              {state.code === 'CA' ? (
+                <img 
+                  src={getCAImagePath('California@3x.png')} 
+                  alt="California" 
+                  className="state-image"
+                />
+              ) : (
+                state.code
+              )}
+            </div>
             <div className="state-name">{state.name}</div>
             {!state.available && <div className="coming-soon-label">Coming Soon</div>}
           </div>

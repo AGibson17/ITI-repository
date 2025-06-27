@@ -96,6 +96,14 @@
   font-family: Arial, sans-serif;
 }
 
+.state-image {
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .state-name {
   font-size: 16px;
   color: #666;

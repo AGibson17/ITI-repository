@@ -2,13 +2,14 @@ import '../styles/defaultStyles.css';
 import '../components/Dashboard.css';
 import { getCAImagePath } from '../utils/paths';
 
+
 export default function Dashboard({ onNavigate }) {
   return (
     <div className="dashboard-container">
       {/* Header */}
       <div className="header">
         <img
-          src={getCAImagePath('header-short.png')}
+          src={getCAImagePath('heaader-logo.png')}
           alt="CA DMV Header"
           className="header-img"
         />
