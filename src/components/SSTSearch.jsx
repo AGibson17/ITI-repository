@@ -96,7 +96,7 @@ export default function SSTSearch({ onNavigate }) {
                 <table width="100%">
                   <tbody>
                     <tr id="HeaderRow">
-                      <td align="left" style={{ width: '600px' }}>
+                      <td align="left" style={{ width: '70%' }}>
                         <div id="UpdatePanelPageTitles">
                           <table>
                             <tbody>
@@ -107,23 +107,16 @@ export default function SSTSearch({ onNavigate }) {
                                   </div>
                                 </td>
                               </tr>
-                              <tr>
-                                <td>
-                                  <div className="headlineSmaller">
-                                    <span id="lblSubTitle" className="headlineSmaller"></span>
-                                  </div>
-                                </td>
-                              </tr>
                             </tbody>
                           </table>
                         </div>
                       </td>
-                      <td align="right">
-                        <div id="UpdatePanelNavBtns">
-                          <table>
+                      <td align="right" style={{paddingRight: '5px', width: '30%'}}>
+                        <div id="UpdatePanelNavBtns" style={{padding: '0', margin: '0'}}>
+                          <table style={{margin: '0', borderSpacing: '0'}}>
                             <tbody>
                               <tr valign="top">
-                                <td>
+                                <td style={{padding: '0 1px', margin: '0'}}>
                                   <input
                                     type="image"
                                     name="imgBtnPrev"
@@ -173,10 +166,10 @@ export default function SSTSearch({ onNavigate }) {
                     <tbody>
                       <tr id="ContentPlaceHolder1_CriteriaRow1" valign="top">
                         <td>
-                          <table cellSpacing="2">
+                          <table cellSpacing="0" style={{width: '100%'}}>
                             <tbody>
                               <tr valign="top">
-                                <td id="ContentPlaceHolder1_ProdSelect">
+                                <td id="ContentPlaceHolder1_ProdSelect" style={{paddingRight: '20px', verticalAlign: 'top', width: '200px'}}>
                                   <span id="ContentPlaceHolder1_lblProduct" className="labelBlue">Product:</span><br />
                                   <select
                                     name="ddlbProductList"
@@ -188,10 +181,9 @@ export default function SSTSearch({ onNavigate }) {
                                     <option value="<ALL>">&lt;ALL&gt;</option>
                                   </select>
                                 </td>
-                                <td>&nbsp;&nbsp;</td>
-                                <td id="ContentPlaceHolder1_SearchByList">
+                                <td id="ContentPlaceHolder1_SearchByList" style={{paddingLeft: '0', verticalAlign: 'top', width: 'auto'}}>
                                   <span id="ContentPlaceHolder1_Label2" className="labelBlue">Search By:</span><br />
-                                  <table id="ContentPlaceHolder1_rbtnlistSearchBy">
+                                  <table id="ContentPlaceHolder1_rbtnlistSearchBy" style={{borderSpacing: '0', margin: '0', padding: '0'}}>
                                     <tbody>
                                       <tr>
                                         {[
@@ -202,7 +194,7 @@ export default function SSTSearch({ onNavigate }) {
                                           'vip-plate',
                                           'last4-dln',
                                         ].map((value, index) => (
-                                          <td key={value}>
+                                          <td key={value} style={{padding: '0 2px 0 0', margin: '0', verticalAlign: 'middle'}}>
                                             <input
                                               id={`ContentPlaceHolder1_rbtnlistSearchBy_${index}`}
                                               type="radio"
@@ -210,8 +202,9 @@ export default function SSTSearch({ onNavigate }) {
                                               value={value}
                                               checked={searchBy === value}
                                               onChange={(e) => setSearchBy(e.target.value)}
+                                              style={{margin: '0 2px 0 0', verticalAlign: 'middle'}}
                                             />
-                                            <label htmlFor={`ContentPlaceHolder1_rbtnlistSearchBy_${index}`}>
+                                            <label htmlFor={`ContentPlaceHolder1_rbtnlistSearchBy_${index}`} style={{margin: '0 4px 0 0', fontSize: '12px', verticalAlign: 'middle'}}>
                                               {value
                                                 .replace('sst-dates', 'SST/Dates')
                                                 .replace('sst-transno', 'SST/TransNo')
@@ -233,7 +226,7 @@ export default function SSTSearch({ onNavigate }) {
                       </tr>
                       <tr id="ContentPlaceHolder1_CriteriaRow2">
                         <td>
-                          <table cellSpacing="2" width="100%">
+                          <table cellSpacing="0" width="100%">
                             <tbody>
                               <tr valign="top">
                                 <td>

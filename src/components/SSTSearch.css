@@ -1,10 +1,20 @@
+/* ===== SST SEARCH COMPONENT STYLES ===== */
+/* Clean, organized CSS for SSTSearch component */
+
+/* ===== GLOBAL OVERRIDES ===== */
 body {
   margin: 0;
   padding: 0;
   background-color: #e0e0e0;
 }
 
-/* Global layout fixes */
+/* Override defaultStyles.css table margins that cause spacing issues */
+.sst-container table {
+  margin: 0 !important;
+  border-collapse: collapse !important;
+}
+
+/* ===== MAIN CONTAINER ===== */
 .sst-container {
   font-family: Tahoma, Verdana, Arial, sans-serif;
   background-color: #ffffff;
@@ -16,35 +26,20 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.page-container {
-  max-width: 1024px;          /* match header image width */
-  margin: 0 auto;              /* centers it horizontally */
-  background-color: white;     /* keeps the center pane clean */
-  padding: 0 40px 40px 40px;   /* gives more breathing room */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Main table styling */
-table[width="100%"] {
-  width: 100% !important;
-  table-layout: auto;
-  border-collapse: collapse;
-}
-
+/* ===== HEADER SECTION ===== */
 .sst-header {
   background-color: #17456d;
   padding: 0;
   margin: 0;
 }
 
-.header-img {
-  width: 100%;
+.header-img-search {
   height: auto;
   display: block;
   object-fit: contain;
 }
 
-.sst-banner {
+.redbar {
   background-color: #c00;
   color: #fff;
   font-weight: bold;
@@ -54,94 +49,75 @@ table[width="100%"] {
   border-top: 3px solid white;
 }
 
-.nav-icons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
-  padding: 10px 20px 0 0;
+/* ===== NAVIGATION BUTTONS ===== */
+#UpdatePanelNavBtns {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.nav-icons img {
-  height: 74px;
-  width: 56px;
-  cursor: pointer;
+#UpdatePanelNavBtns table {
+  margin: 0 240px !important;
+  border-spacing: 0 !important;
 }
 
-.search-content {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+#UpdatePanelNavBtns td {
+  padding: 0 1px !important;
+  margin: 0 !important;
 }
 
-.search-title {
-  font-size: 22px;
-  color: #271f50;
-  font-weight: bold;
-  margin-bottom: 25px;
+#HeaderRow {
+  width: 100%;
 }
 
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 12px;
+#HeaderRow table {
+  width: 100%;
+  table-layout: fixed;
 }
 
-.form-label {
-  min-width: 80px;
-  font-weight: bold;
-  color: #26608f;
-  font-size: 14px;
+#HeaderRow td[align="left"] {
+  text-align: left;
+  width: 70%;
 }
 
-.form-input {
-  border: 1px solid #ccc;
-  padding: 5px 8px;
-  font-size: 14px;
-  border-radius: 2px;
-  background-color: white;
+#HeaderRow td[align="right"] {
+  text-align: right;
+  width: 30%;
+  padding-right: 5px !important;
 }
 
-.radio-group {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.radio-label {
-  font-size: 13px;
-  color: #000;
-}
-
-.show-report-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-}
-
-.show-report-btn:hover {
-  opacity: 0.9;
-}
-
-.show-report-btn img {
-  display: block;
-}
-
-.right-align {
-  justify-content: flex-end;
-}
-
-/* ASP.NET WebForms compatible styles */
+/* ===== PAGE TITLE ===== */
 .headline {
   font-family: "Arial Black", Gadget, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   color: #271f50;
-  padding: 10px 0px 0px 0px;
+  padding: 5px 0px 0px 0px;
   margin: 0;
+  font-weight: black;
+}
+
+/* ===== CONTENT AREAS ===== */
+.content {
+  padding: 10px 30px;
+  max-width: none;
+  width: 100%;
+}
+
+#HeaderSection .content {
+  padding: 5px 0;
+}
+
+#DataSection .content {
+  padding: 5px 5px;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.labelBlue {
+  color: #26608f;
   font-weight: bold;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 3px;
+  display: block;
 }
 
 .select {
@@ -155,147 +131,6 @@ table[width="100%"] {
   padding: 3px;
 }
 
-/* Table styling to match original */
-table {
-  font-family: tahoma, arial, sans-serif;
-  font-size: 12px;
-  margin: 0;
-  vertical-align: top;
-  text-align: left;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-table td {
-  vertical-align: top;
-  text-align: left;
-  font-size: 12px;
-  padding: 8px 15px;
-}
-
-/* Header section alignment */
-#HeaderRow td {
-  vertical-align: middle;
-  padding: 15px 30px;
-}
-
-/* Radio button and label styling */
-input[type="radio"] {
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-label {
-  font-size: 12px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-/* Content area styling */
-.content {
-  padding: 20px 30px;
-  max-width: none;
-  width: 100%;
-}
-
-/* Criteria row spacing */
-#ContentPlaceHolder1_CriteriaRow1 td {
-  padding: 15px 20px 15px 0;
-}
-
-#ContentPlaceHolder1_CriteriaRow2 td {
-  padding: 15px 20px 15px 0;
-}
-
-/* Reduce vertical spacing in CriteriaRow sections */
-#ContentPlaceHolder1_CriteriaRow1,
-#ContentPlaceHolder1_CriteriaRow2 {
-  line-height: 1.2;
-}
-
-#ContentPlaceHolder1_CriteriaRow1 td,
-#ContentPlaceHolder1_CriteriaRow2 td {
-  padding: 4px 8px;
-  vertical-align: top;
-}
-
-#ContentPlaceHolder1_CriteriaRow1 table,
-#ContentPlaceHolder1_CriteriaRow2 table {
-  margin: 0;
-  border-spacing: 2px;
-}
-
-#ContentPlaceHolder1_CriteriaRow1 table td,
-#ContentPlaceHolder1_CriteriaRow2 table td {
-  padding: 2px 4px;
-}
-
-/* Reduce spacing for form elements in criteria rows */
-#ContentPlaceHolder1_CriteriaRow1 .labelBlue,
-#ContentPlaceHolder1_CriteriaRow2 .labelBlue {
-  margin-bottom: 2px;
-  display: block;
-}
-
-#ContentPlaceHolder1_CriteriaRow1 select,
-#ContentPlaceHolder1_CriteriaRow2 select,
-#ContentPlaceHolder1_CriteriaRow1 input,
-#ContentPlaceHolder1_CriteriaRow2 input {
-  margin-bottom: 4px;
-}
-
-/* Product and Search By alignment */
-#ContentPlaceHolder1_ProdSelect {
-  width: 200px;
-  vertical-align: top;
-  padding-right: 30px;
-}
-
-#ContentPlaceHolder1_SearchByList {
-  vertical-align: top;
-  width: auto;
-}
-
-/* Nested table radio button styling */
-#ContentPlaceHolder1_rbtnlistSearchBy td {
-  padding: 0 20px 0 0;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-#ContentPlaceHolder1_rbtnListGenericTextSubRow1 td {
-  padding: 0 15px 0 0;
-  vertical-align: middle;
-}
-
-/* Show Report button alignment */
-#ShowReport {
-  vertical-align: middle;
-  text-align: right;
-  width: 200px;
-}
-
-/* Date entry styling */
-#ContentPlaceHolder1_DateEntry {
-  vertical-align: top;
-  padding-right: 40px;
-}
-
-#ContentPlaceHolder1_DateEntry table {
-  width: 300px;
-}
-
-#ContentPlaceHolder1_DateEntry td {
-  padding: 5px 15px 5px 0;
-  vertical-align: top;
-}
-
-/* Plate input styling */
-#ContentPlaceHolder1_GenericTextEntry1 {
-  vertical-align: top;
-}
-
-/* Input field styling */
 .InputGrey {
   background-color: #e7e7e7;
   border: 1px solid #999;
@@ -310,4 +145,164 @@ label {
   padding: 3px;
   font-size: 12px;
   width: 75px;
+}
+
+/* ===== CRITERIA ROW LAYOUT ===== */
+#ContentPlaceHolder1_CriteriaRow1 > td > table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+#ContentPlaceHolder1_CriteriaRow1 > td > table > tbody > tr > td {
+  vertical-align: top !important;
+  margin: 0 !important;
+}
+
+/* Product column */
+#ContentPlaceHolder1_ProdSelect {
+  width: 200px !important;
+  padding-right: 20px !important;
+  vertical-align: top !important;
+  margin: 0 !important;
+}
+
+/* Search By column */
+#ContentPlaceHolder1_SearchByList {
+  width: auto !important;
+  padding-left: 0 !important;
+  vertical-align: top !important;
+  margin: 0 !important;
+}
+
+/* ===== RADIO BUTTON GROUPS ===== */
+/* Main Search By radio buttons */
+#ContentPlaceHolder1_rbtnlistSearchBy {
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#ContentPlaceHolder1_rbtnlistSearchBy table,
+#ContentPlaceHolder1_rbtnlistSearchBy tbody,
+#ContentPlaceHolder1_rbtnlistSearchBy tr {
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#ContentPlaceHolder1_rbtnlistSearchBy td {
+  padding: 0 2px 0 0 !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+#ContentPlaceHolder1_rbtnlistSearchBy input[type="radio"] {
+  margin: 0 2px 0 0 !important;
+  vertical-align: middle !important;
+}
+
+#ContentPlaceHolder1_rbtnlistSearchBy label {
+  margin: 0 4px 0 0 !important;
+  font-size: 12px !important;
+  vertical-align: middle !important;
+  cursor: pointer;
+}
+
+/* Plate sub-row radio buttons */
+#ContentPlaceHolder1_rbtnListGenericTextSubRow1 {
+  border-spacing: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#ContentPlaceHolder1_rbtnListGenericTextSubRow1 td {
+  padding: 0 15px 0 0 !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+#ContentPlaceHolder1_rbtnListGenericTextSubRow1 input[type="radio"] {
+  margin-right: 6px !important;
+  vertical-align: middle !important;
+}
+
+#ContentPlaceHolder1_rbtnListGenericTextSubRow1 label {
+  font-size: 12px !important;
+  cursor: pointer;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+/* ===== CRITERIA ROW 2 LAYOUT ===== */
+#ContentPlaceHolder1_CriteriaRow2 td {
+  padding: 5px 8px 5px 0;
+  vertical-align: top;
+}
+
+/* Date entry styling */
+#ContentPlaceHolder1_DateEntry {
+  vertical-align: top;
+  padding-right: 40px;
+}
+
+#ContentPlaceHolder1_DateEntry table {
+  width: 300px;
+  border-spacing: 0;
+  margin: 0;
+}
+
+#ContentPlaceHolder1_DateEntry td {
+  padding: 5px 15px 5px 0;
+  vertical-align: top;
+}
+
+/* Plate input styling */
+#ContentPlaceHolder1_GenericTextEntry1 {
+  vertical-align: top;
+}
+
+/* Show Report button alignment */
+#ShowReport {
+  vertical-align: middle;
+  text-align: right;
+  width: 200px;
+  padding-left: 20px;
+}
+
+/* ===== GENERAL TABLE STYLING ===== */
+table {
+  font-family: tahoma, arial, sans-serif;
+  font-size: 12px;
+  vertical-align: top;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td {
+  vertical-align: top;
+  text-align: left;
+  font-size: 12px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.show-report-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.show-report-btn:hover {
+  opacity: 0.9;
+}
+
+.show-report-btn img {
+  display: block;
 }
