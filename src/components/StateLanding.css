@@ -7,14 +7,16 @@
 }
 
 .landing-header {
-  background-color: #1e4a6b;
-  padding: auto 0;
+  background-color: #005da6;
+  padding: 16px 30px;
   margin: 0;
 }
 
 .landing-header-image {
   object-fit: contain;
   display: block;
+  max-width: 30%;
+  height: auto;
 }
 
 .landing-title-section {
@@ -97,8 +99,8 @@
 }
 
 .state-image {
-  max-width: 100%;
-  max-height: 60px;
+  max-width: auto;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;

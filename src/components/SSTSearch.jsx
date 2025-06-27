@@ -74,7 +74,7 @@ export default function SSTSearch({ onNavigate }) {
   return (
     <div className="sst-container">
       {/* Header */}
-      <div className="header">
+      <div className="sst-header">
         <img
           src={getCAImagePath('text.png')}
           alt="CA DMV Header"

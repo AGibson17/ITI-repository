@@ -60,7 +60,7 @@ const StateLanding = ({ onNavigate }) => {
             <div className="state-code">
               {state.code === 'CA' ? (
                 <img 
-                  src={getCAImagePath('California@3x.png')} 
+                  src={getCAImagePath('California.svg')} 
                   alt="California" 
                   className="state-image"
                 />

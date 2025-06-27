@@ -23,13 +23,6 @@
   object-fit: contain;
 }
 
-.header-img-search {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
 .redbar {
   background-color: #c00;
   color: #fff;

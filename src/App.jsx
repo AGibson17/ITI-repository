@@ -3,6 +3,7 @@ import Dashboard from './components/Dashboard';
 import SSTSearch from './components/SSTSearch';
 import FindTransactions from './components/FindTransactions';
 import StateLanding from './components/StateLanding';
+import PlaceholderPage from './components/PlaceholderPage';
 import './App.css';
 
 export default function App() {
@@ -31,14 +32,11 @@ export default function App() {
       case 'dashboard':
         return <Dashboard onNavigate={handleNavigation} />;
       case 'reports':
-        // Placeholder for future reports page
-        return <div>Reports page - Coming Soon</div>;
+        return <PlaceholderPage title="View Reports" onNavigate={handleNavigation} />;
       case 'admin':
-        // Placeholder for future admin page
-        return <div>Administration page - Coming Soon</div>;
+        return <PlaceholderPage title="Administration" onNavigate={handleNavigation} />;
       case 'documents':
-        // Placeholder for future documents page
-        return <div>Documents page - Coming Soon</div>;
+        return <PlaceholderPage title="Documents" onNavigate={handleNavigation} />;
       case 'stateLanding':
       default:
         return <StateLanding onNavigate={handleNavigation} />;

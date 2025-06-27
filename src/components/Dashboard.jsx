@@ -9,7 +9,7 @@ export default function Dashboard({ onNavigate }) {
       {/* Header */}
       <div className="header">
         <img
-          src={getCAImagePath('heaader-logo.png')}
+          src={getCAImagePath('header-short.png')}
           alt="CA DMV Header"
           className="header-img"
         />
