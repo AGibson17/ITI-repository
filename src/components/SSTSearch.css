@@ -168,3 +168,110 @@ table {
   padding: 2px 0;
   vertical-align: top;
 }
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Mobile breakpoints for SST Search */
+
+@media (max-width: 767px) {
+  .sst-container {
+    margin: 0;
+    box-shadow: none;
+    padding-bottom: 20px;
+  }
+  
+  .redbar {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  /* Header navigation adjustments */
+  #HeaderRow table {
+    table-layout: auto;
+  }
+  
+  #HeaderRow td {
+    width: auto !important;
+    display: block;
+    text-align: center !important;
+    padding: 5px;
+  }
+  
+  /* Content area adjustments */
+  #ContentPlaceHolder1_contentDiv {
+    padding: 15px 10px !important;
+  }
+  
+  /* Form elements mobile styling */
+  #ContentPlaceHolder1_SST table,
+  #ContentPlaceHolder1_DateEntry table,
+  #ContentPlaceHolder1_TransNoEntry table {
+    width: 100% !important;
+    display: block;
+  }
+  
+  #ContentPlaceHolder1_SST td,
+  #ContentPlaceHolder1_DateEntry td,
+  #ContentPlaceHolder1_TransNoEntry td {
+    display: block;
+    width: 100% !important;
+    padding: 5px 0 !important;
+    text-align: left !important;
+  }
+  
+  /* Input field adjustments */
+  input[type="text"], 
+  input[type="number"],
+  select {
+    width: 100% !important;
+    max-width: 300px;
+    padding: 8px;
+    font-size: 16px; /* Prevent zoom on iOS */
+    margin: 5px 0;
+  }
+  
+  /* Button adjustments */
+  input[type="submit"],
+  input[type="button"] {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  /* Stack Transaction No entry below SST */
+  #ContentPlaceHolder1_TransNoEntry {
+    padding-left: 0 !important;
+    margin-top: 15px;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .sst-container {
+    padding-bottom: 15px;
+  }
+  
+  #ContentPlaceHolder1_contentDiv {
+    padding: 10px 5px !important;
+  }
+  
+  .redbar {
+    padding: 6px;
+    font-size: 11px;
+  }
+  
+  input[type="text"], 
+  input[type="number"],
+  select {
+    max-width: 250px;
+    padding: 6px;
+  }
+  
+  input[type="submit"],
+  input[type="button"] {
+    max-width: 180px;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

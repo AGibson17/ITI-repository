@@ -99,3 +99,41 @@
     padding: 6px;
   }
 }
+
+/* Enhanced mobile breakpoints */
+@media (max-width: 767px) {
+  .search-results-container {
+    margin: 10px 0;
+    padding: 0 5px;
+  }
+  
+  .ReptGridView {
+    font-size: 10px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .ReptGridView th,
+  .ReptGridView td {
+    padding: 4px;
+    min-width: 60px;
+  }
+  
+  .no-results {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ReptGridView {
+    font-size: 9px;
+  }
+  
+  .ReptGridView th,
+  .ReptGridView td {
+    padding: 3px;
+    min-width: 50px;
+  }
+}
