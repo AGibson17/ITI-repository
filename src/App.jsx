@@ -4,16 +4,32 @@ import SSTSearch from './components/SSTSearch';
 import FindTransactions from './components/FindTransactions';
 import StateLanding from './components/StateLanding';
 import PlaceholderPage from './components/PlaceholderPage';
+import TransactionDetails from './components/TransactionDetails';
 import './App.css';
 
 export default function App() {
-  // Initialize state from localStorage or default to 'stateLanding'
+  // Initialize state from localStorage or URL parameters
   const [currentPage, setCurrentPage] = useState(() => {
+    // Check URL parameters first
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get('page');
+    if (pageParam) {
+      return pageParam;
+    }
     return localStorage.getItem('currentPage') || 'stateLanding';
   });
+  
+  // State to store transaction ID for details view
+  const [selectedTransactionId, setSelectedTransactionId] = useState(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('transactionId') || null;
+  });
 
-  const handleNavigation = (page) => {
+  const handleNavigation = (page, transactionId = null) => {
     setCurrentPage(page);
+    if (transactionId) {
+      setSelectedTransactionId(transactionId);
+    }
     // Save the current page to localStorage
     localStorage.setItem('currentPage', page);
   };
@@ -37,6 +53,8 @@ export default function App() {
         return <PlaceholderPage title="Administration" onNavigate={handleNavigation} />;
       case 'documents':
         return <PlaceholderPage title="Documents" onNavigate={handleNavigation} />;
+      case 'transactionDetails':
+        return <TransactionDetails transactionId={selectedTransactionId} onNavigate={handleNavigation} />;
       case 'stateLanding':
       default:
         return <StateLanding onNavigate={handleNavigation} />;

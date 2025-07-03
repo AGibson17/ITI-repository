@@ -51,12 +51,61 @@ export default function SSTSearch({ onNavigate }) {
 
     setIsLoading(true);
     try {
-      // Load the transaction data
-      const response = await fetch(getAssetPath('TransData/CA/FullTransactionDetails_9TRK281.json'));
+      // Load transaction data from the main source
+      const response = await fetch(getAssetPath('TransData/CA/ca_error_scenarios_full.json'));
+      
+      if (!response.ok) {
+        throw new Error(`Failed to load transaction data: ${response.status}`);
+      }
+      
       const data = await response.json();
 
+      // Normalize the error scenarios data to match the expected structure
+      const normalizedErrorScenarios = data.map(scenario => {
+        const detail = scenario.TransactionDetail;
+        
+        // Convert Payments object to array format if it exists
+        let payments = [];
+        if (detail.Payments && typeof detail.Payments === 'object' && !Array.isArray(detail.Payments)) {
+          payments = [{
+            PayID: detail.Payments.PayID || '',
+            PayType: detail.Payments.PayType || '',
+            CardType: detail.Payments.CardType || '',
+            Last4: detail.Payments.Last4 || '',
+            Amt: detail.Payments.Amt || '',
+            PayStatus: detail.Payments.Status || '',
+            Error: detail.Payments.Error || 'None',
+            Conf: detail.Payments.Conf || '',
+            ReprintReqdYN: detail.Payments.ReprintReqdYN || 'N'
+          }];
+        } else if (Array.isArray(detail.Payments)) {
+          payments = detail.Payments;
+        }
+
+        return {
+          SST: detail.SST || '',
+          TransStatus: detail.Status || '',
+          Product: detail.Product || '',
+          'SST Trans': detail['SST Trans'] || '',
+          Date: detail.Date || '',
+          'Request Info': detail['Request Info'] || '',
+          Grade: detail.Grade || '',
+          Vehicles: detail.Vehicles || [],
+          'Session Length': detail['Session Length'] || '',
+          Payments: payments,
+          'Last Form': detail['Last Form'] || '',
+          Language: detail.Language || '',
+          Errors: Array.isArray(detail.Errors) ? detail.Errors.join('; ') : (detail.Errors || 'None')
+        };
+      });
+
+      // Use the normalized transaction data
+      const allTransactions = normalizedErrorScenarios;
+      
+      console.log(`Loaded ${allTransactions.length} transactions from ca_error_scenarios_full.json`);
+
       // Filter transactions based on search criteria
-      let results = data.transactions.filter(transaction => {
+      let results = allTransactions.filter(transaction => {
         // First filter by product if not <ALL>
         if (product !== '<ALL>' && transaction.Product !== product) {
           return false;
@@ -725,8 +774,10 @@ export default function SSTSearch({ onNavigate }) {
         <SearchResults
           results={searchResults}
           onTransactionClick={(transaction) => {
-            // TODO: Navigate to transaction details page
-            console.log('Transaction clicked:', transaction);
+            // Open transaction details in a new tab
+            const baseUrl = window.location.origin + window.location.pathname;
+            const transactionUrl = `${baseUrl}?page=transactionDetails&transactionId=${transaction['SST Trans']}`;
+            window.open(transactionUrl, '_blank');
           }}
         />
       )}

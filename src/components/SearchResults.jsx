@@ -13,11 +13,14 @@ const SearchResults = ({ results, onTransactionClick }) => {
   }
 
   const handleTransactionClick = (transaction) => {
-    // For now, we'll just alert - later this will open transaction details
+    // Open transaction details in a new tab
     if (onTransactionClick) {
       onTransactionClick(transaction);
     } else {
-      alert(`Transaction details for ${transaction['SST Trans']} - Coming Soon!`);
+      // Create URL with transaction ID parameter and open in new tab
+      const baseUrl = window.location.origin + window.location.pathname;
+      const transactionUrl = `${baseUrl}?page=transactionDetails&transactionId=${transaction['SST Trans']}`;
+      window.open(transactionUrl, '_blank');
     }
   };
 
