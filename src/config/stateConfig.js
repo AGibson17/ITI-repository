@@ -230,13 +230,13 @@ export const STATE_CONFIGS = {
       viewReportsImage: 'images/HI/view-reports.png'
     },
     dataFiles: {
-      mainScenarios: 'TransData/HI/HI_Main_Scenarios.json',
+      mainScenarios: 'TransData/HI/HI-sample-scenarios.json',
       auxScenarios: null,
-      historicalTransactions: 'TransData/HI/Historical_Transactions.json'
+      historicalTransactions: null
     },
     features: {
       hasAuxiliaryData: false,
-      hasHistoricalData: true,
+      hasHistoricalData: false,
       hasVIPSearch: true,
       hasDLNSearch: false
     },
@@ -252,11 +252,12 @@ export const STATE_CONFIGS = {
         { key: 'Status', label: 'Status', type: 'string', required: true },
         { key: 'Title', label: 'Title', type: 'string', required: true },
         { key: 'InspectionDate', label: 'Inspection Date', type: 'date', required: true },
-        { key: 'FailedInspection', label: 'Failed Inspection', type: 'boolean', required: true },
-        { key: 'Contact Info', label: 'Contact Info', type: 'string', required: true }
+        { key: 'FailedInspection', label: 'Failed Inspection', type: 'boolean', required: true }
       ],
-      // Optional fields that may be present
+      // Optional fields that may be present (Hawaii has variation in contact field names)
       optionalFields: [
+        { key: 'Contact Info', label: 'Contact Info', type: 'string' },
+        { key: 'ContactInfo', label: 'Contact Info', type: 'string' },
         { key: 'Renew Type', label: 'Renew Type', type: 'string' }
       ]
     }

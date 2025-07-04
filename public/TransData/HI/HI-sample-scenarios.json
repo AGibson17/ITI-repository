@@ -1,0 +1,354 @@
+[
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "AKF392",
+  "TransactionNumber": "72340",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+  "Prompt": "Issue: Customer said the machine couldn’t read their card and eventually exited them out.",
+  "TransactionDetail": {
+    "SST": "Hawaii County - Foodland Waimea - 128",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72340",
+    "Date": "7/3/2025 8:27:17 PM",
+    "Request Info": "Plate: AKF392",
+    "Vehicles": [
+      {
+        "Plate": "AKF392",
+        "Expires": "7/31/2026",
+        "VIN": "3HGRZ24398L764351",
+        "Vehicle": "16 HOND 4DSD",
+        "Owner": "KAWANO LANI J",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "AKF392 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "Contact Info": "54-4123 PALENA ST KAPAAU HI 96755"
+      }
+    ],
+    "Session Length": "3 mins. 47 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "FATAL",
+        "Msg": "CodeBarcodeReader.waitForScan - Error, scan timeout of 25 seconds. reached in CodeBarcodeReader.Scan"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "BVL138",
+  "TransactionNumber": "72341",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+  "Prompt": "Issue: Customer said the screen froze during payment and the card never processed.",
+  "TransactionDetail": {
+    "SST": "Honolulu County Safeway 1263 - Kapolei - 105",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72341",
+    "Date": "7/3/2025 8:33:02 PM",
+    "Request Info": "Plate: BVL138",
+    "Vehicles": [
+      {
+        "Plate": "BVL138",
+        "Expires": "6/30/2026",
+        "VIN": "1FTFW1EG8HFA73309",
+        "Vehicle": "17 FORD PKUP",
+        "Owner": "LEE MAHALO K",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "BVL138 23",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "Contact Info": "45-3344 KUHIO HWY LIHUE HI 96766"
+      }
+    ],
+    "Session Length": "4 mins. 5 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "SEMI-CRITICAL",
+        "Msg": "CardReaderManager failed to initialize during payment setup"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "CMX485",
+  "TransactionNumber": "72342",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+  "Prompt": "Issue: Customer said their card wouldn’t read and the kiosk exited the session.",
+  "TransactionDetail": {
+    "SST": "Maui County Foodland Pukalani - 130",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72342",
+    "Date": "7/3/2025 8:39:47 PM",
+    "Request Info": "Plate: CMX485",
+    "Vehicles": [
+      {
+        "Plate": "CMX485",
+        "Expires": "7/31/2026",
+        "VIN": "4T1BF1FK7HU823194",
+        "Vehicle": "17 TOYT 4DSD",
+        "Owner": "NAKASONE JORDAN Y",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "CMX485 24",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "Contact Info": "1068 KANOELEHUA AVE HILO HI 96720"
+      }
+    ],
+    "Session Length": "2 mins. 42 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      "None"
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "MBR921",
+  "TransactionNumber": "72352",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Form Fault",
+  "Prompt": "Issue: Customer said the machine wouldn’t let them proceed and timed out.",
+  "TransactionDetail": {
+    "SST": "Honolulu County Safeway 211 - 135",
+    "Status": "Ineligible",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72352",
+    "Date": "7/3/2025 9:58:12 PM",
+    "Request Info": "Plate: MBR921",
+    "Session Length": "0 mins. 33 secs.",
+    "Payments": "None",
+    "Last Form": "ErrAlreadyRenewed",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "AUTH ERR",
+        "Code": "999",
+        "Msg": "TIMEOUT"
+      },
+      {
+        "Type": "VRINFO",
+        "Code": "0031",
+        "Msg": "DUP TRAN"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "KPX644",
+  "TransactionNumber": "72353",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Form Fault",
+  "Prompt": "Issue: Customer said it looked like everything was starting but it stopped after entering their plate.",
+  "TransactionDetail": {
+    "SST": "Maui County Safeway 1222 - 110",
+    "Status": "Ineligible",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72353",
+    "Date": "7/3/2025 9:41:18 PM",
+    "Request Info": "Plate: KPX644",
+    "Session Length": "0 mins. 26 secs.",
+    "Payments": "None",
+    "Last Form": "ErrAlreadyRenewed",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "AUTH ERR",
+        "Code": "999",
+        "Msg": "TIMEOUT"
+      },
+      {
+        "Type": "VRINFO",
+        "Code": "0031",
+        "Msg": "DUP TRAN"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "DVF882",
+  "TransactionNumber": "72354",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Form Fault",
+  "Prompt": "Issue: Customer said the kiosk told them the transaction had already gone through.",
+  "TransactionDetail": {
+    "SST": "Kauai County MVR - 137",
+    "Status": "Ineligible",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "72354",
+    "Date": "7/3/2025 9:48:29 PM",
+    "Request Info": "Plate: DVF882",
+    "Session Length": "0 mins. 31 secs.",
+    "Payments": "None",
+    "Last Form": "ErrAlreadyRenewed",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "AUTH ERR",
+        "Code": "999",
+        "Msg": "TIMEOUT"
+      },
+      {
+        "Type": "VRINFO",
+        "Code": "0031",
+        "Msg": "DUP TRAN"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "KUG401",
+  "TransactionNumber": "74215",
+  "IssueCategory": "Eligibility",
+  "IssueDetail": "Safety Check Invalid",
+  "Prompt": "Issue: Customer says they tried to renew their registration but the system stopped them.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Hawaii County - Hilo DMV - 118",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "74215",
+    "Date": "7/3/2025 6:42:51 PM",
+    "Request Info": "Plate: KUG401",
+    "Vehicles": [
+      {
+        "Plate": "KUG401",
+        "Expires": "7/31/2026",
+        "VIN": "1HGCM82633A067289",
+        "Vehicle": "14 NISS 4DSD",
+        "Owner": "OKAMOTO TARA N",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "KUG401 23",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 4412 HILO HI 96720"
+      }
+    ],
+    "Session Length": "0 mins. 42 secs.",
+    "Payments": "None",
+    "Last Form": "ErrSafetyCheck",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "VRINFO",
+        "Code": "0015",
+        "Msg": "Safety Check Date Invalid"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "LPA968",
+  "TransactionNumber": "74188",
+  "IssueCategory": "Eligibility",
+  "IssueDetail": "Safety Check Invalid",
+  "Prompt": "Issue: Customer says the kiosk wouldn’t let them renew and gave a warning about their inspection.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Hawaii County Safeway 1117 - 133",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "74188",
+    "Date": "7/3/2025 7:09:14 PM",
+    "Request Info": "Plate: LPA968",
+    "Vehicles": [
+      {
+        "Plate": "LPA968",
+        "Expires": "7/31/2026",
+        "VIN": "JH4DA3450HS015783",
+        "Vehicle": "10 TOYT 4DSD",
+        "Owner": "SHIROMA BEN K",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "LPA968 24",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "95-1151 HAAHAA ST PAHOA HI 96778"
+      }
+    ],
+    "Session Length": "1 mins. 12 secs.",
+    "Payments": "None",
+    "Last Form": "ErrSafetyCheck",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "VRINFO",
+        "Code": "0015",
+        "Msg": "Safety Check Date Invalid"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "MNG742",
+  "TransactionNumber": "74157",
+  "IssueCategory": "Eligibility",
+  "IssueDetail": "Safety Check Invalid",
+  "Prompt": "Issue: Customer reported they couldn’t complete their transaction due to some inspection error.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Hawaii County Foodland - Malama - 134",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "74157",
+    "Date": "7/3/2025 8:02:33 PM",
+    "Request Info": "Plate: MNG742",
+    "Vehicles": [
+      {
+        "Plate": "MNG742",
+        "Expires": "7/31/2026",
+        "VIN": "2T1BURHE5JC123456",
+        "Vehicle": "17 SUBA 4DSD",
+        "Owner": "YANG KAI M",
+        "Fees": "$0.00",
+        "Status": "Incomplete",
+        "Title": "MNG742 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 123 KURTISTOWN HI 96760"
+      }
+    ],
+    "Session Length": "0 mins. 55 secs.",
+    "Payments": "None",
+    "Last Form": "ErrSafetyCheck",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "VRINFO",
+        "Code": "0015",
+        "Msg": "Safety Check Date Invalid"
+      }
+    ]
+  }
+}
+]

@@ -29,9 +29,20 @@ const SearchResults = ({ results, onTransactionClick }) => {
     if (vehicles.length > 0) {
       const vehicle = vehicles[0]; // Use first vehicle
       const l4vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
+      
+      // Handle Hawaii-specific Title field for L4Title
+      let l4TitleInfo = '';
+      if (vehicle.Title) {
+        // Extract last part of title as L4Title (e.g., "AKF392 25" -> "3 25")
+        const titleParts = vehicle.Title.split(' ');
+        if (titleParts.length > 1) {
+          l4TitleInfo = ` L4Title: <strong>${titleParts.slice(-2).join(' ')}</strong>`;
+        }
+      }
+      
       return (
         <>
-          Plate: <strong>{vehicle.Plate}</strong> L4VIN: <strong>{l4vin}</strong> Owner: <strong>{vehicle.Owner}</strong>
+          Plate: <strong>{vehicle.Plate}</strong> L4VIN: <strong>{l4vin}</strong>{l4TitleInfo ? <span dangerouslySetInnerHTML={{__html: l4TitleInfo}} /> : ''} Owner: <strong>{vehicle.Owner}</strong>
         </>
       );
     }
