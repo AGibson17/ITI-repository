@@ -296,48 +296,54 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                         <td className="HideCol">&nbsp;</td>
                                       </tr>
                                       
-                                      <tr style={{ borderColor: 'White' }}>
-                                        <td>Grade:</td>
-                                        <td>{transactionData.Grade}</td>
-                                        <td className="HideCol">&nbsp;</td>
-                                      </tr>
+                                      {/* Only show Grade if status is not Ineligible */}
+                                      {transactionData.TransStatus !== 'Ineligible' && (
+                                        <tr style={{ borderColor: 'White' }}>
+                                          <td>Grade:</td>
+                                          <td>{transactionData.Grade}</td>
+                                          <td className="HideCol">&nbsp;</td>
+                                        </tr>
+                                      )}
                                       
-                                      <tr style={{ backgroundColor: '#E7E7E7', borderColor: 'White' }}>
-                                        <td>Vehicles:</td>
-                                        <td>
-                                          {(() => {
-                                            const vehiclesData = getVehiclesData(transactionData);
-                                            if (vehiclesData.length === 0) {
-                                              return 'No vehicle information available';
-                                            }
-                                            
-                                            // Get table headers based on state configuration and available data
-                                            const tableHeaders = getVehicleTableHeaders(stateConfig, vehiclesData);
-                                            
-                                            return (
-                                              <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
-                                                <tbody>
-                                                  <tr style={{ fontStyle: 'italic' }}>
-                                                    {tableHeaders.map((header, index) => (
-                                                      <td key={index}>{header.label}</td>
-                                                    ))}
-                                                  </tr>
-                                                  {vehiclesData.map((vehicle, index) => (
-                                                    <tr key={index}>
-                                                      {tableHeaders.map((header, headerIndex) => (
-                                                        <td key={headerIndex}>
-                                                          {formatVehicleDataValue(vehicle[header.key], header.type)}
-                                                        </td>
+                                      {/* Only show Vehicles if status is not Ineligible */}
+                                      {transactionData.TransStatus !== 'Ineligible' && (
+                                        <tr style={{ backgroundColor: '#E7E7E7', borderColor: 'White' }}>
+                                          <td>Vehicles:</td>
+                                          <td>
+                                            {(() => {
+                                              const vehiclesData = getVehiclesData(transactionData);
+                                              if (vehiclesData.length === 0) {
+                                                return 'No vehicle information available';
+                                              }
+                                              
+                                              // Get table headers based on state configuration and available data
+                                              const tableHeaders = getVehicleTableHeaders(stateConfig, vehiclesData);
+                                              
+                                              return (
+                                                <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
+                                                  <tbody>
+                                                    <tr style={{ fontStyle: 'italic' }}>
+                                                      {tableHeaders.map((header, index) => (
+                                                        <td key={index}>{header.label}</td>
                                                       ))}
                                                     </tr>
-                                                  ))}
-                                                </tbody>
-                                              </table>
-                                            );
-                                          })()}
-                                        </td>
-                                        <td className="HideCol">&nbsp;</td>
-                                      </tr>
+                                                    {vehiclesData.map((vehicle, index) => (
+                                                      <tr key={index}>
+                                                        {tableHeaders.map((header, headerIndex) => (
+                                                          <td key={headerIndex}>
+                                                            {formatVehicleDataValue(vehicle[header.key], header.type)}
+                                                          </td>
+                                                        ))}
+                                                      </tr>
+                                                    ))}
+                                                  </tbody>
+                                                </table>
+                                              );
+                                            })()}
+                                          </td>
+                                          <td className="HideCol">&nbsp;</td>
+                                        </tr>
+                                      )}
                                       
                                       <tr style={{ borderColor: 'White' }}>
                                         <td>Session Length:</td>

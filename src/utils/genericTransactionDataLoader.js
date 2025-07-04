@@ -122,7 +122,25 @@ export const loadStateTransactionData = async (stateCode) => {
         Payments: payments,
         'Last Form': detail['Last Form'] || '',
         Language: detail.Language || 'English',
-        Errors: Array.isArray(detail.Errors) ? detail.Errors.join('; ') : (detail.Errors || 'None')
+        Errors: (() => {
+          if (!detail.Errors || detail.Errors === 'None') {
+            return 'None';
+          }
+          if (Array.isArray(detail.Errors)) {
+            return detail.Errors.map(error => {
+              // Handle error objects vs strings
+              if (typeof error === 'object' && error !== null) {
+                // Format as "TYPE CODE: MSG" (e.g., "AUTH ERR 999: TIMEOUT")
+                const type = error.Type || '';
+                const code = error.Code || '';
+                const msg = error.Msg || '';
+                return `${type} ${code}: ${msg}`.trim();
+              }
+              return error; // Already a string
+            }).join('; ');
+          }
+          return detail.Errors; // Single string
+        })()
       };
     });
 
