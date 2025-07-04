@@ -45,6 +45,24 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: false
+    },
+    vehicleDataSchema: {
+      // Define the vehicle data structure for California
+      fields: [
+        { key: 'Plate', label: 'Plate', type: 'string', required: true },
+        { key: 'Expires', label: 'Expires', type: 'date', required: true },
+        { key: 'VIN', label: 'VIN', type: 'string', required: true },
+        { key: 'Vehicle', label: 'Vehicle', type: 'string', required: true },
+        { key: 'Owner', label: 'Owner', type: 'string', required: true },
+        { key: 'Fees', label: 'Fees', type: 'currency', required: true },
+        { key: 'Contact Info', label: 'Contact Info', type: 'string', required: true },
+        { key: 'Renew Type', label: 'Renew Type', type: 'string', required: true }
+      ],
+      // Additional CA-specific vehicle fields that may be present
+      optionalFields: [
+        { key: 'Status', label: 'Status', type: 'string' },
+        { key: 'Title', label: 'Title', type: 'string' }
+      ]
     }
   },
   
@@ -221,6 +239,26 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: false
+    },
+    vehicleDataSchema: {
+      // Define the vehicle data structure for Hawaii
+      fields: [
+        { key: 'Plate', label: 'Plate', type: 'string', required: true },
+        { key: 'Expires', label: 'Expires', type: 'date', required: true },
+        { key: 'VIN', label: 'VIN', type: 'string', required: true },
+        { key: 'Vehicle', label: 'Vehicle', type: 'string', required: true },
+        { key: 'Owner', label: 'Owner', type: 'string', required: true },
+        { key: 'Fees', label: 'Fees', type: 'currency', required: true },
+        { key: 'Status', label: 'Status', type: 'string', required: true },
+        { key: 'Title', label: 'Title', type: 'string', required: true },
+        { key: 'InspectionDate', label: 'Inspection Date', type: 'date', required: true },
+        { key: 'FailedInspection', label: 'Failed Inspection', type: 'boolean', required: true },
+        { key: 'Contact Info', label: 'Contact Info', type: 'string', required: true }
+      ],
+      // Optional fields that may be present
+      optionalFields: [
+        { key: 'Renew Type', label: 'Renew Type', type: 'string' }
+      ]
     }
   }
 };

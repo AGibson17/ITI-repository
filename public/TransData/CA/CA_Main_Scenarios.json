@@ -41,7 +41,16 @@
       "Last Form": "ErrPrintReceipt",
       "Language": "Spanish",
       "Errors": [
-        "None"
+        {
+          "Type": "Application:SSTCalifornia;5.0.0.8;",
+          "Code": "FATAL",
+          "Msg": "RIGHT Printer error: Print head offline"
+        },
+        {
+          "Type": "Application:SSTCalifornia;5.0.0.8;",
+          "Code": "FATAL",
+          "Msg": "Socket timeout trying to reach device"
+        }
       ]
     }
   },
@@ -86,9 +95,7 @@
       },
       "Last Form": "ErrPrintReceipt",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -132,9 +139,7 @@
       },
       "Last Form": "ErrPrintReceipt",
       "Language": "English",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -178,9 +183,7 @@
       },
       "Last Form": "ThankYou",
       "Language": "English",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -224,9 +227,7 @@
       },
       "Last Form": "ThankYou",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -270,9 +271,7 @@
       },
       "Last Form": "ThankYou",
       "Language": "English",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -323,9 +322,7 @@
       },
       "Last Form": "ErrCashDispense",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -376,9 +373,7 @@
       },
       "Last Form": "ErrCashDispense",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -429,9 +424,7 @@
       },
       "Last Form": "ErrCashDispense",
       "Language": "English",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -465,9 +458,7 @@
       "Payments": "None",
       "Last Form": "ErrReadCard",
       "Language": "English",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -501,9 +492,7 @@
       "Payments": "None",
       "Last Form": "ErrReadCard",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   },
   {
@@ -537,9 +526,7 @@
       "Payments": "None",
       "Last Form": "ErrReadCard",
       "Language": "Spanish",
-      "Errors": [
-        "None"
-      ]
+      "Errors": ["None"]
     }
   }
 ]

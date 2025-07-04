@@ -3,6 +3,11 @@ import './TransactionDetails.css';
 import { getAssetPath, getGlobalImagePath } from '../utils/paths';
 import { loadStateTransactionData } from '../utils/genericTransactionDataLoader';
 import { useStateContext } from '../context/useStateContext';
+import { 
+  getVehicleTableHeaders, 
+  formatVehicleDataValue,
+  createDefaultVehicleEntry 
+} from '../utils/vehicleDataUtils';
 
 const TransactionDetails = ({ transactionId, onNavigate }) => {
   const { stateConfig } = useStateContext();
@@ -65,16 +70,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     // For incomplete transactions, create default vehicle entry with plate from Request Info
     if (transaction.TransStatus.includes('Incomplete') || transaction.TransStatus.includes('Errors')) {
       const plateNumber = getPlateFromRequestInfo(transaction['Request Info'] || '');
-      return [{
-        Plate: plateNumber,
-        Expires: '1/1/1990',
-        VIN: '',
-        Vehicle: '0',
-        Owner: '',
-        Fees: '$0.00',
-        'Contact Info': '',
-        'Renew Type': 'NotDefined'
-      }];
+      return [createDefaultVehicleEntry(plateNumber, stateConfig)];
     }
     
     return [];
@@ -311,35 +307,32 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                         <td>
                                           {(() => {
                                             const vehiclesData = getVehiclesData(transactionData);
-                                            return vehiclesData.length > 0 ? (
+                                            if (vehiclesData.length === 0) {
+                                              return 'No vehicle information available';
+                                            }
+                                            
+                                            // Get table headers based on state configuration and available data
+                                            const tableHeaders = getVehicleTableHeaders(stateConfig, vehiclesData);
+                                            
+                                            return (
                                               <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
                                                 <tbody>
                                                   <tr style={{ fontStyle: 'italic' }}>
-                                                    <td>Plate</td>
-                                                    <td>Expires</td>
-                                                    <td>VIN</td>
-                                                    <td>Vehicle</td>
-                                                    <td>Owner</td>
-                                                    <td>Fees</td>
-                                                    <td>Contact Info</td>
-                                                    <td>Renew Type</td>
+                                                    {tableHeaders.map((header, index) => (
+                                                      <td key={index}>{header.label}</td>
+                                                    ))}
                                                   </tr>
                                                   {vehiclesData.map((vehicle, index) => (
                                                     <tr key={index}>
-                                                      <td>{vehicle.Plate}</td>
-                                                      <td>{vehicle.Expires}</td>
-                                                      <td>{vehicle.VIN}</td>
-                                                      <td>{vehicle.Vehicle}</td>
-                                                      <td>{vehicle.Owner}</td>
-                                                      <td>{vehicle.Fees}</td>
-                                                      <td>{vehicle['Contact Info']}</td>
-                                                      <td>{vehicle['Renew Type']}</td>
+                                                      {tableHeaders.map((header, headerIndex) => (
+                                                        <td key={headerIndex}>
+                                                          {formatVehicleDataValue(vehicle[header.key], header.type)}
+                                                        </td>
+                                                      ))}
                                                     </tr>
                                                   ))}
                                                 </tbody>
                                               </table>
-                                            ) : (
-                                              'No vehicle information available'
                                             );
                                           })()}
                                         </td>
