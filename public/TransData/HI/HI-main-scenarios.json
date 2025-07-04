@@ -1,0 +1,813 @@
+[
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "LZP491",
+  "TransactionNumber": "192101",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Print Failure",
+  "Prompt": "Issue: Customer said they paid, but the registration never came out of the kiosk.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Hawaii County Safeway 2893 - 100",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "192101",
+    "Date": "7/3/2025 9:17:02 AM",
+    "Request Info": "Plate: LZP491",
+    "Vehicles": [
+      {
+        "Plate": "LZP491",
+        "Expires": "12/31/2025",
+        "VIN": "2FMDK3JC6BBA33202",
+        "Vehicle": "11 FORD SW",
+        "Owner": "TANAKA JAYDEN R",
+        "Fees": "$328.75",
+        "Status": "Renewed",
+        "Title": "LZP491 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 3342 HILO HI 96720"
+      }
+    ],
+    "Session Length": "2 mins. 46 secs.",
+    "Payments": {
+      "PayID": "2498012",
+      "PayType": "Credit",
+      "CardType": "DISCOVER",
+      "Last4": "9834",
+      "Amt": "$335.00",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204812387"
+    },
+    "Last Form": "ThankYou",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;5.0.0.8;",
+        "Code": "FATAL",
+        "Msg": "RIGHT Printer error: Print head offline"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "MJH231",
+  "TransactionNumber": "192162",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Connection Failure",
+  "Prompt": "Issue: Customer said the transaction completed but no documents printed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Honolulu County Safeway 207 - 106",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "192162",
+    "Date": "7/3/2025 10:05:49 AM",
+    "Request Info": "Plate: MJH231",
+    "Vehicles": [
+      {
+        "Plate": "MJH231",
+        "Expires": "10/31/2025",
+        "VIN": "3C6UR5FL9FG552888",
+        "Vehicle": "15 DODG TRK",
+        "Owner": "KALEO NIA M",
+        "Fees": "$478.12",
+        "Status": "Renewed",
+        "Title": "MJH231 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 5821 KAPOLEI HI 96709"
+      }
+    ],
+    "Session Length": "2 mins. 12 secs.",
+    "Payments": {
+      "PayID": "2498013",
+      "PayType": "Credit",
+      "CardType": "MASTERCARD",
+      "Last4": "4429",
+      "Amt": "$485.50",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204812389"
+    },
+    "Last Form": "ThankYou",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;5.0.0.8;",
+        "Code": "FATAL",
+        "Msg": "Socket timeout trying to reach device"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "TRC882",
+  "TransactionNumber": "192179",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Unable to Print",
+  "Prompt": "Issue: Customer said they completed payment but walked away without receiving anything.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Kauai County Safeway 2894 - 116",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "192179",
+    "Date": "7/3/2025 10:42:11 AM",
+    "Request Info": "Plate: TRC882",
+    "Vehicles": [
+      {
+        "Plate": "TRC882",
+        "Expires": "08/31/2025",
+        "VIN": "JTEBU4BF7CK095781",
+        "Vehicle": "12 TOYT SW",
+        "Owner": "LIM JULIA K",
+        "Fees": "$412.91",
+        "Status": "Renewed",
+        "Title": "TRC882 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 930 KAPAA HI 96746"
+      }
+    ],
+    "Session Length": "1 min. 59 secs.",
+    "Payments": {
+      "PayID": "2498014",
+      "PayType": "Credit",
+      "CardType": "AMEX",
+      "Last4": "6218",
+      "Amt": "$419.00",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204812390"
+    },
+    "Last Form": "ThankYou",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;5.0.0.8;",
+        "Code": "SEMI-CRITICAL",
+        "Msg": "Registration Printer timeout reached"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "HXV940",
+  "TransactionNumber": "192208",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Print Failure",
+  "Prompt": "Issue: Customer stated everything went through but nothing was dispensed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Maui County Safeway 1500 - 112",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "192208",
+    "Date": "7/3/2025 11:03:38 AM",
+    "Request Info": "Plate: HXV940",
+    "Vehicles": [
+      {
+        "Plate": "HXV940",
+        "Expires": "09/30/2025",
+        "VIN": "1FTFW1EF6EFA90002",
+        "Vehicle": "14 FORD TRK",
+        "Owner": "YAMASAKI LEILANI T",
+        "Fees": "$501.34",
+        "Status": "Renewed",
+        "Title": "HXV940 25",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "PO BOX 202 LAHAINA HI 96761"
+      }
+    ],
+    "Session Length": "3 mins. 11 secs.",
+    "Payments": {
+      "PayID": "2498015",
+      "PayType": "Credit",
+      "CardType": "VISA",
+      "Last4": "7864",
+      "Amt": "$508.77",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204812391"
+    },
+    "Last Form": "ThankYou",
+    "Language": "Spanish",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;5.0.0.8;",
+        "Code": "CRITICAL",
+        "Msg": "Registration printer feed jammed"
+      }
+    ]
+  }
+},
+
+{
+    "ScenarioType": "LiveTransaction",
+    "Plate": "NOR626",
+    "TransactionNumber": "80255",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer stated their card would not read after multiple attempts.",
+    "TransactionDetail": {
+      "SST": "Hawaii County - Foodland Waimea - 128",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "80255",
+      "Date": "5/29/2022 07:21:34 PM",
+      "Request Info": "Plate: NOR626",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "NOR626",
+          "Expires": "05/29/2023",
+          "VIN": "DBWR10CTMPS952B18",
+          "Vehicle": "20 KIA 2DCP",
+          "Owner": "Park Soo-Min",
+          "Fees": "$0.00",
+          "Status": "Incomplete",
+          "Title": "NOR626 21",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "Contact Info": "66-160 KAMEHAMEHA HWY HALEIWA HI 96712"
+        }
+      ],
+      "Session Length": "0 mins. 42 secs.",
+      "Payments": "None",
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "SCJ487",
+    "TransactionNumber": "72323",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer said the kiosk failed to accept their payment card and then canceled the session.",
+    "TransactionDetail": {
+      "SST": "Hawaii County - Foodland Waimea - 128",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "72323",
+      "Date": "10/17/2023 07:29:09 AM",
+      "Request Info": "Plate: SCJ487",
+      "Grade": "6",
+      "Vehicles": [
+        {
+          "Plate": "SCJ487",
+          "Expires": "10/17/2024",
+          "VIN": "79YGK41NG98GFYMZB",
+          "Vehicle": "19 TOYT 4DSD",
+          "Owner": "YAMASHITA YUKO",
+          "Fees": "$0.00",
+          "Status": "Incomplete",
+          "Title": "SCJ487 21",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "Contact Info": "45-480 KANEOHE BAY DR KANEOHE HI 96744"
+        }
+      ],
+      "Session Length": "3 mins. 39 secs.",
+      "Payments": "None",
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "IIH199",
+    "TransactionNumber": "94483",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer attempted to pay, but the machine displayed an error and would not move forward.",
+    "TransactionDetail": {
+      "SST": "Hawaii County - Foodland Waimea - 128",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "94483",
+      "Date": "6/11/2025 11:25:43 AM",
+      "Request Info": "Plate: IIH199",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "IIH199",
+          "Expires": "06/11/2026",
+          "VIN": "FF6RFKSF45TTW2W9V",
+          "Vehicle": "19 HYUN SUV",
+          "Owner": "LEE JESSICA",
+          "Fees": "$0.00",
+          "Status": "Incomplete",
+          "Title": "IIH199 23",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "Contact Info": "745 MOANAKAI ST KAPAA HI 96746"
+        }
+      ],
+      "Session Length": "1 mins. 11 secs.",
+      "Payments": "None",
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "DIE196",
+    "TransactionNumber": "81281",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer mentioned the card reader showed repeated read errors and the transaction did not go through.",
+    "TransactionDetail": {
+      "SST": "Hawaii County - Foodland Waimea - 128",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "81281",
+      "Date": "9/11/2022 07:55:08 PM",
+      "Request Info": "Plate: DIE196",
+      "Grade": "7",
+      "Vehicles": [
+        {
+          "Plate": "DIE196",
+          "Expires": "09/11/2023",
+          "VIN": "1WV6CSENGSMHU16MF",
+          "Vehicle": "21 MAZD MPVH",
+          "Owner": "NGUYEN THAO",
+          "Fees": "$0.00",
+          "Status": "Incomplete",
+          "Title": "DIE196 23",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "Contact Info": "745 MOANAKAI ST KAPAA HI 96746"
+        }
+      ],
+      "Session Length": "2 mins. 46 secs.",
+      "Payments": "None",
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+
+  {
+  "ScenarioType": "LiveTransaction",
+  "Plate": "YPL301",
+  "TransactionNumber": "87231",
+  "IssueCategory": "Journal Printer",
+  "IssueDetail": "Unable to Print",
+  "Prompt": "Issue: Customer said the screen showed an error after trying to print a receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Honolulu County Safeway 2944 - 103",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "87231",
+    "Date": "6/27/2024 3:31:12 PM",
+    "Request Info": "Plate: YPL301",
+    "Vehicles": [
+      {
+        "Plate": "YPL301",
+        "Expires": "6/30/2025",
+        "VIN": "1HGCM82633A004352",
+        "Vehicle": "15 ACUR 4DSD",
+        "Owner": "KAWAMOTO RENEE",
+        "Fees": "$295.18",
+        "Status": "Renewed",
+        "Title": "YPL301 23",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "58 ALAHELE PL KIHEI HI 96753"
+      }
+    ],
+    "Session Length": "2 mins. 45 secs.",
+    "Payments": {
+      "PayID": "2497991",
+      "PayType": "Credit",
+      "CardType": "MasterCard",
+      "Last4": "1182",
+      "Amt": "$304.31",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204912903"
+    },
+    "Last Form": "ErrPrintReceipt",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "CRITICAL",
+        "Msg": "Journal Printer Offline – unable to initialize"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "SKB448",
+  "TransactionNumber": "87232",
+  "IssueCategory": "Journal Printer",
+  "IssueDetail": "Print Quality Issue",
+  "Prompt": "Issue: Customer reports the receipt printed was hard to read.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Hawaii County - Foodland Waimea - 128",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "87232",
+    "Date": "5/21/2023 4:03:09 PM",
+    "Request Info": "Plate: SKB448",
+    "Vehicles": [
+      {
+        "Plate": "SKB448",
+        "Expires": "5/31/2024",
+        "VIN": "2T1BURHE0FC204822",
+        "Vehicle": "14 TOYT 4DSD",
+        "Owner": "TAKASHIMA KYLE J",
+        "Fees": "$312.45",
+        "Status": "Renewed",
+        "Title": "SKB448 21",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "725 MAUNALOA HWY KAUNAKAKAI HI 96748"
+      }
+    ],
+    "Session Length": "3 mins. 18 secs.",
+    "Payments": {
+      "PayID": "2497992",
+      "PayType": "Cash",
+      "CardType": "",
+      "Last4": "",
+      "Amt": "$312.45",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "N/A",
+      "CashDetails": {
+        "Deposited": "($100, $100, $100, $10, $1, $1, $1, $0.25, $0.10, $0.10, $0.10) $323.45",
+        "ToBeDispensed": "$11.00",
+        "ActualDispensed": "($10 x 1, $1 x 1) $11.00",
+        "Withheld": "$0.00"
+      }
+    },
+    "Last Form": "ErrPrintReceipt",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "WARNING",
+        "Msg": "Journal printer quality degraded – check printhead"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "HZG964",
+  "TransactionNumber": "87233",
+  "IssueCategory": "Journal Printer",
+  "IssueDetail": "Printer Jam",
+  "Prompt": "Issue: Customer said they were finishing up when the kiosk stalled and wouldn’t print anything.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Maui County Foodland Pukalani - 130",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "87233",
+    "Date": "3/14/2024 12:57:45 PM",
+    "Request Info": "Plate: HZG964",
+    "Vehicles": [
+      {
+        "Plate": "HZG964",
+        "Expires": "3/31/2025",
+        "VIN": "3FAHP0HA0CR186544",
+        "Vehicle": "13 FORD 4DSD",
+        "Owner": "CHANG ELISE Y",
+        "Fees": "$267.11",
+        "Status": "Renewed",
+        "Title": "HZG964 22",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "92-6098 PUKALANI ST OCEAN VIEW HI 96737"
+      }
+    ],
+    "Session Length": "4 mins. 6 secs.",
+    "Payments": {
+      "PayID": "2497993",
+      "PayType": "Credit",
+      "CardType": "VISA",
+      "Last4": "4451",
+      "Amt": "$267.11",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204812439"
+    },
+    "Last Form": "ErrPrintReceipt",
+    "Language": "Spanish",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "CRITICAL",
+        "Msg": "Journal Printer Jam Detected"
+      }
+    ]
+  }
+},
+
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "KWT215",
+  "TransactionNumber": "87234",
+  "IssueCategory": "Journal Printer",
+  "IssueDetail": "Unable to Print",
+  "Prompt": "Issue: Customer reports the kiosk completed everything but never provided a receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+  "TransactionDetail": {
+    "SST": "Honolulu County Safeway 214 - 107",
+    "Status": "Complete (Errors)",
+    "Product": "Vehicle Renewal",
+    "SST Trans": "87234",
+    "Date": "4/4/2022 5:21:18 PM",
+    "Request Info": "Plate: KWT215",
+    "Vehicles": [
+      {
+        "Plate": "KWT215",
+        "Expires": "4/30/2023",
+        "VIN": "1N4AL3AP6GC250877",
+        "Vehicle": "14 NISS 4DSD",
+        "Owner": "NGUYEN MARIA L",
+        "Fees": "$344.27",
+        "Status": "Renewed",
+        "Title": "KWT215 20",
+        "InspectionDate": "01/01/1990",
+        "FailedInspection": "N",
+        "ContactInfo": "318 KUHIO HWY LIHUE HI 96766"
+      }
+    ],
+    "Session Length": "3 mins. 59 secs.",
+    "Payments": {
+      "PayID": "2497994",
+      "PayType": "Credit",
+      "CardType": "VISA",
+      "Last4": "3042",
+      "Amt": "$344.27",
+      "Status": "Authorized",
+      "Error": "None",
+      "Conf": "204859842"
+    },
+    "Last Form": "ErrPrintReceipt",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTHawaii;3.0.0.7;",
+        "Code": "SEMI-CRITICAL",
+        "Msg": "Paper feed error – unable to advance receipt"
+      }
+    ]
+  }
+},
+
+{
+    "ScenarioType": "LiveTransaction",
+    "Plate": "ZMG182",
+    "TransactionNumber": "74110",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Not Dispensing Cash",
+    "Prompt": "Issue: Customer said they only received a portion of their change back after paying with cash.",
+    "TransactionDetail": {
+      "SST": "Honolulu County Safeway 207 - 106",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "74110",
+      "Date": "6/28/2024 2:51:38 PM",
+      "Request Info": "Plate: ZMG182",
+      "Grade": "4",
+      "Vehicles": [
+        {
+          "Plate": "ZMG182",
+          "Expires": "6/28/2025",
+          "VIN": "4T1BD1FK6HU777927",
+          "Vehicle": "17 TOYT 4DSD",
+          "Owner": "KOBAYASHI MIA",
+          "Fees": "$322.88",
+          "Status": "Incomplete",
+          "Title": "ZMG182 20",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "ContactInfo": "90-121 ALOHA BLVD EWA BEACH HI 96706"
+        }
+      ],
+      "Session Length": "3 mins. 42 secs.",
+      "Payments": {
+        "PayID": "2496123",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$350.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100, $100, $100, $20, $20, $10) $350.00",
+          "ToBeDispensed": "$27.12",
+          "ActualDispensed": "($20 x 1, $5 x 1) $25.00",
+          "Withheld": "$2.12",
+          "Reason Withheld": "Cash Dispenser Error"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTHawaii;3.0.0.7;",
+          "Code": "FATAL",
+          "Msg": "Right dispenser timeout waiting for response"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "WJU289",
+    "TransactionNumber": "74111",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cassette Jam",
+    "Prompt": "Issue: Customer stated the kiosk kept their change and never gave anything back.",
+    "TransactionDetail": {
+      "SST": "Kauai County Safeway 2894 - 116",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "74111",
+      "Date": "5/12/2023 11:02:15 AM",
+      "Request Info": "Plate: WJU289",
+      "Grade": "3",
+      "Vehicles": [
+        {
+          "Plate": "WJU289",
+          "Expires": "5/12/2024",
+          "VIN": "3FA6P0H78JR187536",
+          "Vehicle": "18 FORD 4DSD",
+          "Owner": "YAMAMOTO KAZUKO",
+          "Fees": "$387.19",
+          "Status": "Incomplete",
+          "Title": "WJU289 21",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "ContactInfo": "4027 MAKAHA RIDGE RD KAPAA HI 96746"
+        }
+      ],
+      "Session Length": "2 mins. 17 secs.",
+      "Payments": {
+        "PayID": "2496124",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$400.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100 x 3, $50 x 1, $20 x 1, $10 x 1, $5 x 1) $400.00",
+          "ToBeDispensed": "$12.81",
+          "ActualDispensed": "$0.00",
+          "Withheld": "$12.81",
+          "Reason Withheld": "Cassette Jam"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "PXA309",
+    "TransactionNumber": "74112",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Not Dispensing Cash",
+    "Prompt": "Issue: Customer claims they didn\u2019t receive full change after paying in cash.",
+    "TransactionDetail": {
+      "SST": "Maui County Safeway 280 - 121",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "74112",
+      "Date": "8/17/2023 6:33:01 PM",
+      "Request Info": "Plate: PXA309",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "PXA309",
+          "Expires": "8/17/2024",
+          "VIN": "1HGCR2F3XDA087229",
+          "Vehicle": "13 HOND 4DSD",
+          "Owner": "CHANG HARUTO",
+          "Fees": "$415.23",
+          "Status": "Incomplete",
+          "Title": "PXA309 21",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "ContactInfo": "118 ALOHA LN KAHULUI HI 96732"
+        }
+      ],
+      "Session Length": "3 mins. 9 secs.",
+      "Payments": {
+        "PayID": "2496125",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$430.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100 x 4, $20 x 1, $10 x 1) $430.00",
+          "ToBeDispensed": "$14.77",
+          "ActualDispensed": "$10.00",
+          "Withheld": "$4.77",
+          "Reason Withheld": "Cash Dispenser Error"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "Spanish",
+      "Errors": [
+        {
+          "Type": "Application:SSTHawaii;3.0.0.7;",
+          "Code": "CRITICAL",
+          "Msg": "Dispenser did not acknowledge dispense command"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "TYK543",
+    "TransactionNumber": "74113",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Not Dispensing Cash",
+    "Prompt": "Issue: Customer paid with cash but only received coins back, no bills.",
+    "TransactionDetail": {
+      "SST": "Honolulu County Safeway 1263 - Kapolei - 105",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "74113",
+      "Date": "3/3/2022 9:18:24 AM",
+      "Request Info": "Plate: TYK543",
+      "Grade": "6",
+      "Vehicles": [
+        {
+          "Plate": "TYK543",
+          "Expires": "3/3/2023",
+          "VIN": "JHMGE8H55DC112309",
+          "Vehicle": "13 HOND HB",
+          "Owner": "FANG NIKKI",
+          "Fees": "$296.89",
+          "Status": "Incomplete",
+          "Title": "TYK543 19",
+          "InspectionDate": "01/01/1990",
+          "FailedInspection": "N",
+          "ContactInfo": "3001 MAKAKILO DR UNIT 902 KAPOLEI HI 96707"
+        }
+      ],
+      "Session Length": "4 mins. 26 secs.",
+      "Payments": {
+        "PayID": "2496126",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$320.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100 x 3, $10 x 2) $320.00",
+          "ToBeDispensed": "$23.11",
+          "ActualDispensed": "($0.25 x 4, $0.10 x 1, $0.01 x 6) $1.20",
+          "Withheld": "$21.91",
+          "Reason Withheld": "Cash Dispenser Error"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  }
+]

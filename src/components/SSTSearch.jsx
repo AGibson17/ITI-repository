@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
@@ -25,6 +25,12 @@ export default function SSTSearch({ onNavigate }) {
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Clear search results when search type changes
+  useEffect(() => {
+    setSearchResults([]);
+    setShowResults(false);
+  }, [searchBy]);
 
   // Function to load and search transaction data
   const performSearch = async () => {
@@ -466,6 +472,7 @@ export default function SSTSearch({ onNavigate }) {
       {showResults && (
         <SearchResults
           results={searchResults}
+          currentState={stateConfig?.code}
           onTransactionClick={(transaction) => {
             // Open transaction details in a new tab
             const baseUrl = window.location.origin + window.location.pathname;

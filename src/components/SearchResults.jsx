@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchResults.css';
 
-const SearchResults = ({ results, onTransactionClick }) => {
+const SearchResults = ({ results, onTransactionClick, currentState }) => {
   if (!results || results.length === 0) {
     return (
       <div className="search-results-container">
@@ -11,6 +11,35 @@ const SearchResults = ({ results, onTransactionClick }) => {
       </div>
     );
   }
+
+  // Define column order based on state
+  const getColumnOrder = (stateCode) => {
+    if (stateCode === 'HI') {
+      return [
+        'Product',
+        'SST',
+        'TransNo',
+        'Date',
+        'PayAmt',
+        'PayType',
+        'TransInfo',
+        'Status'
+      ];
+    }
+    // Default order for other states (CA, etc.)
+    return [
+      'Product',
+      'SST',
+      'TransNo',
+      'Date',
+      'TransInfo',
+      'PayType',
+      'PayAmt',
+      'Status'
+    ];
+  };
+
+  const columnOrder = getColumnOrder(currentState);
 
   const handleTransactionClick = (transaction) => {
     // Open transaction details in a new tab
@@ -62,10 +91,92 @@ const SearchResults = ({ results, onTransactionClick }) => {
     if (payments.length > 0) {
       return {
         payType: payments[0].PayType || '',
-        amount: payments[0].Amt || ''
+        amount: payments[0].Amt || '$0.00'
       };
     }
-    return { payType: '', amount: '' };
+    return { payType: '', amount: '$0.00' };
+  };
+
+  // Get status color based on transaction status
+  const getStatusColor = (status) => {
+    if (status === 'Completed' || status === 'Complete (Errors)') {
+      return 'green';
+    } else if (status === 'Incomplete' || status === 'Incomplete (Errors)') {
+      return 'red';
+    } else if (status === 'Ineligible' || status === 'Cancelled') {
+      return 'black';
+    }
+    return 'black'; // Default to black for any other status
+  };
+
+  const getColumnHeader = (column) => {
+    switch (column) {
+      case 'Product':
+        return 'Product';
+      case 'SST':
+        return 'SST';
+      case 'TransNo':
+        return 'TransNo';
+      case 'Date':
+        return 'Date';
+      case 'TransInfo':
+        return 'TransInfo';
+      case 'PayType':
+        return 'PayType';
+      case 'PayAmt':
+        return 'PayAmt';
+      case 'Status':
+        return 'Status';
+      default:
+        return column;
+    }
+  };
+
+  const renderColumnData = (column, transaction) => {
+    const paymentInfo = getPaymentInfo(transaction);
+    const statusColor = getStatusColor(transaction.TransStatus);
+    
+    switch (column) {
+      case 'Product':
+        return <td key={column}>{transaction.Product}</td>;
+      case 'SST':
+        return <td key={column}>{transaction.SST}</td>;
+      case 'TransNo':
+        return (
+          <td key={column}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                handleTransactionClick(transaction);
+              }}
+              className="transaction-link"
+            >
+              {transaction['SST Trans']}
+            </a>
+          </td>
+        );
+      case 'Date':
+        return <td key={column}>{transaction.Date}</td>;
+      case 'TransInfo':
+        return (
+          <td key={column} className="trans-info">
+            {formatTransInfo(transaction)}
+          </td>
+        );
+      case 'PayType':
+        return <td key={column}>{paymentInfo.payType}</td>;
+      case 'PayAmt':
+        return <td key={column}>{paymentInfo.amount}</td>;
+      case 'Status':
+        return (
+          <td key={column} className="status" style={{ color: statusColor }}>
+            <strong>{transaction.TransStatus}</strong>
+          </td>
+        );
+      default:
+        return <td key={column}></td>;
+    }
   };
 
   return (
@@ -73,50 +184,23 @@ const SearchResults = ({ results, onTransactionClick }) => {
       <table className="ReptGridView" cellSpacing="10" cellPadding="10">
         <thead>
           <tr>
-            <th title="Click to sort by Product" scope="col">Product</th>
-            <th title="Click to sort by SST" scope="col">SST</th>
-            <th title="Click to sort by TransNo" scope="col">TransNo</th>
-            <th title="Click to sort by Date" scope="col">Date</th>
-            <th title="Click to sort by TransInfo" scope="col">TransInfo</th>
-            <th title="Click to sort by PayType" scope="col">PayType</th>
-            <th title="Click to sort by PayAmt" scope="col">PayAmt</th>
-            <th title="Click to sort by Status" scope="col">Status</th>
+            {columnOrder.map(column => (
+              <th key={column} title={`Click to sort by ${getColumnHeader(column)}`} scope="col">
+                {getColumnHeader(column)}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {results.map((transaction, index) => {
-            const paymentInfo = getPaymentInfo(transaction);
             const isEvenRow = index % 2 === 1; // Alternate row coloring
-            const isCompleted = transaction.TransStatus === 'Completed';
             
             return (
               <tr
                 key={transaction['SST Trans'] || index}
                 className={isEvenRow ? 'even-row' : 'odd-row'}
               >
-                <td>{transaction.Product}</td>
-                <td>{transaction.SST}</td>
-                <td>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleTransactionClick(transaction);
-                    }}
-                    className="transaction-link"
-                  >
-                    {transaction['SST Trans']}
-                  </a>
-                </td>
-                <td>{transaction.Date}</td>
-                <td className="trans-info">
-                  {formatTransInfo(transaction)}
-                </td>
-                <td>{paymentInfo.payType}</td>
-                <td>{paymentInfo.amount}</td>
-                <td className={`status ${isCompleted ? 'completed' : 'incomplete'}`}>
-                  <strong>{transaction.TransStatus}</strong>
-                </td>
+                {columnOrder.map((column) => renderColumnData(column, transaction))}
               </tr>
             );
           })}

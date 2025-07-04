@@ -95,6 +95,18 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     return `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()} ${date.getHours() > 12 ? date.getHours() - 12 : date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}${date.getHours() >= 12 ? 'P' : 'A'}`;
   };
 
+  // Get status color based on transaction status
+  const getStatusColor = (status) => {
+    if (status === 'Completed' || status === 'Complete (Errors)') {
+      return 'Green';
+    } else if (status === 'Incomplete' || status === 'Incomplete (Errors)') {
+      return 'Red';
+    } else if (status === 'Ineligible' || status === 'Cancelled') {
+      return 'Black';
+    }
+    return 'Black'; // Default to black for any other status
+  };
+
   if (isLoading) {
     return (
       <div className="sst-container">
@@ -266,10 +278,10 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                       
                                       <tr style={{ backgroundColor: '#E7E7E7', borderColor: 'White' }}>
                                         <td>Status:</td>
-                                        <td style={{ color: transactionData.TransStatus === 'Completed' ? 'Green' : 'Red' }}>
+                                        <td style={{ color: getStatusColor(transactionData.TransStatus) }}>
                                           <b>{transactionData.TransStatus}</b>
                                         </td>
-                                        <td className="HideCol">{transactionData.TransStatus === 'Completed' ? 'Green' : 'Red'}</td>
+                                        <td className="HideCol">{getStatusColor(transactionData.TransStatus)}</td>
                                       </tr>
                                       
                                       <tr style={{ borderColor: 'White' }}>

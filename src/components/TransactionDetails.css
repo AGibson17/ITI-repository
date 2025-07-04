@@ -57,6 +57,18 @@
   vertical-align: top;
 }
 
+/* Ensure Label column is wide enough to prevent wrapping */
+.ReptGridView td:first-child {
+  width: 120px;
+  min-width: 120px;
+  white-space: nowrap;
+}
+
+.ReptGridView th:first-child {
+  width: 120px;
+  min-width: 120px;
+}
+
 /* Nested table styling for Vehicles and Payments */
 .ReptGridView td table {
   width: 100%;

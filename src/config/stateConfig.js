@@ -230,13 +230,13 @@ export const STATE_CONFIGS = {
       viewReportsImage: 'images/HI/view-reports.png'
     },
     dataFiles: {
-      mainScenarios: 'TransData/HI/HI-sample-scenarios.json',
-      auxScenarios: null,
-      historicalTransactions: null
+      mainScenarios: 'TransData/HI/HI-main-scenarios.json',
+      auxScenarios: 'TransData/HI/HI-aux-scenarios.json',
+      historicalTransactions: 'TransData/HI/HI_Historical_Transactions.json'
     },
     features: {
-      hasAuxiliaryData: false,
-      hasHistoricalData: false,
+      hasAuxiliaryData: true,
+      hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: false
     },
