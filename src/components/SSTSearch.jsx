@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
-import { getGlobalImagePath } from '../utils/paths';
+import { getGlobalImagePath, getAssetPath } from '../utils/paths';
 import { loadStateTransactionData, searchTransactions } from '../utils/genericTransactionDataLoader';
 import { useStateContext } from '../context/useStateContext';
 
@@ -115,10 +115,26 @@ export default function SSTSearch({ onNavigate }) {
     color: `${stateConfig?.colors?.text}`
   };
 
+  // Header style with conditional background image or color
+  const getHeaderStyle = () => {
+    if (stateConfig?.assets?.bgHeaderImage) {
+      return {
+        backgroundImage: `url(${getAssetPath(stateConfig.assets.bgHeaderImage)})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      };
+    } else {
+      return {
+        backgroundColor: stateConfig?.colors?.secondary
+      };
+    }
+  };
+
   return (
     <div className="sst-container">
       {/* Header */}
-      <div className="sst-header" style={{ backgroundColor: stateConfig?.colors?.secondary}}>
+      <div className="sst-header" style={getHeaderStyle()}>
         <img
           src={stateConfig?.assets?.pageHeaderImage}
           alt={`${stateConfig?.name || 'State'} ${stateConfig?.terminology?.department || 'DMV'} Header`}
@@ -488,7 +504,7 @@ export default function SSTSearch({ onNavigate }) {
                                     name="btnShowReport"
                                     id="ContentPlaceHolder1_btnShowReport"
                                     tabIndex="8"
-                                    src={getGlobalImagePath('btn-ShowReport.png')}
+                                    src={getAssetPath(stateConfig?.assets?.showReportBtn) || getGlobalImagePath('btn-ShowReport.png')}
                                     alt="Show Report"
                                     onClick={handleShowReport}
                                     style={{ cursor: 'pointer' }}

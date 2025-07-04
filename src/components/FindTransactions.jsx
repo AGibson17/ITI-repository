@@ -29,14 +29,26 @@ const FindTransactions = ({ onNavigate }) => {
     color: `${stateConfig?.colors?.text}`
   };
 
-  const headerStyle = {
-    backgroundColor: `${stateConfig?.colors?.secondary}`
+  // Header style with conditional background image or color
+  const getHeaderStyle = () => {
+    if (stateConfig?.assets?.bgHeaderImage) {
+      return {
+        backgroundImage: `url(${getAssetPath(stateConfig.assets.bgHeaderImage)})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      };
+    } else {
+      return {
+        backgroundColor: stateConfig?.colors?.secondary
+      };
+    }
   };
 
   return (
     <div className="find-transactions-container">
       {/* Header Section */}
-      <div className="header-section" style={headerStyle}>
+      <div className="header-section" style={getHeaderStyle()}>
         <img 
           src={getAssetPath(stateConfig?.assets?.pageHeaderImage || 'text.png')} 
           alt={`${stateConfig?.fullName || 'CA'} Header`}

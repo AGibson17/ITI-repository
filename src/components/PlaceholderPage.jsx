@@ -1,5 +1,5 @@
 import React from 'react';
-import { getStateAssetPath } from '../utils/paths';
+import { getStateAssetPath, getAssetPath } from '../utils/paths';
 import { useStateContext } from '../context/useStateContext';
 import '../styles/defaultStyles.css';
 
@@ -8,6 +8,26 @@ const PlaceholderPage = ({ title, onNavigate }) => {
 
   const handleBackToDashboard = () => {
     onNavigate('dashboard');
+  };
+
+  // Header style with conditional background image or color
+  const getHeaderStyle = () => {
+    if (stateConfig?.assets?.bgHeaderImage) {
+      return {
+        backgroundImage: `url(${getAssetPath(stateConfig.assets.bgHeaderImage)})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: 0,
+        margin: 0
+      };
+    } else {
+      return {
+        backgroundColor: stateConfig?.colors?.secondary || '#1e4a6b',
+        padding: 0,
+        margin: 0
+      };
+    }
   };
 
   return (
@@ -19,7 +39,7 @@ const PlaceholderPage = ({ title, onNavigate }) => {
       minHeight: '100vh'
     }}>
       {/* Header */}
-      <div style={{ backgroundColor: stateConfig?.colors?.secondary || '#1e4a6b', padding: 0, margin: 0 }}>
+      <div style={getHeaderStyle()}>
         <img
           src={getStateAssetPath(stateConfig?.assets?.pageHeaderImage || 'header-short.png')}
           alt={`${stateConfig?.fullName || 'CA'} DMV Header`}
