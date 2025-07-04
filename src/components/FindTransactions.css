@@ -1,13 +1,13 @@
 .find-transactions-container {
   max-width: 1024px;
   margin: 0 auto;
-  background-color: white;
+  padding: 5px 0 0 0;
+  background-color: #e0e0e0;
   font-family: Arial, sans-serif;
   text-align: left;
 }
 
 .header-section {
-  background-color: #1e4a6b;
   padding: 0;
   margin: 0;
 }
@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
   background-color: white;
 }
 
@@ -31,9 +31,8 @@
 }
 
 .page-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #1e4a6b;
+  font-size: 22px;
+  font-weight: 800;
   margin: 0;
   font-family: Arial, sans-serif;
   text-transform: uppercase;
@@ -65,16 +64,16 @@
 }
 
 .menu-header {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 800;
   color: #000;
   margin-bottom: 5px;
   font-family: Arial, sans-serif;
 }
 
 .menu-divider {
-  height: 2px;
-  background-color: #ccc;
+  height: 3px;
+  background-color: #0a0a0a;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -82,12 +81,12 @@
 .menu-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px;
+  align-items: flex-start;
 }
 
 .menu-link {
   font-family: 'Arial Black', Gadget, sans-serif;
-  color: #26608f;
   font-size: 20px;
   line-height: 35px;
   text-decoration: underline;
@@ -99,10 +98,6 @@
 
 .menu-link:hover {
   opacity: 0.8;
-}
-
-.menu-link:visited {
-  color: #26608f;
 }
 
 /* Responsive adjustments */
@@ -155,9 +150,9 @@
   }
   
   .menu-link {
-    display: block;
-    padding: 8px;
-    text-align: center;
+    display: inline-block;
+    padding: 4px 0;
+    text-align: left;
   }
 }
 

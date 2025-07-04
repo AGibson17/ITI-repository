@@ -11,7 +11,7 @@ body {
 
 .app {
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   max-width: 1024px; /* Match the header image width */
   margin: 0 auto; /* Center the entire application */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
@@ -206,21 +206,6 @@ body {
   margin-top: 20px;
 }
 
-.show-report-btn {
-  background-color: #1e40af;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.show-report-btn:hover {
-  background-color: #1e3a8a;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

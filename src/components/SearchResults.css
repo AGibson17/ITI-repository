@@ -59,6 +59,12 @@
   color: #0052a3;
 }
 
+.transaction-number-historical {
+  color: #666;
+  font-weight: normal;
+  cursor: default;
+}
+
 .trans-info strong {
   font-weight: bold;
 }

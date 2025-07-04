@@ -1,0 +1,462 @@
+[
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7MTP892",
+    "TransactionNumber": "311000",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer said they paid for their registration but nothing printed out.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311000",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 909999 Plate: 7MTP892",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "7MTP892",
+          "Expires": "7/2/2026",
+          "VIN": "1000ABCDEFGH5678",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "PEREZ CARLA",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDSmog"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1901234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1234",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900000",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "8ZLP001",
+    "TransactionNumber": "311001",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer claims the kiosk walked them through the process but gave them nothing at the end.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311001",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 919999 Plate: 8ZLP001",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "8ZLP001",
+          "Expires": "7/2/2026",
+          "VIN": "1001ABCDEFGH5778",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "WATSON DAMIEN",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDSmog"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1911234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1235",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900001",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9WAK574",
+    "TransactionNumber": "311002",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer stated they finished their renewal but walked away empty-handed.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311002",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 929999 Plate: 9WAK574",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "9WAK574",
+          "Expires": "7/2/2026",
+          "VIN": "1002ABCDEFGH5878",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "LIN KEVIN",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDSmog"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1921234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1236",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900002",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "6VFG233",
+    "TransactionNumber": "311003",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer reported that no paperwork or stickers came out after they paid.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311003",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 939999 Plate: 6VFG233",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "6VFG233",
+          "Expires": "7/2/2026",
+          "VIN": "1003ABCDEFGH5978",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "SINGH PRIYA",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDSmog"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1931234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1237",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900003",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7YHX922",
+    "TransactionNumber": "311004",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer said the machine completed everything but didn't provide a card or receipt.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311004",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 949999 Plate: 7YHX922",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "7YHX922",
+          "Expires": "7/2/2026",
+          "VIN": "1004ABCDEFGH6078",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "GONZALEZ LUIS",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDSmog"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1941234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1238",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900004",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "8LCZ109",
+    "TransactionNumber": "311005",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer is asking where their registration is because the kiosk didn\u2019t give them anything.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311005",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 959999 Plate: 8LCZ109",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "8LCZ109",
+          "Expires": "7/2/2026",
+          "VIN": "1005ABCDEFGH6178",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "HERNANDEZ MARIA",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDInsur"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1951234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1239",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900005",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7VBR325",
+    "TransactionNumber": "311006",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer called in saying they finished their transaction, but nothing came out of the machine.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311006",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 969999 Plate: 7VBR325",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "7VBR325",
+          "Expires": "7/2/2026",
+          "VIN": "1006ABCDEFGH6278",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "NGUYEN JACOB",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDInsur"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1961234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1240",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900006",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9NKT341",
+    "TransactionNumber": "311007",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer expected their registration to print but said the kiosk ended the session without it.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311007",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 979999 Plate: 9NKT341",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "9NKT341",
+          "Expires": "7/2/2026",
+          "VIN": "1007ABCDEFGH6378",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "JACKSON SIERRA",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDInsur"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1971234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1241",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900007",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "8MXZ310",
+    "TransactionNumber": "311008",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer completed their transaction but says they never received any proof of it.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311008",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 989999 Plate: 8MXZ310",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "8MXZ310",
+          "Expires": "7/2/2026",
+          "VIN": "1008ABCDEFGH6478",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "CHANG TIFFANY",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDInsur"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1981234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1242",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900008",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7PPD229",
+    "TransactionNumber": "311009",
+    "IssueCategory": "Transaction Inquiry",
+    "IssueDetail": "Transaction Product is Mailed",
+    "Prompt": "Customer believed their registration would print, but the kiosk gave them no documents.",
+    "TransactionDetail": {
+      "SST": "Sample Location - KSS 101",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "311009",
+      "Date": "7/2/2025 6:10:09 PM",
+      "Request Info": "RIN: 999999 Plate: 7PPD229",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "7PPD229",
+          "Expires": "7/2/2026",
+          "VIN": "1009ABCDEFGH6578",
+          "Vehicle": "2010 TOYT COROLLA",
+          "Owner": "YAMAMOTO HARUKI",
+          "Fees": "$217.00",
+          "Contact Info": "123 MAIN ST LOS ANGELES, CA 90001",
+          "Renew Type": "NIRDInsur"
+        }
+      ],
+      "Session Length": "4 mins. 30 secs.",
+      "Payments": {
+        "PayID": "1991234567",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1243",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-900009",
+        "ReprintReqdYN": "N"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  }
+]

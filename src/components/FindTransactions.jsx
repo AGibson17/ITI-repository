@@ -1,50 +1,76 @@
 import React from 'react';
 import './FindTransactions.css';
-import { getCAImagePath, getGlobalImagePath } from '../utils/paths';
+import { getAssetPath, getGlobalImagePath } from '../utils/paths';
+import { useStateContext } from '../context/useStateContext';
 
 const FindTransactions = ({ onNavigate }) => {
+  const { stateConfig } = useStateContext();
 
-  const handleSearchClick = () => {
+  const handleTransactionSearchClick = () => {
     onNavigate('sstSearch');
   };
 
-  const handleMainMenuClick = () => {
-    onNavigate('dashboard');
-  };
-
-  const handleLogoutClick = () => {
-    onNavigate('stateLanding');
-  };
-
-  const handlePlaceholderClick = (option) => {
+  const handleAuditDetailClick = () => {
     // Placeholder for future implementation
-    alert(`${option} functionality will be implemented later.`);
+    alert('Audit Detail functionality will be implemented later.');
+  };
+
+  const handlePaymentSearchClick = () => {
+    // Placeholder for future implementation
+    alert('Payment Search functionality will be implemented later.');
+  };
+
+  // Dynamic styles for state-specific colors
+  const linkStyle = {
+    color: `${stateConfig?.colors?.text}`
+  };
+
+  const primaryTextStyle = {
+    color: `${stateConfig?.colors?.text}`
+  };
+
+  const headerStyle = {
+    backgroundColor: `${stateConfig?.colors?.secondary}`
   };
 
   return (
     <div className="find-transactions-container">
       {/* Header Section */}
-      <div className="header-section">
-        <img src={getCAImagePath('text.png')} alt="CA DMV Header" className="header-image" />
+      <div className="header-section" style={headerStyle}>
+        <img 
+          src={getAssetPath(stateConfig?.assets?.pageHeaderImage || 'text.png')} 
+          alt={`${stateConfig?.fullName || 'CA'} Header`}
+          className="header-image"
+        />
       </div>
 
       {/* Title and Navigation Section */}
       <div className="title-nav-section">
         <div className="title-area">
-          <h1 className="page-title">FIND TRANSACTIONS MENU</h1>
+          <h1 className="page-title" style={primaryTextStyle}>
+            Find {stateConfig?.terminology?.transaction || 'Transaction'}s Menu
+          </h1>
         </div>
         <div className="nav-buttons">
-          <img
+          <input
+            type="image"
+            name="imgBtnHome"
+            id="imgBtnHome"
             src={getGlobalImagePath('btn-main-menu.png')}
             alt="Main Menu"
+            onClick={() => onNavigate('dashboard')}
+            style={{ cursor: 'pointer' }}
             className="nav-button"
-            onClick={handleMainMenuClick}
           />
-          <img
+          <input
+            type="image"
+            name="imgBtnLogout"
+            id="imgBtnLogout"
             src={getGlobalImagePath('btn-logout.png')}
             alt="Logout"
+            onClick={() => onNavigate('stateLanding')}
+            style={{ cursor: 'pointer' }}
             className="nav-button"
-            onClick={handleLogoutClick}
           />
         </div>
       </div>
@@ -52,45 +78,18 @@ const FindTransactions = ({ onNavigate }) => {
       {/* Menu Content */}
       <div className="menu-content">
         <div className="menu-section">
-          <div className="menu-header">SST</div>
+          <div className="menu-header">{stateConfig?.terminology?.sst || 'SST'}</div>
           <div className="menu-divider"></div>
-
           <div className="menu-links">
-            <a
-              href="#"
-              className="menu-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handlePlaceholderClick('Audit Detail');
-              }}
-              title="View low-level details for a transaction"
-            >
+            <span className="menu-link" onClick={handleAuditDetailClick} style={linkStyle}>
               Audit Detail
-            </a>
-
-            <a
-              href="#"
-              className="menu-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handlePlaceholderClick('Errors');
-              }}
-              title="Errors returned from CA web service and processing errors with drilldown links to details"
-            >
-              Errors
-            </a>
-
-            <a
-              href="#"
-              className="menu-link"
-              onClick={(e) => {
-                e.preventDefault();
-                handleSearchClick();
-              }}
-              title="Search for transactions by various criteria"
-            >
-              Search
-            </a>
+            </span>
+            <span className="menu-link" onClick={handlePaymentSearchClick} style={linkStyle}>
+              Payment Search
+            </span>
+            <span className="menu-link" onClick={handleTransactionSearchClick} style={linkStyle}>
+              Transaction Search
+            </span>
           </div>
         </div>
       </div>

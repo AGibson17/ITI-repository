@@ -5,6 +5,7 @@ import FindTransactions from './components/FindTransactions';
 import StateLanding from './components/StateLanding';
 import PlaceholderPage from './components/PlaceholderPage';
 import TransactionDetails from './components/TransactionDetails';
+import { StateProvider } from './context/StateContext.jsx';
 import './App.css';
 
 export default function App() {
@@ -61,5 +62,9 @@ export default function App() {
     }
   };
 
-  return <div className="app">{renderCurrentPage()}</div>;
+  return (
+    <StateProvider>
+      <div className="app">{renderCurrentPage()}</div>
+    </StateProvider>
+  );
 }

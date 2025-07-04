@@ -1,0 +1,545 @@
+[
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "6YOQ397",
+    "TransactionNumber": "87521",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Print Quality Issue",
+    "Prompt": "Issue: Customer reports the kiosk did not provide a receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Ralphs West Hollywood - KY6 433",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "87521",
+      "Date": "7/2/2025 08:34:00 AM",
+      "Request Info": "RIN: 914669 Plate: 6YOQ397",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "6YOQ397",
+          "Expires": "7/2/2026",
+          "VIN": "72SZGCVYT6P04JA7T",
+          "Vehicle": "2012 FORD FUSION",
+          "Owner": "LEE MINA",
+          "Fees": "$247.00",
+          "Contact Info": "458 Pine ST LONG BEACH, CA 90167",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "2 mins. 56 secs.",
+      "Payments": {
+        "PayID": "1976727418",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1367",
+        "Amt": "$370.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-832464",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ErrPrintReceipt",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7BIK224",
+    "TransactionNumber": "79046",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer said the screen showed an error after trying to print a receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Albertsons Escondido - KN3 360",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "79046",
+      "Date": "7/2/2025 03:25:00 PM",
+      "Request Info": "RIN: 944648 Plate: 7BIK224",
+      "Grade": "3",
+      "Vehicles": [
+        {
+          "Plate": "7BIK224",
+          "Expires": "7/2/2026",
+          "VIN": "NT6HZKWSSCLJPJWNE",
+          "Vehicle": "2008 TOYT COROLLA",
+          "Owner": "KHAN ZARA",
+          "Fees": "$248.00",
+          "Contact Info": "5600 Oak ST LONG BEACH, CA 90482",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "5 mins. 10 secs.",
+      "Payments": {
+        "PayID": "1975668559",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "1766",
+        "Amt": "$217.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-910838",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ErrPrintReceipt",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "8CKJ687",
+    "TransactionNumber": "86051",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Printer Jam",
+    "Prompt": "Issue: Customer said they were finishing up when the kiosk stalled and wouldn\u2019t print anything.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Superior Chino - KM0 347",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "86051",
+      "Date": "7/2/2025 01:19:00 PM",
+      "Request Info": "RIN: 941092 Plate: 8CKJ687",
+      "Grade": "7",
+      "Vehicles": [
+        {
+          "Plate": "8CKJ687",
+          "Expires": "7/2/2026",
+          "VIN": "XMV0X4PU80GU2W36K",
+          "Vehicle": "2007 HONDA CIVIC",
+          "Owner": "THOMAS ELIJAH",
+          "Fees": "$246.00",
+          "Contact Info": "3567 Pine ST LONG BEACH, CA 90622",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "6 mins. 10 secs.",
+      "Payments": {
+        "PayID": "1910106208",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "6760",
+        "Amt": "$257.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-826099",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ErrPrintReceipt",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9XTE677",
+    "TransactionNumber": "86876",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer states the payment was successful, but the registration never printed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Food 4 Less Long Beach - KEM 488",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "86876",
+      "Date": "7/2/2025 12:31:00 PM",
+      "Request Info": "RIN: 909350 Plate: 9XTE677",
+      "Grade": "7",
+      "Vehicles": [
+        {
+          "Plate": "9XTE677",
+          "Expires": "7/2/2026",
+          "VIN": "ULCP1SRG923UKLTHE",
+          "Vehicle": "2008 TOYT COROLLA",
+          "Owner": "MARTINEZ JUAN",
+          "Fees": "$235.00",
+          "Contact Info": "9571 Maple ST LONG BEACH, CA 90858",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "6 mins. 15 secs.",
+      "Payments": {
+        "PayID": "1927099988",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "3153",
+        "Amt": "$448.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-988884",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "8EYR501",
+    "TransactionNumber": "81975",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Connection Failure",
+    "Prompt": "Issue: Customer says the kiosk processed everything, but nothing came out.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Vons San Diego Murphy Canyon - KBV 384",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "81975",
+      "Date": "7/2/2025 10:45:00 AM",
+      "Request Info": "RIN: 987116 Plate: 8EYR501",
+      "Grade": "7",
+      "Vehicles": [
+        {
+          "Plate": "8EYR501",
+          "Expires": "7/2/2026",
+          "VIN": "X39KH2VGEPJ6P9K3D",
+          "Vehicle": "2007 HONDA CIVIC",
+          "Owner": "WILLIAMS AALIYAH",
+          "Fees": "$199.00",
+          "Contact Info": "9964 Cedar ST LONG BEACH, CA 90250",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "6 mins. 44 secs.",
+      "Payments": {
+        "PayID": "1999920772",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "3263",
+        "Amt": "$319.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-819749",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ThankYou",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "6TIK627",
+    "TransactionNumber": "89903",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Print Quality Issue",
+    "Prompt": "Issue: Customer completed their renewal, but the machine did not dispense their registration.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Safeway Sacramento Arden - KFO 555",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "89903",
+      "Date": "7/2/2025 02:48:00 PM",
+      "Request Info": "RIN: 954290 Plate: 6TIK627",
+      "Grade": "4",
+      "Vehicles": [
+        {
+          "Plate": "6TIK627",
+          "Expires": "7/2/2026",
+          "VIN": "8C33VWWSZG1SNHT40",
+          "Vehicle": "2007 HONDA CIVIC",
+          "Owner": "KIM JAE",
+          "Fees": "$203.00",
+          "Contact Info": "7799 Pine ST LONG BEACH, CA 90266",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "4 mins. 6 secs.",
+      "Payments": {
+        "PayID": "1932833080",
+        "PayType": "Credit",
+        "CardType": "VISA",
+        "Last4": "5849",
+        "Amt": "$191.00",
+        "Status": "Approved",
+        "Error": "None",
+        "Conf": "CONFIRM-862568",
+        "ReprintReqdYN": "Y"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9WFX373",
+    "TransactionNumber": "80455",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Not Dispensing Cash",
+    "Prompt": "Issue: Customer says they inserted cash, didn\u2019t complete the transaction, and only got a few dollars back.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Stater Bros Anaheim Hills - KPM 221",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "80455",
+      "Date": "7/2/2025 10:42:00 AM",
+      "Request Info": "RIN: 985161 Plate: 9WFX373",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "9WFX373",
+          "Expires": "7/2/2026",
+          "VIN": "AN9P6CE23SY90GBBZ",
+          "Vehicle": "2008 TOYT COROLLA",
+          "Owner": "PATEL RIA",
+          "Fees": "$212.00",
+          "Contact Info": "8083 Pine ST LONG BEACH, CA 90482",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "2 mins. 9 secs.",
+      "Payments": {
+        "PayID": "1988124786",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$333.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100, $100, $20) $220.00",
+          "ToBeDispensed": "$9.00",
+          "ActualDispensed": "($5 x 1, $1 x 2) $7.00",
+          "Withheld": "$2.00",
+          "Reason Withheld": "Cash Dispenser Error"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9RPM902",
+    "TransactionNumber": "84812",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cash Not Loaded",
+    "Prompt": "Issue: Customer is reporting that most of their cash was kept by the machine after it canceled.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Smart & Final Modesto - KST 119",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "84812",
+      "Date": "7/2/2025 10:28:00 AM",
+      "Request Info": "RIN: 931480 Plate: 9RPM902",
+      "Grade": "3",
+      "Vehicles": [
+        {
+          "Plate": "9RPM902",
+          "Expires": "7/2/2026",
+          "VIN": "M3RD5A64DMUP18G3H",
+          "Vehicle": "2012 FORD FUSION",
+          "Owner": "ANDERSON OMAR",
+          "Fees": "$209.00",
+          "Contact Info": "2616 Pine ST LONG BEACH, CA 90881",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "7 mins. 31 secs.",
+      "Payments": {
+        "PayID": "1925840950",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$302.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100, $100, $20, $20, $5, $2) $247.00",
+          "ToBeDispensed": "$38.00",
+          "ActualDispensed": "$0.00",
+          "Withheld": "$38.00",
+          "Reason Withheld": "None"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9HVD923",
+    "TransactionNumber": "95718",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cassette Error",
+    "Prompt": "Issue: Customer inserted over $200, received $2 back, and no registration or receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "99 Ranch Fremont - KCR 402",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "95718",
+      "Date": "7/2/2025 01:34:00 PM",
+      "Request Info": "RIN: 908807 Plate: 9HVD923",
+      "Grade": "5",
+      "Vehicles": [
+        {
+          "Plate": "9HVD923",
+          "Expires": "7/2/2026",
+          "VIN": "RMNECBK7XC4HXJ6K7",
+          "Vehicle": "2012 FORD FUSION",
+          "Owner": "ROBINSON ZOE",
+          "Fees": "$220.00",
+          "Contact Info": "3821 Oak ST LONG BEACH, CA 90784",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "2 mins. 39 secs.",
+      "Payments": {
+        "PayID": "1926022575",
+        "PayType": "Cash",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$272.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "",
+        "ReprintReqdYN": "N",
+        "CashDetails": {
+          "Deposited": "($100, $100, $20) $220.00",
+          "ToBeDispensed": "$13.00",
+          "ActualDispensed": "($5 x 1, $1 x 3) $8.00",
+          "Withheld": "$5.00",
+          "Reason Withheld": "Cassette Jam"
+        }
+      },
+      "Last Form": "ErrCashDispense",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "9NUF456",
+    "TransactionNumber": "83130",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer is reporting that their card would not process, and they were kicked out.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Gelson's Encino - KGE 312",
+      "Status": "Cancelled",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "83130",
+      "Date": "7/2/2025 10:37:00 AM",
+      "Request Info": "RIN: 988049 Plate: 9NUF456",
+      "Grade": "4",
+      "Vehicles": [
+        {
+          "Plate": "9NUF456",
+          "Expires": "1/1/1990",
+          "VIN": "186L050VPRA53UCZL",
+          "Vehicle": "2007 HONDA CIVIC",
+          "Owner": "SINGH RAVI",
+          "Fees": "$220.00",
+          "Contact Info": "9696 Pine ST LONG BEACH, CA 90101",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "7 mins. 17 secs.",
+      "Payments": "None",
+      "Last Form": "ErrReadCard",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "7WTP334",
+    "TransactionNumber": "81250",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Inserted",
+    "Prompt": "Issue: Customer said they tried inserting their card but it never recognized the card.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Save Mart Fresno - KFR 187",
+      "Status": "Cancelled",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "81250",
+      "Date": "7/2/2025 12:38:00 PM",
+      "Request Info": "RIN: 928154 Plate: 7WTP334",
+      "Grade": "6",
+      "Vehicles": [
+        {
+          "Plate": "7WTP334",
+          "Expires": "1/1/1990",
+          "VIN": "JLLJW4XJT15P7NN2P",
+          "Vehicle": "2008 TOYT COROLLA",
+          "Owner": "RAMIREZ JOSE",
+          "Fees": "$206.00",
+          "Contact Info": "448 Cedar ST LONG BEACH, CA 90268",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "3 mins. 15 secs.",
+      "Payments": "None",
+      "Last Form": "ErrReadCard",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "6MUO642",
+    "TransactionNumber": "94531",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Communication Failure",
+    "Prompt": "Issue: Customer experienced an error right after starting the payment screen and couldn\u2019t continue.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Target Fullerton - KTF 295",
+      "Status": "Cancelled",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "94531",
+      "Date": "7/2/2025 01:20:00 PM",
+      "Request Info": "RIN: 986493 Plate: 6MUO642",
+      "Grade": "4",
+      "Vehicles": [
+        {
+          "Plate": "6MUO642",
+          "Expires": "1/1/1990",
+          "VIN": "3NXR7MWKKYJJLFX3A",
+          "Vehicle": "2007 HONDA CIVIC",
+          "Owner": "NAKAMURA KEISUKE",
+          "Fees": "$206.00",
+          "Contact Info": "3803 Cedar ST LONG BEACH, CA 90990",
+          "Renew Type": "REG"
+        }
+      ],
+      "Session Length": "6 mins. 53 secs.",
+      "Payments": "None",
+      "Last Form": "ErrReadCard",
+      "Language": "Spanish",
+      "Errors": [
+        "None"
+      ]
+    }
+  }
+]

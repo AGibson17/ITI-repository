@@ -29,3 +29,43 @@ export const getStateFlagPath = (stateName) => {
 export const getStateImagePath = (stateCode, imageName) => {
   return getAssetPath(`images/${stateCode}/${imageName}`);
 };
+
+// Get state-specific asset path using state configuration
+export const getStateAssetPath = (stateConfig, assetKey) => {
+  if (!stateConfig || !stateConfig.assets) {
+    return '';
+  }
+  
+  const assetPath = stateConfig.assets[assetKey];
+  return assetPath ? getAssetPath(assetPath) : '';
+};
+
+// Get state header image path
+export const getStateHeaderPath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'headerImage');
+};
+
+// Get state welcome image path  
+export const getStateWelcomePath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'welcomeImage');
+};
+
+// Get state admin image path
+export const getStateAdminPath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'adminImage');
+};
+
+// Get state documents image path
+export const getStateDocumentsPath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'documentsImage');
+};
+
+// Get state find transactions image path
+export const getStateFindTransactionsPath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'findTransactionsImage');
+};
+
+// Get state view reports image path
+export const getStateViewReportsPath = (stateConfig) => {
+  return getStateAssetPath(stateConfig, 'viewReportsImage');
+};

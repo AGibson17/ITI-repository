@@ -1,8 +1,11 @@
 import React from 'react';
-import { getCAImagePath } from '../utils/paths';
+import { getStateAssetPath } from '../utils/paths';
+import { useStateContext } from '../context/useStateContext';
 import '../styles/defaultStyles.css';
 
 const PlaceholderPage = ({ title, onNavigate }) => {
+  const { stateConfig } = useStateContext();
+
   const handleBackToDashboard = () => {
     onNavigate('dashboard');
   };
@@ -16,17 +19,17 @@ const PlaceholderPage = ({ title, onNavigate }) => {
       minHeight: '100vh'
     }}>
       {/* Header */}
-      <div style={{ backgroundColor: '#1e4a6b', padding: 0, margin: 0 }}>
+      <div style={{ backgroundColor: stateConfig?.colors?.secondary || '#1e4a6b', padding: 0, margin: 0 }}>
         <img
-          src={getCAImagePath('header-short.png')}
-          alt="CA DMV Header"
+          src={getStateAssetPath(stateConfig?.assets?.pageHeaderImage || 'header-short.png')}
+          alt={`${stateConfig?.fullName || 'CA'} DMV Header`}
           style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
         />
       </div>
 
       {/* Red Banner */}
       <div style={{
-        backgroundColor: '#c00',
+        backgroundColor: stateConfig?.colors?.accent || '#c00',
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
@@ -42,7 +45,7 @@ const PlaceholderPage = ({ title, onNavigate }) => {
         <h1 style={{ 
           fontSize: '32px', 
           fontWeight: 'bold', 
-          color: '#1e4a6b', 
+          color: stateConfig?.colors?.secondary || '#1e4a6b', 
           marginBottom: '20px',
           textTransform: 'uppercase'
         }}>
@@ -59,14 +62,14 @@ const PlaceholderPage = ({ title, onNavigate }) => {
         }}>
           <h2 style={{ 
             fontSize: '24px', 
-            color: '#666', 
+            color: stateConfig?.colors?.text || '#666', 
             marginBottom: '20px' 
           }}>
             Coming Soon
           </h2>
           <p style={{ 
             fontSize: '16px', 
-            color: '#666', 
+            color: stateConfig?.colors?.text || '#666', 
             marginBottom: '30px',
             lineHeight: '1.5'
           }}>
@@ -76,7 +79,7 @@ const PlaceholderPage = ({ title, onNavigate }) => {
           <button
             onClick={handleBackToDashboard}
             style={{
-              backgroundColor: '#26608f',
+              backgroundColor: stateConfig?.colors?.primary || '#26608f',
               color: 'white',
               border: 'none',
               padding: '12px 24px',
@@ -86,8 +89,8 @@ const PlaceholderPage = ({ title, onNavigate }) => {
               fontWeight: 'bold',
               textTransform: 'uppercase'
             }}
-            onMouseOver={(e) => e.target.style.backgroundColor = '#1e4a6b'}
-            onMouseOut={(e) => e.target.style.backgroundColor = '#26608f'}
+            onMouseOver={(e) => e.target.style.backgroundColor = stateConfig?.colors?.secondary || '#1e4a6b'}
+            onMouseOut={(e) => e.target.style.backgroundColor = stateConfig?.colors?.primary || '#26608f'}
           >
             ← Back to Dashboard
           </button>

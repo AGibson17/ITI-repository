@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './TransactionDetails.css';
-import { getCAImagePath, getGlobalImagePath, getAssetPath } from '../utils/paths';
+import { getAssetPath, getGlobalImagePath } from '../utils/paths';
+import { loadStateTransactionData } from '../utils/genericTransactionDataLoader';
+import { useStateContext } from '../context/useStateContext';
 
-const TransactionDetails = ({ transactionId }) => {
+const TransactionDetails = ({ transactionId, onNavigate }) => {
+  const { stateConfig } = useStateContext();
   const [transactionData, setTransactionData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,76 +16,39 @@ const TransactionDetails = ({ transactionId }) => {
       try {
         setIsLoading(true);
         
-        // Load transaction data from the main source
-        const response = await fetch(getAssetPath('TransData/CA/ca_error_scenarios_full.json'));
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load transaction data: ${response.status}`);
+        // Ensure we have state configuration
+        if (!stateConfig?.code) {
+          setError('State configuration not found');
+          return;
         }
         
-        const data = await response.json();
-
-        // Normalize the error scenarios data to match the expected structure
-        const normalizedErrorScenarios = data.map(scenario => {
-          const detail = scenario.TransactionDetail;
-          
-          // Convert Payments object to array format if it exists
-          let payments = [];
-          if (detail.Payments && typeof detail.Payments === 'object' && !Array.isArray(detail.Payments)) {
-            payments = [{
-              PayID: detail.Payments.PayID || '',
-              PayType: detail.Payments.PayType || '',
-              CardType: detail.Payments.CardType || '',
-              Last4: detail.Payments.Last4 || '',
-              Amt: detail.Payments.Amt || '',
-              PayStatus: detail.Payments.Status || '',
-              Error: detail.Payments.Error || 'None',
-              Conf: detail.Payments.Conf || '',
-              ReprintReqdYN: detail.Payments.ReprintReqdYN || 'N'
-            }];
-          } else if (Array.isArray(detail.Payments)) {
-            payments = detail.Payments;
-          }
-
-          return {
-            SST: detail.SST || '',
-            TransStatus: detail.Status || '',
-            Product: detail.Product || '',
-            'SST Trans': detail['SST Trans'] || '',
-            Date: detail.Date || '',
-            'Request Info': detail['Request Info'] || '',
-            Grade: detail.Grade || '',
-            Vehicles: detail.Vehicles || [],
-            'Session Length': detail['Session Length'] || '',
-            Payments: payments,
-            'Last Form': detail['Last Form'] || '',
-            Language: detail.Language || '',
-            Errors: Array.isArray(detail.Errors) ? detail.Errors.join('; ') : (detail.Errors || 'None')
-          };
-        });
-
-        // Use the normalized transaction data
-        const allTransactions = normalizedErrorScenarios;
+        // Load transaction data using the dynamic data loader
+        const allTransactions = await loadStateTransactionData(stateConfig.code);
         
         // Find the specific transaction
-        const transaction = allTransactions.find(t => t['SST Trans'] === transactionId);
+        const transaction = allTransactions.find(t => 
+          t['SST Trans'] === transactionId || 
+          t.TransactionNumber === transactionId
+        );
         
         if (transaction) {
           setTransactionData(transaction);
           setTotalResults(allTransactions.length);
         } else {
-          setError('Transaction not found');
+          setError(`Transaction ${transactionId} not found`);
         }
       } catch (err) {
-        setError('Error loading transaction details');
-        console.error(err);
+        setError(`Error loading transaction details: ${err.message}`);
+        console.error('TransactionDetails error:', err);
       } finally {
         setIsLoading(false);
       }
     };
 
-    loadTransactionDetails();
-  }, [transactionId]);
+    if (transactionId && stateConfig?.code) {
+      loadTransactionDetails();
+    }
+  }, [transactionId, stateConfig?.code]);
 
   // Extract plate number from Request Info for incomplete transactions
   const getPlateFromRequestInfo = (requestInfo) => {
@@ -164,7 +130,11 @@ const TransactionDetails = ({ transactionId }) => {
           {/* Header Row */}
           <tr id="ImageRow" className="header">
             <td>
-              <img src={getCAImagePath('text.png')} id="TopImage1" alt="CA DMV Header" />
+              <img 
+                src={getAssetPath(stateConfig?.assets?.pageHeaderImage)} 
+                id="TopImage1" 
+                alt={`${stateConfig?.fullName || 'State'} ${stateConfig?.terminology?.department || 'DMV'} Header`} 
+              />
               <img id="TopImage2" align="right" />
             </td>
           </tr>
@@ -208,10 +178,10 @@ const TransactionDetails = ({ transactionId }) => {
                                         Product: {getProductAbbrev(transactionData.Product)}
                                       </span>&nbsp;&nbsp; 
                                       <span style={{ whiteSpace: 'nowrap' }}>
-                                        SSTID: {getSSID(transactionData.SST)}
+                                        {stateConfig?.terminology?.sst || 'SST'}ID: {getSSID(transactionData.SST)}
                                       </span>&nbsp;&nbsp; 
                                       <span style={{ whiteSpace: 'nowrap' }}>
-                                        SSTTransNo: {transactionData['SST Trans']}
+                                        {stateConfig?.terminology?.sst || 'SST'}TransNo: {transactionData['SST Trans']}
                                       </span>&nbsp;&nbsp; 
                                       <span style={{ whiteSpace: 'nowrap' }}>
                                         Run Date: {formatRunDate(transactionData.Date)}
@@ -236,7 +206,7 @@ const TransactionDetails = ({ transactionId }) => {
                                     id="imgBtnPrev"
                                     src={getGlobalImagePath('btn-previous.png')}
                                     alt="Previous"
-                                    onClick={() => window.close()}
+                                    onClick={() => onNavigate && onNavigate('sstSearch')}
                                     style={{ cursor: 'pointer' }}
                                   />
                                   <input
@@ -245,11 +215,7 @@ const TransactionDetails = ({ transactionId }) => {
                                     id="imgBtnHome"
                                     src={getGlobalImagePath('btn-main-menu.png')}
                                     alt="Main Menu"
-                                    onClick={() => {
-                                      const baseUrl = window.location.origin + window.location.pathname;
-                                      const homeUrl = `${baseUrl}?page=dashboard`;
-                                      window.location.href = homeUrl;
-                                    }}
+                                    onClick={() => onNavigate && onNavigate('dashboard')}
                                     style={{ cursor: 'pointer' }}
                                   />
                                   <input
@@ -258,11 +224,7 @@ const TransactionDetails = ({ transactionId }) => {
                                     id="imgBtnLogout"
                                     src={getGlobalImagePath('btn-logout.png')}
                                     alt="Logout"
-                                    onClick={() => {
-                                      const baseUrl = window.location.origin + window.location.pathname;
-                                      const logoutUrl = `${baseUrl}?page=stateLanding`;
-                                      window.location.href = logoutUrl;
-                                    }}
+                                    onClick={() => onNavigate && onNavigate('stateLanding')}
                                     style={{ cursor: 'pointer' }}
                                   />
                                 </td>

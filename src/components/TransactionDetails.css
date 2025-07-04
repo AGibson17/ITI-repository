@@ -147,6 +147,16 @@
     height: auto;
     margin: 0 1px;
   }
+  
+  /* Mobile header adjustments */
+  .sst-container .header td {
+    padding: 0;
+  }
+  
+  .sst-container #TopImage1 {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Ensure consistent styling with existing components */
@@ -170,4 +180,25 @@ input[type="image"]:hover {
 /* Status color styling */
 .ReptGridView td b {
   font-weight: bold;
+}
+
+/* ===== HEADER SECTION ===== */
+/* Blue header section to match other components */
+.sst-container .header {
+  background-color: #17456d;
+  padding: 0;
+  margin: 0;
+}
+
+.sst-container .header td {
+  background-color: #17456d;
+  padding: 0;
+  margin: 0;
+}
+
+.sst-container #TopImage1 {
+  height: auto;
+  display: block;
+  object-fit: contain;
+  width: 100%;
 }
