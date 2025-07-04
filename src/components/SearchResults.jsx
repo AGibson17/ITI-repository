@@ -1,16 +1,8 @@
-import React from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import './SearchResults.css';
 
 const SearchResults = ({ results, onTransactionClick, currentState }) => {
-  if (!results || results.length === 0) {
-    return (
-      <div className="search-results-container">
-        <div className="no-results">
-          <p>No transactions found for the specified criteria.</p>
-        </div>
-      </div>
-    );
-  }
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
   // Define column order based on state
   const getColumnOrder = (stateCode) => {
@@ -40,6 +32,104 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
   };
 
   const columnOrder = getColumnOrder(currentState);
+
+  // Helper function to get payment info from transaction
+  const getPaymentInfo = useCallback((transaction) => {
+    const payments = transaction.Payments || [];
+    if (payments.length > 0) {
+      return {
+        payType: payments[0].PayType || '',
+        amount: payments[0].Amt || '$0.00'
+      };
+    }
+    return { payType: '', amount: '$0.00' };
+  }, []);
+
+  // Function to get sortable value from transaction
+  const getSortValue = useCallback((transaction, column) => {
+    const paymentInfo = getPaymentInfo(transaction);
+    
+    switch (column) {
+      case 'Product':
+        return transaction.Product || '';
+      case 'SST':
+        return transaction.SST || '';
+      case 'TransNo':
+        return transaction['SST Trans'] || '';
+      case 'Date': {
+        // Convert date to timestamp for proper sorting
+        const dateValue = new Date(transaction.Date);
+        return isNaN(dateValue.getTime()) ? 0 : dateValue.getTime();
+      }
+      case 'PayAmt': {
+        // Extract numeric value from currency string
+        const amount = paymentInfo.amount || '$0.00';
+        return parseFloat(amount.replace(/[$,]/g, '')) || 0;
+      }
+      case 'PayType':
+        return paymentInfo.payType || '';
+      case 'TransInfo': {
+        // Extract plate number for sorting TransInfo
+        const vehicles = transaction.Vehicles || [];
+        if (vehicles.length > 0) {
+          return vehicles[0].Plate || '';
+        }
+        const requestInfo = transaction['Request Info'] || '';
+        const plateMatch = requestInfo.match(/Plate: (\w+)/);
+        return plateMatch ? plateMatch[1] : '';
+      }
+      case 'Status':
+        return transaction.TransStatus || '';
+      default:
+        return '';
+    }
+  }, [getPaymentInfo]);
+
+  // Sort the results based on current sort configuration
+  const sortedResults = useMemo(() => {
+    if (!results || results.length === 0 || !sortConfig.key) {
+      return results || [];
+    }
+
+    return [...results].sort((a, b) => {
+      const aVal = getSortValue(a, sortConfig.key);
+      const bVal = getSortValue(b, sortConfig.key);
+
+      if (aVal < bVal) {
+        return sortConfig.direction === 'asc' ? -1 : 1;
+      }
+      if (aVal > bVal) {
+        return sortConfig.direction === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+  }, [results, sortConfig, getSortValue]);
+
+  if (!results || results.length === 0) {
+    return (
+      <div className="search-results-container">
+        <div className="no-results">
+          <p>No transactions found for the specified criteria.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle column header click for sorting
+  const handleSort = (column) => {
+    setSortConfig(prevConfig => ({
+      key: column,
+      direction: prevConfig.key === column && prevConfig.direction === 'asc' ? 'desc' : 'asc'
+    }));
+  };
+
+  // Get sort indicator for column headers
+  const getSortIndicator = (column) => {
+    if (sortConfig.key !== column) {
+      return ' ↕️'; // Unsorted indicator
+    }
+    return sortConfig.direction === 'asc' ? ' ↑' : ' ↓';
+  };
 
   const handleTransactionClick = (transaction) => {
     // Open transaction details in a new tab
@@ -84,17 +174,6 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         Plate: <strong>{plate}</strong>
       </>
     );
-  };
-
-  const getPaymentInfo = (transaction) => {
-    const payments = transaction.Payments || [];
-    if (payments.length > 0) {
-      return {
-        payType: payments[0].PayType || '',
-        amount: payments[0].Amt || '$0.00'
-      };
-    }
-    return { payType: '', amount: '$0.00' };
   };
 
   // Get status color based on transaction status
@@ -185,14 +264,14 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         <thead>
           <tr>
             {columnOrder.map(column => (
-              <th key={column} title={`Click to sort by ${getColumnHeader(column)}`} scope="col">
-                {getColumnHeader(column)}
+              <th key={column} title={`Click to sort by ${getColumnHeader(column)}`} scope="col" onClick={() => handleSort(column)}>
+                {getColumnHeader(column)}{getSortIndicator(column)}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {results.map((transaction, index) => {
+          {sortedResults.map((transaction, index) => {
             const isEvenRow = index % 2 === 1; // Alternate row coloring
             
             return (

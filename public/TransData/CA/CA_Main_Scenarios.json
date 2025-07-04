@@ -384,7 +384,7 @@
     "IssueDetail": "Cassette Error",
     "Prompt": "Issue: Customer inserted over $200, received $2 back, and no registration or receipt.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
     "TransactionDetail": {
-      "SST": "99 Ranch Fremont - KCR 402",
+      "SST": "Ralphs Anaheim - KDI 427",
       "Status": "Incomplete (Errors)",
       "Product": "Vehicle Renewal",
       "SST Trans": "95718",
@@ -469,7 +469,7 @@
     "IssueDetail": "Card Inserted",
     "Prompt": "Issue: Customer said they tried inserting their card but it never recognized the card.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
     "TransactionDetail": {
-      "SST": "Save Mart Fresno - KFR 187",
+      "SST": "Save Mart Modesto - KFR 187",
       "Status": "Cancelled",
       "Product": "Vehicle Renewal",
       "SST Trans": "81250",

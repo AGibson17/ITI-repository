@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SearchResults from './SearchResults';
 import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
@@ -8,9 +8,16 @@ import { useStateContext } from '../context/useStateContext';
 
 export default function SSTSearch({ onNavigate }) {
   const { stateConfig } = useStateContext();
-  const [searchBy, setSearchBy] = useState('sst-dates');
+  
+  // Get default search type from state configuration, fallback to 'sst-dates'
+  const getDefaultSearchType = useCallback(() => {
+    return stateConfig?.features?.defaultSearchType || 'sst-dates';
+  }, [stateConfig]);
+  
+  const [searchBy, setSearchBy] = useState(getDefaultSearchType());
   const [product, setProduct] = useState('<ALL>');
   const [plateValue, setPlateValue] = useState('');
+  const [plateSearchType, setPlateSearchType] = useState('Full');
   const [fromDate, setFromDate] = useState(new Date().toISOString().split('T')[0]);
   const [toDate, setToDate] = useState(new Date().toISOString().split('T')[0]);
   const [transNo, setTransNo] = useState('');
@@ -25,6 +32,11 @@ export default function SSTSearch({ onNavigate }) {
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Update search type when state config changes
+  useEffect(() => {
+    setSearchBy(getDefaultSearchType());
+  }, [getDefaultSearchType]);
 
   // Clear search results when search type changes
   useEffect(() => {
@@ -66,6 +78,7 @@ export default function SSTSearch({ onNavigate }) {
         product: product,
         searchBy: searchBy,
         plateValue: plateValue,
+        plateSearchType: plateSearchType, // Add Full/Partial search type
         transValue: transNo,
         vinValue: vinValue,
         vipValue: vipValue,
@@ -315,12 +328,12 @@ export default function SSTSearch({ onNavigate }) {
                                           </>
                                         )}
                                         {searchBy === 'plate' && (
-                                          <td id="ContentPlaceHolder1_GenericTextEntry1">
+                                          <td id="ContentPlateHolder1_GenericTextEntry1">
                                             <table>
                                               <tbody>
                                                 <tr>
                                                   <td>
-                                                    <span id="ContentPlaceHolder1_lblGenericTextEntry1" className="labelBlue">Plate:</span>
+                                                    <span id="ContentPlateHolder1_lblGenericTextEntry1" className="labelBlue">Plate:</span>
                                                   </td>
                                                 </tr>
                                                 <tr>
@@ -328,7 +341,7 @@ export default function SSTSearch({ onNavigate }) {
                                                     <input
                                                       name="txtGenericTextEntry1"
                                                       type="text"
-                                                      id="ContentPlaceHolder1_txtGenericTextEntry1"
+                                                      id="ContentPlateHolder1_txtGenericTextEntry1"
                                                       tabIndex="1"
                                                       className="InputGrey"
                                                       value={plateValue}
@@ -336,6 +349,34 @@ export default function SSTSearch({ onNavigate }) {
                                                       onKeyPress={handlePlateKeyPress}
                                                       placeholder="Enter plate number"
                                                     />
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <div style={{ marginTop: '5px', display: 'flex', gap: '10px' }}>
+                                                      <label style={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}>
+                                                        <input
+                                                          type="radio"
+                                                          name="plateSearchType"
+                                                          value="Full"
+                                                          checked={plateSearchType === 'Full'}
+                                                          onChange={(e) => setPlateSearchType(e.target.value)}
+                                                          style={{ marginRight: '4px' }}
+                                                        />
+                                                        Full
+                                                      </label>
+                                                      <label style={{ display: 'flex', alignItems: 'center', fontSize: '12px' }}>
+                                                        <input
+                                                          type="radio"
+                                                          name="plateSearchType"
+                                                          value="Partial"
+                                                          checked={plateSearchType === 'Partial'}
+                                                          onChange={(e) => setPlateSearchType(e.target.value)}
+                                                          style={{ marginRight: '4px' }}
+                                                        />
+                                                        Partial
+                                                      </label>
+                                                    </div>
                                                   </td>
                                                 </tr>
                                               </tbody>

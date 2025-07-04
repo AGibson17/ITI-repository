@@ -20,6 +20,13 @@
   border: 1px solid #ccc;
   font-weight: bold;
   color: #333;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.ReptGridView th:hover {
+  background-color: #e8e8e8;
 }
 
 .ReptGridView th a {

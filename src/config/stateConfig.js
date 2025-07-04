@@ -44,7 +44,8 @@ export const STATE_CONFIGS = {
       hasAuxiliaryData: true, // CA has NIRD auxiliary data
       hasHistoricalData: true,
       hasVIPSearch: true,
-      hasDLNSearch: false
+      hasDLNSearch: false,
+      defaultSearchType: 'sst-dates' // CA defaults to SST/Dates search
     },
     vehicleDataSchema: {
       // Define the vehicle data structure for California
@@ -106,7 +107,8 @@ export const STATE_CONFIGS = {
       hasAuxiliaryData: true, // CO has auxiliary transaction data
       hasHistoricalData: true,
       hasVIPSearch: true,
-      hasDLNSearch: true
+      hasDLNSearch: true,
+      defaultSearchType: 'sst-dates' // CO defaults to SST/Dates search
     }
   },
   
@@ -150,7 +152,8 @@ export const STATE_CONFIGS = {
       hasAuxiliaryData: true, // FL has auxiliary transaction data
       hasHistoricalData: true,
       hasVIPSearch: false,
-      hasDLNSearch: true
+      hasDLNSearch: true,
+      defaultSearchType: 'sst-dates' // FL defaults to SST/Dates search
     }
   },
   
@@ -194,7 +197,8 @@ export const STATE_CONFIGS = {
       hasAuxiliaryData: false,
       hasHistoricalData: true,
       hasVIPSearch: true,
-      hasDLNSearch: false
+      hasDLNSearch: false,
+      defaultSearchType: 'plate' // MI defaults to Plate search
     }
   },
   
@@ -238,7 +242,8 @@ export const STATE_CONFIGS = {
       hasAuxiliaryData: true,
       hasHistoricalData: true,
       hasVIPSearch: true,
-      hasDLNSearch: false
+      hasDLNSearch: false,
+      defaultSearchType: 'plate' // HI defaults to Plate search
     },
     vehicleDataSchema: {
       // Define the vehicle data structure for Hawaii

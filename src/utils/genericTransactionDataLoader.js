@@ -224,6 +224,7 @@ export const searchTransactions = (transactions, searchCriteria, stateCode = 'CA
     product = '<ALL>', 
     searchBy = 'sst-dates', 
     plateValue = '', 
+    plateSearchType = 'Full', // Add plateSearchType parameter
     transValue = '', 
     vinValue = '', 
     vipValue = '', 
@@ -245,7 +246,15 @@ export const searchTransactions = (transactions, searchCriteria, stateCode = 'CA
       case 'plate': {
         if (!plateValue.trim()) return false;
         const plateSearch = plateValue.trim().toUpperCase();
-        return transaction.Plate && transaction.Plate.toUpperCase().includes(plateSearch);
+        
+        // Handle Full vs Partial search
+        if (plateSearchType === 'Full') {
+          // Full search - exact match
+          return transaction.Plate && transaction.Plate.toUpperCase() === plateSearch;
+        } else {
+          // Partial search - contains match
+          return transaction.Plate && transaction.Plate.toUpperCase().includes(plateSearch);
+        }
       }
       
       case 'trans-no': {
