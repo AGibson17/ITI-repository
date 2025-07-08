@@ -6,6 +6,7 @@ import StateLanding from './components/StateLanding';
 import PlaceholderPage from './components/PlaceholderPage';
 import TransactionDetails from './components/TransactionDetails';
 import HawaiiDataTest from './components/HawaiiDataTest';
+import NewMexicoDataTest from './components/NewMexicoDataTest';
 import { StateProvider } from './context/StateContext.jsx';
 import './App.css';
 
@@ -59,6 +60,8 @@ export default function App() {
         return <TransactionDetails transactionId={selectedTransactionId} onNavigate={handleNavigation} />;
       case 'hawaiiTest':
         return <HawaiiDataTest />;
+      case 'nmTest':
+        return <NewMexicoDataTest />;
       case 'stateLanding':
       default:
         return <StateLanding onNavigate={handleNavigation} />;

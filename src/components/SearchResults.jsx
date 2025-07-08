@@ -1,11 +1,18 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import './SearchResults.css';
+import { useStateContext } from '../context/useStateContext';
 
 const SearchResults = ({ results, onTransactionClick, currentState }) => {
+  const { stateConfig } = useStateContext();
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
   // Define column order based on state
   const getColumnOrder = (stateCode) => {
+    // Check if state has custom display configuration
+    if (stateCode === 'NM' && stateConfig?.displayConfig?.searchResults?.columns) {
+      return stateConfig.displayConfig.searchResults.columns;
+    }
+    
     if (stateCode === 'HI') {
       return [
         'Product',
@@ -77,6 +84,19 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         const requestInfo = transaction['Request Info'] || '';
         const plateMatch = requestInfo.match(/Plate: (\w+)/);
         return plateMatch ? plateMatch[1] : '';
+      }
+      case 'RequestInfo': {
+        // Sort by VIN or Plate from RequestInfo
+        const requestInfo = transaction.RequestInfo || '';
+        const vinMatch = requestInfo.match(/VIN: (\w+)/);
+        const plateMatch = requestInfo.match(/Plate: (\w+)/);
+        return vinMatch ? vinMatch[1] : (plateMatch ? plateMatch[1] : requestInfo);
+      }
+      case 'PayInfo': {
+        // Sort by payment amount from PayInfo
+        const payInfo = transaction.PayInfo || '';
+        const amountMatch = payInfo.match(/\$[\d,]+\.?\d*/);
+        return amountMatch ? parseFloat(amountMatch[0].replace(/[$,]/g, '')) : 0;
       }
       case 'Status':
         return transaction.TransStatus || '';
@@ -204,10 +224,88 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         return 'PayType';
       case 'PayAmt':
         return 'PayAmt';
+      case 'RequestInfo':
+        return 'RequestInfo';
+      case 'PayInfo':
+        return 'PayInfo';
       case 'Status':
         return 'Status';
       default:
         return column;
+    }
+  };
+
+  // Format custom columns for NM based on stateConfig formatting rules
+  const formatCustomColumn = (column, transaction) => {
+    const displayConfig = stateConfig?.displayConfig?.searchResults;
+    if (!displayConfig || currentState !== 'NM') {
+      return transaction[column] || '';
+    }
+
+    const formatting = displayConfig.formatting?.[column];
+    if (!formatting) {
+      return transaction[column] || '';
+    }
+
+    const { format } = formatting;
+    
+    switch (column) {
+      case 'RequestInfo': {
+        if (format === 'labeled') {
+          // Parse and format RequestInfo with labels
+          const requestInfo = transaction.RequestInfo || '';
+          const parts = [];
+          
+          // Extract specific fields and format them
+          const vinMatch = requestInfo.match(/VIN: (\w+)/);
+          const zipMatch = requestInfo.match(/Zip: (\w+)/);
+          const ctrlMatch = requestInfo.match(/CtrlNo: (\w+)/);
+          const plateMatch = requestInfo.match(/Plate: (\w+)/);
+          
+          if (vinMatch) parts.push(`VIN: <strong>${vinMatch[1]}</strong>`);
+          if (zipMatch) parts.push(`Zip: <strong>${zipMatch[1]}</strong>`);
+          if (ctrlMatch) parts.push(`CtrlNo: <strong>${ctrlMatch[1]}</strong>`);
+          if (plateMatch) parts.push(`Plate: <strong>${plateMatch[1]}</strong>`);
+          
+          return parts.join(' ');
+        }
+        return transaction.RequestInfo || '';
+      }
+      
+      case 'PayInfo': {
+        if (format === 'combined') {
+          // Format PayInfo as "PayType $Amount"
+          const payInfo = transaction.PayInfo || '';
+          const typeMatch = payInfo.match(/^(\w+)/);
+          const amountMatch = payInfo.match(/\$[\d,]+\.?\d*/);
+          
+          if (typeMatch && amountMatch) {
+            return `${typeMatch[1]} <strong>${amountMatch[0]}</strong>`;
+          }
+        }
+        return transaction.PayInfo || '';
+      }
+      
+      case 'TransInfo': {
+        if (format === 'unlabeled') {
+          // Format TransInfo with labeled plate/VIN but unlabeled owner
+          const transInfo = transaction.TransInfo || '';
+          const plateMatch = transInfo.match(/Plate: (\w+)/);
+          const vinMatch = transInfo.match(/VIN: (\w+)/);
+          const ownerMatch = transInfo.match(/VIN: \w+ (.+)$/);
+          
+          const parts = [];
+          if (plateMatch) parts.push(`Plate: <strong>${plateMatch[1]}</strong>`);
+          if (vinMatch) parts.push(`VIN: <strong>${vinMatch[1]}</strong>`);
+          if (ownerMatch) parts.push(`<strong>${ownerMatch[1]}</strong>`);
+          
+          return parts.join(' ');
+        }
+        return transaction.TransInfo || '';
+      }
+      
+      default:
+        return transaction[column] || '';
     }
   };
 
@@ -238,15 +336,41 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       case 'Date':
         return <td key={column}>{transaction.Date}</td>;
       case 'TransInfo':
-        return (
-          <td key={column} className="trans-info">
-            {formatTransInfo(transaction)}
-          </td>
-        );
+        // Use custom formatting for NM, regular formatting for others
+        if (currentState === 'NM') {
+          const formattedContent = formatCustomColumn(column, transaction);
+          return (
+            <td key={column} className="trans-info">
+              <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
+            </td>
+          );
+        } else {
+          return (
+            <td key={column} className="trans-info">
+              {formatTransInfo(transaction)}
+            </td>
+          );
+        }
       case 'PayType':
         return <td key={column}>{paymentInfo.payType}</td>;
       case 'PayAmt':
         return <td key={column}>{paymentInfo.amount}</td>;
+      case 'RequestInfo': {
+        const formattedContent = formatCustomColumn(column, transaction);
+        return (
+          <td key={column}>
+            <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
+          </td>
+        );
+      }
+      case 'PayInfo': {
+        const formattedContent = formatCustomColumn(column, transaction);
+        return (
+          <td key={column}>
+            <span dangerouslySetInnerHTML={{ __html: formattedContent }} />
+          </td>
+        );
+      }
       case 'Status':
         return (
           <td key={column} className="status" style={{ color: statusColor }}>

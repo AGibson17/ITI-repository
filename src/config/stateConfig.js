@@ -257,7 +257,7 @@ export const STATE_CONFIGS = {
     features: {
       hasAuxiliaryData: true,
       hasHistoricalData: true,
-      hasVIPSearch: true,
+      hasVIPSearch: false,
       hasDLNSearch: false,
       defaultSearchType: "plate", // HI defaults to Plate search
     },
@@ -338,38 +338,71 @@ export const STATE_CONFIGS = {
       hasVIPSearch: false,
       hasDLNSearch: false,
       defaultSearchType: "plate", // NM defaults to Plate search
-
-      vehicleDataSchema: {
-        // Define the vehicle data structure for New Mexico
-        fields: [
-          { key: "Plate", label: "Plate", type: "string", required: true },
-          { key: "Expires", label: "Expires", type: "date", required: true },
-          { key: "VIN", label: "VIN", type: "string", required: true },
-          { key: "Vehicle", label: "Vehicle", type: "string", required: true },
-          { key: "Owner", label: "Owner", type: "string", required: true },
-          { key: "Fees", label: "Fees", type: "currency", required: true },
-          { key: "Status", label: "Status", type: "string", required: true },
-          { key: "Title", label: "Title", type: "string", required: true },
-          {
-            key: "InspectionDate",
-            label: "Inspection Date",
-            type: "date",
-            required: false,
-          },
-          {
-            key: "FailedInspection",
-            label: "Failed Inspection",
-            type: "boolean",
-            required: false,
-          },
+    },
+    
+    // New Mexico-specific display configuration
+    displayConfig: {
+      searchResults: {
+        columns: [
+          'Product',
+          'SST', 
+          'TransNo',
+          'Date',
+          'RequestInfo', // NM uses RequestInfo instead of TransInfo
+          'PayInfo',     // NM uses PayInfo instead of separate PayType/PayAmt
+          'TransInfo',   // NM has different TransInfo format
+          'Status'
         ],
+        formatting: {
+          RequestInfo: {
+            // Define how to format request info for NM
+            fields: ['VIN', 'Zip', 'CtrlNo', 'Plate'],
+            format: 'labeled' // Shows "VIN: xxx Zip: xxx" etc.
+          },
+          PayInfo: {
+            // Define how to format payment info for NM  
+            fields: ['PayType', 'Amt'],
+            format: 'combined' // Shows "Credit $52.94"
+          },
+          TransInfo: {
+            // Define how to format transaction info for NM
+            fields: ['Plate', 'VIN', 'Owner'],
+            format: 'unlabeled' // Shows "Plate: xxx VIN: xxx OWNER NAME" (owner unlabeled)
+          }
+        }
+      }
+    },
 
-        optionalFields: [
-          { key: "Contact Info", label: "Contact Info", type: "string" },
-          { key: "ContactInfo", label: "Contact Info", type: "string" },
-          { key: "Renew Type", label: "Renew Type", type: "string" },
-        ],
-      },
+    vehicleDataSchema: {
+      // Define the vehicle data structure for New Mexico
+      fields: [
+        { key: "Plate", label: "Plate", type: "string", required: true },
+        { key: "Expires", label: "Expires", type: "date", required: true },
+        { key: "VIN", label: "VIN", type: "string", required: true },
+        { key: "Vehicle", label: "Vehicle", type: "string", required: true },
+        { key: "Owner", label: "Owner", type: "string", required: true },
+        { key: "Fees", label: "Fees", type: "currency", required: true },
+        { key: "Status", label: "Status", type: "string", required: true },
+        { key: "Title", label: "Title", type: "string", required: true },
+        {
+          key: "InspectionDate",
+          label: "Inspection Date",
+          type: "date",
+          required: false,
+        },
+        {
+          key: "FailedInspection",
+          label: "Failed Inspection",
+          type: "boolean",
+          required: false,
+        },
+      ],
+
+      optionalFields: [
+        { key: "Contact Info", label: "Contact Info", type: "string" },
+        { key: "ContactInfo", label: "Contact Info", type: "string" },
+        { key: "Renew Type", label: "Renew Type", type: "string" },
+      ],
     },
   },
 
@@ -395,10 +428,10 @@ export const STATE_CONFIGS = {
       department: "BMV",
     },
     assets: {
-      dashboardHeaderImage: "images/OH/header-short.png", // Dashboard-specific header
+      dashboardHeaderImage: "images/OH/header-short.jpg", // Dashboard-specific header
       pageHeaderImage: "images/OH/text.png", // Page headers with colored background
       logoPath: "images/OH/",
-      welcomeImage: "images/OH/welcome.png",
+      welcomeImage: "images/OH/welcome.jpg",
       adminImage: "images/OH/admin.png",
       documentsImage: "images/OH/documents.png",
       findTransactionsImage: "images/OH/find-transactions.png",
@@ -418,38 +451,38 @@ export const STATE_CONFIGS = {
       hasVIPSearch: false,
       hasDLNSearch: true,
       defaultSearchType: "plate", // OH defaults to Plate search
+    },
 
-      vehicleDataSchema: {
-        // Define the vehicle data structure for Ohio
-        fields: [
-          { key: "Plate", label: "Plate", type: "string", required: true },
-          { key: "Expires", label: "Expires", type: "date", required: true },
-          { key: "VIN", label: "VIN", type: "string", required: true },
-          { key: "Vehicle", label: "Vehicle", type: "string", required: true },
-          { key: "Owner", label: "Owner", type: "string", required: true },
-          { key: "Fees", label: "Fees", type: "currency", required: true },
-          { key: "Status", label: "Status", type: "string", required: true },
-          { key: "Title", label: "Title", type: "string", required: true },
-          {
-            key: "InspectionDate",
-            label: "Inspection Date",
-            type: "date",
-            required: false,
-          },
-          {
-            key: "FailedInspection",
-            label: "Failed Inspection",
-            type: "boolean",
-            required: false,
-          },
-        ],
+    vehicleDataSchema: {
+      // Define the vehicle data structure for Ohio
+      fields: [
+        { key: "Plate", label: "Plate", type: "string", required: true },
+        { key: "Expires", label: "Expires", type: "date", required: true },
+        { key: "VIN", label: "VIN", type: "string", required: true },
+        { key: "Vehicle", label: "Vehicle", type: "string", required: true },
+        { key: "Owner", label: "Owner", type: "string", required: true },
+        { key: "Fees", label: "Fees", type: "currency", required: true },
+        { key: "Status", label: "Status", type: "string", required: true },
+        { key: "Title", label: "Title", type: "string", required: true },
+        {
+          key: "InspectionDate",
+          label: "Inspection Date",
+          type: "date",
+          required: false,
+        },
+        {
+          key: "FailedInspection",
+          label: "Failed Inspection",
+          type: "boolean",
+          required: false,
+        },
+      ],
 
-        optionalFields: [
-          { key: "Contact Info", label: "Contact Info", type: "string" },
-          { key: "ContactInfo", label: "Contact Info", type: "string" },
-          { key: "Renew Type", label: "Renew Type", type: "string" },
-        ],
-      },
+      optionalFields: [
+        { key: "Contact Info", label: "Contact Info", type: "string" },
+        { key: "ContactInfo", label: "Contact Info", type: "string" },
+        { key: "Renew Type", label: "Renew Type", type: "string" },
+      ],
     },
   },
 };
