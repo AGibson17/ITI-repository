@@ -13,21 +13,6 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       return stateConfig.displayConfig.searchResults.columns;
     }
     
-    if (stateCode === 'IN') {
-      return [
-        'Product',
-        'SST',
-        'TransNo',
-        'Date',
-        'Last4DLN',
-        'Last4FedID',
-        'PayType',
-        'PayAmt',
-        'TransInfo',
-        'Status'
-      ];
-    }
-    
     if (stateCode === 'HI') {
       return [
         'Product',
@@ -90,10 +75,6 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       }
       case 'PayType':
         return paymentInfo.payType || '';
-      case 'Last4DLN':
-        return transaction.Last4DLN || '';
-      case 'Last4FedID':
-        return transaction.Last4FedID || '';
       case 'TransInfo': {
         // Extract plate number for sorting TransInfo
         const vehicles = transaction.Vehicles || [];
@@ -183,58 +164,81 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
   };
 
   const formatTransInfo = (transaction) => {
-    // Handle Indiana-specific formatting
+    if (!transaction) return '';
+    
+    // For Indiana - match production formatting exactly
     if (currentState === 'IN') {
-      const vehicles = transaction.Vehicles || [];
-      
-      // If no vehicles, show Last4DLN and Last4FedID format (for ineligible transactions)
-      if (vehicles.length === 0) {
+      // For Ineligible transactions, show Last4DLN and Last4FedID format
+      if (transaction.TransStatus === 'Ineligible') {
         const last4DLN = transaction.Last4DLN || '';
         const last4FedID = transaction.Last4FedID || '';
+        return `Last4DLN: ${last4DLN} Last4FedID: ${last4FedID}`;
+      }
+      
+      // For transactions with vehicles
+      if (transaction.Vehicles && Array.isArray(transaction.Vehicles)) {
+        const vehicleInfo = transaction.Vehicles.map(vehicle => {
+          const plate = vehicle.Plate || '';
+          const vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
+          const owner = vehicle.Owner || '';
+          const renewed = vehicle.Renewed === 'Y' ? '   - COMPLETED' : '';
+          return `Plate: ${plate}   L4VIN: ${vin}   Owner: ${owner}${renewed}`;
+        }).join('<br />   ');
+        
+        return <span dangerouslySetInnerHTML={{ __html: vehicleInfo }} />;
+      }
+      
+      // Fallback for single vehicle transactions
+      const plate = transaction.Plate || '';
+      const vin = transaction.VIN ? transaction.VIN.slice(-4) : '';
+      const owner = transaction.Owner || '';
+      const renewed = transaction.Renewed === 'Y' ? '   - COMPLETED' : '';
+      return `Plate: ${plate}   L4VIN: ${vin}   Owner: ${owner}${renewed}`;
+    }
+    
+    // For Hawaii - existing Hawaii format
+    if (currentState === 'HI') {
+      const vehicles = transaction.Vehicles || [];
+      if (vehicles.length > 0) {
+        const vehicle = vehicles[0]; // Use first vehicle
+        const l4vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
+        
+        // Handle Hawaii-specific Title field for L4Title
+        let l4TitleInfo = '';
+        if (vehicle.Title) {
+          // Extract last part of title as L4Title (e.g., "AKF392 25" -> "3 25")
+          const titleParts = vehicle.Title.split(' ');
+          if (titleParts.length > 1) {
+            l4TitleInfo = ` L4Title: <strong>${titleParts.slice(-2).join(' ')}</strong>`;
+          }
+        }
+        
         return (
           <>
-            Last4DLN: {last4DLN} Last4FedID: {last4FedID}
+            Plate: <strong>{vehicle.Plate}</strong> L4VIN: <strong>{l4vin}</strong>{l4TitleInfo ? <span dangerouslySetInnerHTML={{__html: l4TitleInfo}} /> : ''} Owner: <strong>{vehicle.Owner}</strong>
           </>
         );
       }
-      
-      // For transactions with vehicles, format each vehicle line
-      const vehicleLines = vehicles.map((vehicle, index) => {
-        const plate = vehicle.Plate || '';
-        const l4vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
-        const owner = vehicle.Owner || '';
-        const renewed = vehicle.Renewed === 'Yes' ? '   - COMPLETED' : '';
-        
-        return (
-          <React.Fragment key={index}>
-            {index > 0 && <br />}
-            {'   '}Plate: {plate}   L4VIN: {l4vin}   Owner: {owner}{renewed} 
-          </React.Fragment>
-        );
-      });
-      
-      return <>{vehicleLines}</>;
+      // Fallback to request info if no vehicles
+      const requestInfo = transaction['Request Info'] || '';
+      const plateMatch = requestInfo.match(/Plate: (\w+)/);
+      const plate = plateMatch ? plateMatch[1] : '';
+      return (
+        <>
+          Plate: <strong>{plate}</strong>
+        </>
+      );
     }
     
-    // Original formatting for other states
+    // Default format for other states (CA, etc.)
     const vehicles = transaction.Vehicles || [];
     if (vehicles.length > 0) {
       const vehicle = vehicles[0]; // Use first vehicle
       const l4vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
       
-      // Handle Hawaii-specific Title field for L4Title
-      let l4TitleInfo = '';
-      if (vehicle.Title) {
-        // Extract last part of title as L4Title (e.g., "AKF392 25" -> "3 25")
-        const titleParts = vehicle.Title.split(' ');
-        if (titleParts.length > 1) {
-          l4TitleInfo = ` L4Title: <strong>${titleParts.slice(-2).join(' ')}</strong>`;
-        }
-      }
-      
       return (
         <>
-          Plate: <strong>{vehicle.Plate}</strong> L4VIN: <strong>{l4vin}</strong>{l4TitleInfo ? <span dangerouslySetInnerHTML={{__html: l4TitleInfo}} /> : ''} Owner: <strong>{vehicle.Owner}</strong>
+          Plate: <strong>{vehicle.Plate}</strong> L4VIN: <strong>{l4vin}</strong> Owner: <strong>{vehicle.Owner}</strong>
         </>
       );
     }
@@ -262,6 +266,18 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
   };
 
   const getColumnHeader = (column) => {
+    // Check if we have display config for this state
+    const displayConfig = stateConfig?.displayConfig?.searchResultsColumns;
+    if (displayConfig) {
+      const columnConfig = displayConfig.find(col => 
+        typeof col === 'object' ? col.key === column : col === column
+      );
+      if (columnConfig && typeof columnConfig === 'object' && columnConfig.label) {
+        return columnConfig.label;
+      }
+    }
+    
+    // Fallback to hardcoded headers
     switch (column) {
       case 'Product':
         return 'Product';
@@ -271,22 +287,22 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         return 'TransNo';
       case 'Date':
         return 'Date';
-      case 'Last4DLN':
-        return 'Last4DLN';
-      case 'Last4FedID':
-        return 'Last4FedID';
       case 'TransInfo':
         return 'TransInfo';
       case 'PayType':
         return 'PayType';
       case 'PayAmt':
-        return 'Pay<br>Amt';
+        return 'PayAmt';
       case 'RequestInfo':
         return 'RequestInfo';
       case 'PayInfo':
         return 'PayInfo';
       case 'Status':
         return 'Status';
+      case 'Last4DLN':
+        return 'Last4DLN';
+      case 'Last4FedID':
+        return 'Last4FedID';
       default:
         return column;
     }
@@ -392,10 +408,6 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         );
       case 'Date':
         return <td key={column}>{transaction.Date}</td>;
-      case 'Last4DLN':
-        return <td key={column}>{transaction.Last4DLN || ''}</td>;
-      case 'Last4FedID':
-        return <td key={column}>{transaction.Last4FedID || ''}</td>;
       case 'TransInfo':
         // Use custom formatting for NM, regular formatting for others
         if (currentState === 'NM') {
@@ -448,12 +460,21 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       <table className="ReptGridView search-results-table" cellSpacing="10" cellPadding="10">
         <thead>
           <tr>
-            {columnOrder.map(column => (
-              <th key={column} title={`Click to sort by ${getColumnHeader(column)}`} scope="col" onClick={() => handleSort(column)}>
-                <span dangerouslySetInnerHTML={{ __html: getColumnHeader(column) }} />
-                {getSortIndicator(column)}
-              </th>
-            ))}
+            {columnOrder.map(column => {
+              const headerText = getColumnHeader(column);
+              const isHtmlHeader = headerText.includes('<');
+              
+              return (
+                <th key={column} title={`Click to sort by ${column}`} scope="col" onClick={() => handleSort(column)}>
+                  {isHtmlHeader ? (
+                    <span dangerouslySetInnerHTML={{ __html: headerText }} />
+                  ) : (
+                    headerText
+                  )}
+                  {getSortIndicator(column)}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
