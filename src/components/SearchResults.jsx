@@ -13,6 +13,21 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       return stateConfig.displayConfig.searchResults.columns;
     }
     
+    if (stateCode === 'IN') {
+      return [
+        'Product',
+        'SST',
+        'TransNo',
+        'Date',
+        'Last4DLN',
+        'Last4FedID',
+        'PayType',
+        'PayAmt',
+        'TransInfo',
+        'Status'
+      ];
+    }
+    
     if (stateCode === 'HI') {
       return [
         'Product',
@@ -75,6 +90,10 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       }
       case 'PayType':
         return paymentInfo.payType || '';
+      case 'Last4DLN':
+        return transaction.Last4DLN || '';
+      case 'Last4FedID':
+        return transaction.Last4FedID || '';
       case 'TransInfo': {
         // Extract plate number for sorting TransInfo
         const vehicles = transaction.Vehicles || [];
@@ -164,6 +183,40 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
   };
 
   const formatTransInfo = (transaction) => {
+    // Handle Indiana-specific formatting
+    if (currentState === 'IN') {
+      const vehicles = transaction.Vehicles || [];
+      
+      // If no vehicles, show Last4DLN and Last4FedID format (for ineligible transactions)
+      if (vehicles.length === 0) {
+        const last4DLN = transaction.Last4DLN || '';
+        const last4FedID = transaction.Last4FedID || '';
+        return (
+          <>
+            Last4DLN: {last4DLN} Last4FedID: {last4FedID}
+          </>
+        );
+      }
+      
+      // For transactions with vehicles, format each vehicle line
+      const vehicleLines = vehicles.map((vehicle, index) => {
+        const plate = vehicle.Plate || '';
+        const l4vin = vehicle.VIN ? vehicle.VIN.slice(-4) : '';
+        const owner = vehicle.Owner || '';
+        const renewed = vehicle.Renewed === 'Yes' ? '   - COMPLETED' : '';
+        
+        return (
+          <React.Fragment key={index}>
+            {index > 0 && <br />}
+            {'   '}Plate: {plate}   L4VIN: {l4vin}   Owner: {owner}{renewed} 
+          </React.Fragment>
+        );
+      });
+      
+      return <>{vehicleLines}</>;
+    }
+    
+    // Original formatting for other states
     const vehicles = transaction.Vehicles || [];
     if (vehicles.length > 0) {
       const vehicle = vehicles[0]; // Use first vehicle
@@ -218,12 +271,16 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         return 'TransNo';
       case 'Date':
         return 'Date';
+      case 'Last4DLN':
+        return 'Last4DLN';
+      case 'Last4FedID':
+        return 'Last4FedID';
       case 'TransInfo':
         return 'TransInfo';
       case 'PayType':
         return 'PayType';
       case 'PayAmt':
-        return 'PayAmt';
+        return 'Pay<br>Amt';
       case 'RequestInfo':
         return 'RequestInfo';
       case 'PayInfo':
@@ -335,6 +392,10 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
         );
       case 'Date':
         return <td key={column}>{transaction.Date}</td>;
+      case 'Last4DLN':
+        return <td key={column}>{transaction.Last4DLN || ''}</td>;
+      case 'Last4FedID':
+        return <td key={column}>{transaction.Last4FedID || ''}</td>;
       case 'TransInfo':
         // Use custom formatting for NM, regular formatting for others
         if (currentState === 'NM') {
@@ -389,7 +450,8 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
           <tr>
             {columnOrder.map(column => (
               <th key={column} title={`Click to sort by ${getColumnHeader(column)}`} scope="col" onClick={() => handleSort(column)}>
-                {getColumnHeader(column)}{getSortIndicator(column)}
+                <span dangerouslySetInnerHTML={{ __html: getColumnHeader(column) }} />
+                {getSortIndicator(column)}
               </th>
             ))}
           </tr>
