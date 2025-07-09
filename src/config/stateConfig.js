@@ -485,6 +485,86 @@ export const STATE_CONFIGS = {
       ],
     },
   },
+
+  IN: {
+    code: "IN",
+    name: "Indiana",
+    fullName: "Indiana",
+    isActive: true,
+    colors: {
+      primary: "#013763",
+      secondary: "#003861",
+      accent: "#c00",
+      text: "#1D4584",
+      background: "#ffffff",
+    },
+    terminology: {
+      sst: "SST",
+      transaction: "Transaction",
+      vehicle: "Vehicle",
+      renewal: "Renewal",
+      plate: "Plate",
+      vin: "VIN",
+      department: "BMV",
+    },
+    assets: {
+      dashboardHeaderImage: "images/IN/header-short.jpg", // Dashboard-specific header
+      pageHeaderImage: "images/IN/text.png", // Page headers with colored background
+      logoPath: "images/IN/",
+      welcomeImage: "images/IN/welcome.jpg",
+      adminImage: "images/IN/admin.png",
+      documentsImage: "images/IN/documents.png",
+      findTransactionsImage: "images/IN/find-transactions.png",
+      viewReportsImage: "images/IN/view-reports.png",
+      showReportBtn: "images/IN/btn-ShowReport.png",
+      bgHeaderImage: "images/IN/background.png", // IN-specific background header
+    },
+
+    dataFiles: {
+      mainScenarios: "TransData/IN/IN-main-scenarios.json",
+      auxScenarios: false,
+      historicalTransactions: "TransData/IN/IN_Historical_Transactions.json",
+    },
+    features: {
+      hasAuxiliaryData: false,
+      hasHistoricalData: true,
+      hasVIPSearch: false,
+      hasDLNSearch: true,
+      defaultSearchType: "plate", // IN defaults to Plate search
+    },
+
+    vehicleDataSchema: {
+      // Define the vehicle data structure for Ohio
+      fields: [
+        { key: "Plate", label: "Plate", type: "string", required: true },
+        { key: "Expires", label: "Expires", type: "date", required: true },
+        { key: "VIN", label: "VIN", type: "string", required: true },
+        { key: "Vehicle", label: "Vehicle", type: "string", required: true },
+        { key: "Owner", label: "Owner", type: "string", required: true },
+        { key: "Fees", label: "Fees", type: "currency", required: true },
+        { key: "Status", label: "Status", type: "string", required: true },
+        { key: "Title", label: "Title", type: "string", required: true },
+        {
+          key: "InspectionDate",
+          label: "Inspection Date",
+          type: "date",
+          required: false,
+        },
+        {
+          key: "FailedInspection",
+          label: "Failed Inspection",
+          type: "boolean",
+          required: false,
+        },
+      ],
+
+      optionalFields: [
+        { key: "Contact Info", label: "Contact Info", type: "string" },
+        { key: "ContactInfo", label: "Contact Info", type: "string" },
+        { key: "Renew Type", label: "Renew Type", type: "string" },
+      ],
+    },
+  },
 };
 
 /**

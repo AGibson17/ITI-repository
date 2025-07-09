@@ -107,6 +107,22 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     return 'Black'; // Default to black for any other status
   };
 
+  // Check if we're in a popup window (opened via window.open)
+  const isPopupWindow = window.opener !== null;
+
+  // Handle previous button click
+  const handlePreviousClick = () => {
+    if (isPopupWindow) {
+      // If we're in a popup, close the window
+      window.close();
+    } else {
+      // If we're in the main window, navigate back
+      onNavigate && onNavigate('sstSearch');
+    }
+  };
+
+
+
   if (isLoading) {
     return (
       <div className="sst-container">
@@ -214,7 +230,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                     id="imgBtnPrev"
                                     src={getGlobalImagePath('btn-previous.png')}
                                     alt="Previous"
-                                    onClick={() => onNavigate && onNavigate('sstSearch')}
+                                    onClick={handlePreviousClick}
                                     style={{ cursor: 'pointer' }}
                                   />
                                   <input
@@ -416,7 +432,65 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                       
                                       <tr style={{ borderColor: 'White' }}>
                                         <td>Errors:</td>
-                                        <td>{transactionData.Errors}</td>
+                                        <td>
+                                          {(() => {
+                                            // Parse errors data to display as table
+                                            const parseErrors = (errors) => {
+                                              if (!errors || errors === 'None') {
+                                                return 'None';
+                                              }
+                                              
+                                              if (Array.isArray(errors)) {
+                                                // Handle array of errors
+                                                if (errors.length === 0 || (errors.length === 1 && errors[0] === 'None')) {
+                                                  return 'None';
+                                                }
+                                                
+                                                // Check if errors are objects with Type, Code, Msg
+                                                if (errors.length > 0 && typeof errors[0] === 'object' && errors[0].Type) {
+                                                  return (
+                                                    <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top', width: '100%' }}>
+                                                      <tbody>
+                                                        <tr style={{ fontStyle: 'italic' }}>
+                                                          <td><strong>Type</strong></td>
+                                                          <td><strong>Code</strong></td>
+                                                          <td><strong>Msg</strong></td>
+                                                        </tr>
+                                                        {errors.map((error, index) => (
+                                                          <tr key={index}>
+                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Type || ''}</td>
+                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Code || ''}</td>
+                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Msg || ''}</td>
+                                                          </tr>
+                                                        ))}
+                                                      </tbody>
+                                                    </table>
+                                                  );
+                                                }
+                                                
+                                                // Handle array of strings
+                                                return (
+                                                  <span style={{ fontWeight: 'bold', color: 'red' }}>
+                                                    {errors.join('; ')}
+                                                  </span>
+                                                );
+                                              }
+                                              
+                                              // Handle string errors
+                                              if (typeof errors === 'string' && errors.toLowerCase() !== 'none') {
+                                                return (
+                                                  <span style={{ fontWeight: 'bold', color: 'red' }}>
+                                                    {errors}
+                                                  </span>
+                                                );
+                                              }
+                                              
+                                              return 'None';
+                                            };
+                                            
+                                            return parseErrors(transactionData.Errors);
+                                          })()}
+                                        </td>
                                         <td className="HideCol">&nbsp;</td>
                                       </tr>
                                     </tbody>
