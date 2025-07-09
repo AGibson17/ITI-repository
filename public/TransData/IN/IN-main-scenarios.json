@@ -1,0 +1,790 @@
+[
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "JLT176",
+    "TransactionNumber": "230446",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer claims their registration was not printed despite confirmation.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Carmel 1 - 332",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "230446",
+      "Date": "6/30/2025 12:00:00 AM",
+      "Request Info": "Last4DLN: 6333 Last4FedID: 9125",
+      "Customer-UID": "42981481",
+      "Vehicles": [
+        {
+          "Plate": "JLT176",
+          "Expires": "6/30/2026",
+          "VIN": "DJVH55T0YXD6SA4SD",
+          "Vehicle": "2005 DODGE SEDAN",
+          "Owner": "LAURA R CLARK",
+          "Fees": "$438.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "61059824",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$433.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "280990279",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Printer failed to initialize. Document will be mailed."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "FRX818",
+    "TransactionNumber": "625432",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer reports the kiosk said the document would be mailed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Fort Wayne Test SB - 201",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "625432",
+      "Date": "9/13/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 6193 Last4FedID:   ",
+      "Customer-UID": "38305466",
+      "Vehicles": [
+        {
+          "Plate": "FRX818",
+          "Expires": "6/30/2026",
+          "VIN": "MVE4CB8WKH7R5J6WD",
+          "Vehicle": "2005 NISSAN HATCHBACK",
+          "Owner": "BRIAN D JONES",
+          "Fees": "$109.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "52800894",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$277.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "205963204",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Printer failed to initialize. Document will be mailed."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "IVS191",
+    "TransactionNumber": "922878",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer said they paid but nothing came out.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Evansville East - 245",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "922878",
+      "Date": "10/12/2023 12:00:00 AM",
+      "Request Info": "Last4DLN: 6478 Last4FedID:   ",
+      "Customer-UID": "47249787",
+      "Vehicles": [
+        {
+          "Plate": "IVS191",
+          "Expires": "6/30/2026",
+          "VIN": "JG8VFKN6HBU724TR3",
+          "Vehicle": "2011 TOYOTA TRUCK",
+          "Owner": "KEVIN MARIE DAVIS",
+          "Fees": "$225.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "88067551",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$178.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "212283612",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Printer failed to initialize. Document will be mailed."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "OCE781",
+    "TransactionNumber": "736102",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer reports the kiosk said the document would be mailed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Evansville East - 245",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "736102",
+      "Date": "11/15/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 8187 Last4FedID:   ",
+      "Customer-UID": "30452550",
+      "Vehicles": [
+        {
+          "Plate": "OCE781",
+          "Expires": "6/30/2026",
+          "VIN": "SUXXNMGDDR1SB1E6N",
+          "Vehicle": "2022 HONDA SUV",
+          "Owner": "MICHAEL R JONES",
+          "Fees": "$136.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "21728360",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$188.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "229727289",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Printer failed to initialize. Document will be mailed."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "TNP270",
+    "TransactionNumber": "460082",
+    "IssueCategory": "Registration Printer",
+    "IssueDetail": "Unable to Print",
+    "Prompt": "Issue: Customer said they paid but nothing came out.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Fort Wayne Test SB - 201",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "460082",
+      "Date": "8/12/2023 12:00:00 AM",
+      "Request Info": "Last4DLN: 3097 Last4FedID:   ",
+      "Customer-UID": "48515733",
+      "Vehicles": [
+        {
+          "Plate": "TNP270",
+          "Expires": "6/30/2026",
+          "VIN": "2NB34VW3ZL73T40EL",
+          "Vehicle": "2021 TOYOTA TRUCK",
+          "Owner": "BRIAN A DAVIS",
+          "Fees": "$148.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "77967378",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$325.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "262211002",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Printer failed to initialize. Document will be mailed."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "PNW245",
+    "TransactionNumber": "700163",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cash Jam",
+    "Prompt": "Issue: Customer said the machine jammed while dispensing bills.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Greenwood - 249",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "700163",
+      "Date": "6/2/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 6310 Last4FedID:   ",
+      "Customer-UID": "38334452",
+      "Vehicles": [
+        {
+          "Plate": "PNW245",
+          "Expires": "6/30/2026",
+          "VIN": "82N467FM5UGAMLKES",
+          "Vehicle": "2019 NISSAN TRUCK",
+          "Owner": "MICHAEL J WILLIAMS",
+          "Fees": "$287.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "17918744",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$86.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "212560779",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "CashDispenser.DispenseMoney: Number of ones dispensed did not match intended amount"
+        },
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "Critical",
+          "Msg": "Device error within the dispense response. [CDM4000 Error Code: CONTINUITY_5_TIMES_REJECT_ERROR]"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "BDC876",
+    "TransactionNumber": "394005",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cash Jam",
+    "Prompt": "Issue: Customer said the machine jammed while dispensing bills.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Franklin 2 - 337",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "394005",
+      "Date": "8/25/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 1444 Last4FedID:   ",
+      "Customer-UID": "38109929",
+      "Vehicles": [
+        {
+          "Plate": "BDC876",
+          "Expires": "6/30/2026",
+          "VIN": "GMBRHBNDS8C8S8E7A",
+          "Vehicle": "2007 CHEVY HATCHBACK",
+          "Owner": "BRIAN R JOHNSON",
+          "Fees": "$437.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "70535587",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$442.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "260960953",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "CashDispenser.DispenseMoney: Number of ones dispensed did not match intended amount"
+        },
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "Critical",
+          "Msg": "Device error within the dispense response. [CDM4000 Error Code: CONTINUITY_5_TIMES_REJECT_ERROR]"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "SWF456",
+    "TransactionNumber": "757123",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cash Jam",
+    "Prompt": "Issue: Customer said the machine jammed while dispensing bills.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Greenwood - 249",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "757123",
+      "Date": "1/14/2023 12:00:00 AM",
+      "Request Info": "Last4DLN: 4968 Last4FedID:   ",
+      "Customer-UID": "36357291",
+      "Vehicles": [
+        {
+          "Plate": "SWF456",
+          "Expires": "6/30/2026",
+          "VIN": "9SZAUSV82JM57WFZP",
+          "Vehicle": "2021 TOYOTA HATCHBACK",
+          "Owner": "SARAH C BROWN",
+          "Fees": "$120.00",
+          "Renewed": "Y"
+        },
+        {
+          "Plate": "MCX092",
+          "Expires": "6/30/2026",
+          "VIN": "1HD1BJY102Y043221",
+          "Vehicle": "2016 HARLEY FXDL",
+          "Owner": "SARAH C BROWN",
+          "Fees": "$84.50",
+          "Renewed": "N"
+        },
+        {
+          "Plate": "GXL388",
+          "Expires": "6/30/2026",
+          "VIN": "5NMS2CAD3LH123776",
+          "Vehicle": "2020 HYUNDAI SANTA FE",
+          "Owner": "SARAH C BROWN",
+          "Fees": "$148.75",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "15552667",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$272.25",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "212845986",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "CashDispenser.DispenseMoney: Number of ones dispensed did not match intended amount"
+        },
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "Critical",
+          "Msg": "Device error within the dispense response. [CDM4000 Error Code: CONTINUITY_5_TIMES_REJECT_ERROR]"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "HND730",
+    "TransactionNumber": "911586",
+    "IssueCategory": "Cash Dispenser",
+    "IssueDetail": "Cash Jam",
+    "Prompt": "Issue: Customer claims they didn\u2019t get the expected cash back.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Anderson - 343",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "911586",
+      "Date": "11/10/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 1354 Last4FedID:   ",
+      "Customer-UID": "48539538",
+      "Vehicles": [
+        {
+          "Plate": "HND730",
+          "Expires": "6/30/2026",
+          "VIN": "RSDF7VFYV7SL8VER5",
+          "Vehicle": "2024 FORD SEDAN",
+          "Owner": "KAREN N DAVIS",
+          "Fees": "$332.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "27960244",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$70.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "249659864",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "CashDispenser.DispenseMoney: Number of ones dispensed did not match intended amount"
+        },
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "Critical",
+          "Msg": "Device error within the dispense response. [CDM4000 Error Code: CONTINUITY_5_TIMES_REJECT_ERROR]"
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "UKQ701",
+    "TransactionNumber": "194571",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Printer Jam",
+    "Prompt": "Issue: Customer expected a receipt but nothing printed.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Fort Wayne Test SB - 201",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "194571",
+      "Date": "2/12/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 2029 Last4FedID:   ",
+      "Customer-UID": "36312052",
+      "Vehicles": [
+        {
+          "Plate": "UKQ701",
+          "Expires": "6/30/2026",
+          "VIN": "8GC8BS4UEV51J0697",
+          "Vehicle": "2015 HNDA PILOT",
+          "Owner": "MARTIN THOMAS DAVIS",
+          "Fees": "$80.00",
+          "Renewed": "Y"
+        },
+        {
+          "Plate": "YHD924",
+          "Expires": "6/30/2026",
+          "VIN": "2HGFB2F88DH112457",
+          "Vehicle": "2013 HNDA CIVIC EX",
+          "Owner": "MARTIN THOMAS DAVIS",
+          "Fees": "$74.25",
+          "Renewed": "N"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "80378142",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$157.75",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "258068617",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Journal Printer failed to print receipt due to paper jam."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "VVQ313",
+    "TransactionNumber": "263882",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Printer Jam",
+    "Prompt": "Issue: Customer didn\u2019t receive the printed summary at the end of the transaction.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Carmel 1 - 332",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "263882",
+      "Date": "8/14/2023 12:00:00 AM",
+      "Request Info": "Last4DLN: 2791 Last4FedID:   ",
+      "Customer-UID": "43324769",
+      "Vehicles": [
+        {
+          "Plate": "VVQ313",
+          "Expires": "6/30/2026",
+          "VIN": "FEFVHUS4GVZE8R63N",
+          "Vehicle": "2014 CHEVY SUV",
+          "Owner": "DAVID D SMITH",
+          "Fees": "$225.00",
+          "Renewed": "Y"
+        },
+        {
+          "Plate": "BBL472",
+          "Expires": "6/30/2026",
+          "VIN": "1FAHP3FN1AW182761",
+          "Vehicle": "2010 FORD FOCUS SE",
+          "Owner": "DAVID D SMITH",
+          "Fees": "$88.50",
+          "Renewed": "Y"
+        },
+        {
+          "Plate": "IN937BR",
+          "Expires": "6/30/2026",
+          "VIN": "USHBGK1937L900122",
+          "Vehicle": "2004 TRACKER PRO GUIDE V-16",
+          "Owner": "DAVID D SMITH",
+          "Fees": "$27.00",
+          "Renewed": "N"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "83990555",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$345.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "217016752",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Journal Printer failed to print receipt due to paper jam."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "OGD315",
+    "TransactionNumber": "700674",
+    "IssueCategory": "Journal Printer",
+    "IssueDetail": "Printer Jam",
+    "Prompt": "Issue: Customer said they completed the transaction but didn\u2019t get a confirmation printout.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Fort Wayne Test SB - 201",
+      "Status": "Completed",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "700674",
+      "Date": "2/5/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 8091 Last4FedID:   ",
+      "Customer-UID": "47196105",
+      "Vehicles": [
+        {
+          "Plate": "OGD315",
+          "Expires": "6/30/2026",
+          "VIN": "HHXRV7S592H01S78Z",
+          "Vehicle": "2008 DODGE HATCHBACK",
+          "Owner": "MICHAEL MARIE WILSON",
+          "Fees": "$433.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "40455551",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$179.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "283755736",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ThankYou",
+      "Language": "English",
+      "Errors": [
+        {
+          "Type": "Application:SSTIndiana;5.3.0.19;",
+          "Code": "FATAL",
+          "Msg": "Journal Printer failed to print receipt due to paper jam."
+        }
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "III851",
+    "TransactionNumber": "289058",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer says the card reader never lit up.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Carmel 1 - 332",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "289058",
+      "Date": "11/17/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 9807 Last4FedID:   ",
+      "Customer-UID": "44023079",
+      "Vehicles": [
+        {
+          "Plate": "III851",
+          "Expires": "6/30/2026",
+          "VIN": "L5UDU30TRY4UFZSXA",
+          "Vehicle": "2011 CHEVY HATCHBACK",
+          "Owner": "EMILY H KOHLINGER",
+          "Fees": "$224.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "77668316",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$467.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "270219307",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "QFG182",
+    "TransactionNumber": "948351",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer said the kiosk didn\u2019t recognize their card.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Greenwood - 249",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "948351",
+      "Date": "2/18/2024 12:00:00 AM",
+      "Request Info": "Last4DLN: 3937 Last4FedID: 1366",
+      "Customer-UID": "37299233",
+      "Vehicles": [
+        {
+          "Plate": "QFG182",
+          "Expires": "6/30/2026",
+          "VIN": "2MTEHZYZ7HTHKDRY0",
+          "Vehicle": "2014 DODGE SEDAN",
+          "Owner": "BETHANY LEIGH BROWN",
+          "Fees": "$291.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "14779035",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$355.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "252916837",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  },
+  {
+    "ScenarioType": "LiveTransaction",
+    "Plate": "HZN529",
+    "TransactionNumber": "508479",
+    "IssueCategory": "Card Reader",
+    "IssueDetail": "Card Reader Not Initializing/Wrapper Error",
+    "Prompt": "Issue: Customer said the machine wouldn\u2019t let them pay.\nGoal: Find out, based on available repository information, what the issue might be. What next steps would you take and what kind of case(s) would you create?",
+    "TransactionDetail": {
+      "SST": "Carmel 1 - 332",
+      "Status": "Incomplete (Errors)",
+      "Product": "Vehicle Renewal",
+      "SST Trans": "508479",
+      "Date": "2/26/2025 12:00:00 AM",
+      "Request Info": "Last4DLN: 4236 Last4FedID:  ",
+      "Customer-UID": "31717621",
+      "Vehicles": [
+        {
+          "Plate": "HZN529",
+          "Expires": "6/30/2026",
+          "VIN": "JHBED9NDKUM03YJ42",
+          "Vehicle": "2012 HONDA SEDAN",
+          "Owner": "MICHAEL BRIAN PATTERSON",
+          "Fees": "$122.00",
+          "Renewed": "Y"
+        }
+      ],
+      "Session Length": "2 mins. 10 secs.",
+      "Payments": {
+        "PayID": "46707307",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$345.50",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "246841690",
+        "ITI-Fee": "3.50"
+      },
+      "Last Form": "ErrNoPaymentMethodAvailable",
+      "Language": "English",
+      "Errors": [
+        "None"
+      ]
+    }
+  }
+]
