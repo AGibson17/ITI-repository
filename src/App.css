@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
   background-color: #ffffff;
   width: 100%;
-  max-width: 1024px; /* Default max width for normal content */
+  min-width: 1024px; /* Minimum width for normal content, can expand as needed */
   margin: 0 auto; /* Center the application */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
 }

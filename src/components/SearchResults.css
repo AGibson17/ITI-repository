@@ -24,7 +24,7 @@
 }
 
 .ReptGridView {
-  width: max-content; /* Allow table to expand to fit content */
+  width: fit-content; /* Only as wide as needed for content */
   min-width: 800px; /* Minimum width for readability */
   max-width: calc(100vw - 40px); /* Leave margin from viewport edges */
   border-collapse: separate;

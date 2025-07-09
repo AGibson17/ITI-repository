@@ -9,7 +9,7 @@
   padding-bottom: 40px;
   padding-top: 5px;
   width: 100%;
-  max-width: 1024px;
+  min-width: 1024px;
   margin: 0 auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
@@ -25,7 +25,7 @@
   height: auto;
   display: block;
   object-fit: contain;
-  max-width: 1024px;
+  min-width: 1024px;
   width: 100%;
 }
 
@@ -132,7 +132,7 @@ table {
   font-family: tahoma, arial, sans-serif;
   font-size: 12px;
   vertical-align: middle;
-  max-width: 1024px;
+  min-width: 1024px;
 }
 
 /* ===== SST SELECTOR STYLING ===== */
