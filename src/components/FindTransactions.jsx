@@ -31,22 +31,25 @@ const FindTransactions = ({ onNavigate }) => {
 
   // Header style with conditional background image or color
   const getHeaderStyle = () => {
+    const baseStyle = {
+      backgroundColor: stateConfig?.colors?.secondary || '#E0E0E0'
+    };
+
     if (stateConfig?.assets?.bgHeaderImage) {
       return {
+        ...baseStyle,
         backgroundImage: `url(${getAssetPath(stateConfig.assets.bgHeaderImage)})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       };
     } else {
-      return {
-        backgroundColor: stateConfig?.colors?.secondary
-      };
+      return baseStyle;
     }
   };
 
   return (
-    <div className="find-transactions-container">
+    <div className="find-transactions-container" style={{ backgroundColor: stateConfig?.colors?.secondary || '#E0E0E0' }}>
       {/* Header Section */}
       <div className="header-section" style={getHeaderStyle()}>
         <img 
