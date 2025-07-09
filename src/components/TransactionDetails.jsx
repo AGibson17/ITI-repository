@@ -131,16 +131,18 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     // If errors is an array of objects with Type, Code, Msg properties
     if (Array.isArray(errors) && errors.length > 0 && typeof errors[0] === 'object') {
       return (
-        <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
-          <tbody>
-            <tr style={{ fontStyle: 'italic' }}>
-              <td>Type</td>
-              <td>Code</td>
-              <td>Msg</td>
+        <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top', border: '1px solid #ccc', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ fontStyle: 'italic', backgroundColor: '#f0f0f0' }}>
+              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Type</th>
+              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Code</th>
+              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Msg</th>
             </tr>
+          </thead>
+          <tbody>
             {errors.map((error, index) => (
               <tr key={index}>
-                <td>
+                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
                   <span 
                     style={{ 
                       fontWeight: error.Type && error.Type !== 'None' ? 'bold' : 'normal',
@@ -150,7 +152,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                     {error.Type || ''}
                   </span>
                 </td>
-                <td>
+                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
                   <span 
                     style={{ 
                       fontWeight: error.Code && error.Code !== 'None' ? 'bold' : 'normal',
@@ -160,7 +162,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                     {error.Code || ''}
                   </span>
                 </td>
-                <td>
+                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
                   <span 
                     style={{ 
                       fontWeight: error.Msg && error.Msg !== 'None' ? 'bold' : 'normal',
@@ -215,8 +217,8 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
   }
 
   return (
-    <div className="sst-container">
-      <table id="MainTable" className="container" cellPadding="0" cellSpacing="0">
+    <div className="sst-container transaction-details-container expandable-content">
+      <table id="MainTable" className="container transaction-details-table" cellPadding="0" cellSpacing="0">
         <tbody>
           {/* Header Row */}
           <tr id="ImageRow" className="header">
@@ -500,75 +502,9 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                       <tr style={{ borderColor: 'White' }}>
                                         <td>Errors:</td>
                                         <td>
-                                          {(() => {
-                                            // Parse errors data to display as table
-                                            const parseErrors = (errors) => {
-                                              if (!errors || errors === 'None') {
-                                                return 'None';
-                                              }
-                                              
-                                              if (Array.isArray(errors)) {
-                                                // Handle array of errors
-                                                if (errors.length === 0 || (errors.length === 1 && errors[0] === 'None')) {
-                                                  return 'None';
-                                                }
-                                                
-                                                // Check if errors are objects with Type, Code, Msg
-                                                if (errors.length > 0 && typeof errors[0] === 'object' && errors[0].Type) {
-                                                  return (
-                                                    <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top', width: '100%' }}>
-                                                      <tbody>
-                                                        <tr style={{ fontStyle: 'italic' }}>
-                                                          <td><strong>Type</strong></td>
-                                                          <td><strong>Code</strong></td>
-                                                          <td><strong>Msg</strong></td>
-                                                        </tr>
-                                                        {errors.map((error, index) => (
-                                                          <tr key={index}>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Type || ''}</td>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Code || ''}</td>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Msg || ''}</td>
-                                                          </tr>
-                                                        ))}
-                                                      </tbody>
-                                                    </table>
-                                                  );
-                                                }
-                                                
-                                                // Handle array of strings
-                                                return (
-                                                  <span style={{ fontWeight: 'bold', color: 'red' }}>
-                                                    {errors.join('; ')}
-                                                  </span>
-                                                );
-                                              }
-                                              
-                                              // Handle string errors
-                                              if (typeof errors === 'string' && errors.toLowerCase() !== 'none') {
-                                                return (
-                                                  <span style={{ fontWeight: 'bold', color: 'red' }}>
-                                                    {errors}
-                                                  </span>
-                                                );
-                                              }
-                                              
-                                              return 'None';
-                                            };
-                                            
-                                            return parseErrors(transactionData.Errors);
-                                          })()}
+                                          {renderErrorsTable(transactionData.Errors)}
                                         </td>
                                         <td className="HideCol">&nbsp;</td>
-                                      </tr>
-                                      
-                                      {/* Expanded error details row */}
-                                      <tr style={{ borderColor: 'White' }}>
-                                        <td colSpan="3" style={{ padding: '10px', backgroundColor: '#F9F9F9' }}>
-                                          {/* Render detailed errors table if available */}
-                                          {Array.isArray(transactionData.Errors) && transactionData.Errors.length > 0 && (
-                                            renderErrorsTable(transactionData.Errors)
-                                          )}
-                                        </td>
                                       </tr>
                                     </tbody>
                                   </table>

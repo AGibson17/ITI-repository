@@ -70,9 +70,7 @@ export default function App() {
 
   return (
     <StateProvider>
-      <div className={`app ${['sstSearch', 'transactionDetails'].includes(currentPage) ? 'app-flexible' : ''}`}>
-        {renderCurrentPage()}
-      </div>
+      <div className="app">{renderCurrentPage()}</div>
     </StateProvider>
   );
 }

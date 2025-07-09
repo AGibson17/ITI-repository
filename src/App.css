@@ -17,11 +17,30 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
 }
 
-/* Flexible layout for search-related pages */
-.app-flexible {
-  max-width: none; /* Remove width constraint */
-  margin: 0 20px; /* Add side margins for better appearance */
-  box-shadow: none; /* Remove shadow for full-width layout */
+/* Allow specific content to expand beyond 1024px when needed */
+.expandable-content {
+  width: max-content;
+  min-width: 100%;
+  max-width: calc(100vw - 40px); /* Leave some margin on sides */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+/* Specific styles for search results and transaction details tables */
+.search-results-table, .transaction-details-table {
+  width: max-content; /* Expand to fit content */
+  min-width: 100%;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.search-results-table td, .transaction-details-table td {
+  white-space: nowrap; /* Prevent text wrapping in cells */
+  padding: 8px 12px;
+}
+
+/* Allow the container to scroll horizontally when table is too wide */
+.search-results-container, .transaction-details-container {
+  overflow-x: auto;
+  max-width: calc(100vw - 40px); /* Leave margin from viewport edges */
 }
 
 /* Mobile-first responsive design */
@@ -30,10 +49,6 @@ body {
     margin: 0;
     box-shadow: none;
     max-width: 100%;
-  }
-  
-  .app-flexible {
-    margin: 0; /* Remove side margins on mobile */
   }
 }
 
