@@ -17,12 +17,23 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
 }
 
+/* Flexible layout for search-related pages */
+.app-flexible {
+  max-width: none; /* Remove width constraint */
+  margin: 0 20px; /* Add side margins for better appearance */
+  box-shadow: none; /* Remove shadow for full-width layout */
+}
+
 /* Mobile-first responsive design */
 @media (max-width: 767px) {
   .app {
     margin: 0;
     box-shadow: none;
     max-width: 100%;
+  }
+  
+  .app-flexible {
+    margin: 0; /* Remove side margins on mobile */
   }
 }
 

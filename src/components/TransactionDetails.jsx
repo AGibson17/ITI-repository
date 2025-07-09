@@ -121,7 +121,74 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     }
   };
 
+  // Helper function to render errors table
+  const renderErrorsTable = (errors) => {
+    // Handle different error formats
+    if (!errors || errors === 'None' || (Array.isArray(errors) && errors.length === 1 && errors[0] === 'None')) {
+      return <span>None</span>;
+    }
 
+    // If errors is an array of objects with Type, Code, Msg properties
+    if (Array.isArray(errors) && errors.length > 0 && typeof errors[0] === 'object') {
+      return (
+        <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
+          <tbody>
+            <tr style={{ fontStyle: 'italic' }}>
+              <td>Type</td>
+              <td>Code</td>
+              <td>Msg</td>
+            </tr>
+            {errors.map((error, index) => (
+              <tr key={index}>
+                <td>
+                  <span 
+                    style={{ 
+                      fontWeight: error.Type && error.Type !== 'None' ? 'bold' : 'normal',
+                      color: error.Type && error.Type !== 'None' ? 'red' : 'inherit'
+                    }}
+                  >
+                    {error.Type || ''}
+                  </span>
+                </td>
+                <td>
+                  <span 
+                    style={{ 
+                      fontWeight: error.Code && error.Code !== 'None' ? 'bold' : 'normal',
+                      color: error.Code && error.Code !== 'None' ? 'red' : 'inherit'
+                    }}
+                  >
+                    {error.Code || ''}
+                  </span>
+                </td>
+                <td>
+                  <span 
+                    style={{ 
+                      fontWeight: error.Msg && error.Msg !== 'None' ? 'bold' : 'normal',
+                      color: error.Msg && error.Msg !== 'None' ? 'red' : 'inherit'
+                    }}
+                  >
+                    {error.Msg || ''}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+    // Fallback for simple string errors
+    return (
+      <span 
+        style={{ 
+          fontWeight: errors && errors.toLowerCase() !== 'none' ? 'bold' : 'normal',
+          color: errors && errors.toLowerCase() !== 'none' ? 'red' : 'inherit'
+        }}
+      >
+        {errors}
+      </span>
+    );
+  };
 
   if (isLoading) {
     return (
@@ -492,6 +559,16 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                           })()}
                                         </td>
                                         <td className="HideCol">&nbsp;</td>
+                                      </tr>
+                                      
+                                      {/* Expanded error details row */}
+                                      <tr style={{ borderColor: 'White' }}>
+                                        <td colSpan="3" style={{ padding: '10px', backgroundColor: '#F9F9F9' }}>
+                                          {/* Render detailed errors table if available */}
+                                          {Array.isArray(transactionData.Errors) && transactionData.Errors.length > 0 && (
+                                            renderErrorsTable(transactionData.Errors)
+                                          )}
+                                        </td>
                                       </tr>
                                     </tbody>
                                   </table>
