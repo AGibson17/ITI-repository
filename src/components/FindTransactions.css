@@ -12,7 +12,6 @@
 }
 
 .header-image {
-  min-width: 1024px;
   object-fit: contain;
   display: block;
 }

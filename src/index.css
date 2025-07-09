@@ -8,18 +8,7 @@ html, body {
 }
 
 #root {
-  max-width: 1280px;
+  min-width: 1024px;
   margin: 0 auto;
-}
-
-/* Mobile viewport adjustments */
-@media (max-width: 767px) {
-  #root {
-    max-width: 100%;
-    margin: 0;
-  }
-  
-  html, body {
-    overflow-x: hidden;
-  }
+  width: fit-content; /* Allow root to size based on content */
 }
