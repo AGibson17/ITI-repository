@@ -1,29 +1,17 @@
 /* ===== SST SEARCH COMPONENT STYLES ===== */
-/* Clean, organized CSS for SSTSearch component */
+/* Clean, desktop-only CSS for SSTSearch component */
+
 /* ===== MAIN CONTAINER ===== */
 .sst-container {
   font-family: Tahoma, Verdana, Arial, sans-serif;
   background-color: #ffffff;
   color: #000;
   padding-bottom: 40px;
-  padding-top: 5px;;
+  padding-top: 5px;
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Expandable container for when search results are shown */
-.sst-container-expandable {
-  max-width: none !important;
-  margin: 0 20px !important;
-  box-shadow: none !important;
-}
-
-/* Make all internal tables expand with container */
-.sst-container-expandable table[width="100%"] {
-  min-width: 1024px; /* Minimum width to maintain layout */
-  width: auto; /* Allow expansion */
 }
 
 /* ===== HEADER SECTION ===== */
@@ -37,6 +25,8 @@
   height: auto;
   display: block;
   object-fit: contain;
+  max-width: 1024px;
+  width: 100%;
 }
 
 .redbar {
@@ -47,28 +37,6 @@
   padding: 10px;
   font-size: 14px;
   border-top: 3px solid white;
-}
-
-/* Expandable header elements */
-.sst-container-expandable .sst-header {
-  width: 100%;
-}
-
-.sst-container-expandable .header-img-search {
-  width: 100%;
-  min-width: 1024px;
-  object-fit: cover;
-}
-
-.sst-container-expandable .redbar {
-  width: 100%;
-  text-align: center;
-}
-
-/* Make content sections expand */
-.sst-container-expandable .content {
-  width: 100% !important;
-  min-width: 1024px;
 }
 
 /* ===== NAVIGATION BUTTONS ===== */
@@ -98,8 +66,6 @@
 }
 
 /* ===== CONTENT AREAS ===== */
-
-
 #HeaderSection .content {
   padding: 0;
   display: flex;
@@ -146,7 +112,6 @@
   width: 100px;
 }
 
-
 /* Search By column */
 #ContentPlaceHolder1_SearchByList {
   vertical-align: middle !important;
@@ -169,7 +134,6 @@ table {
   vertical-align: middle;
   max-width: 1024px;
 }
-
 
 /* ===== SST SELECTOR STYLING ===== */
 /* SST Entry section for SST/Dates search - positioned to the left of date fields */
@@ -203,128 +167,4 @@ table {
 #ContentPlaceHolder1_TransNoEntry td {
   padding: 2px 0;
   vertical-align: top;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-/* Mobile breakpoints for SST Search */
-
-@media (max-width: 767px) {
-  .sst-container {
-    margin: 0;
-    box-shadow: none;
-    padding-bottom: 20px;
-  }
-  
-  .sst-container-expandable {
-    margin: 0 !important;
-    max-width: 100% !important;
-  }
-  
-  .sst-container-expandable .header-img-search {
-    min-width: auto;
-  }
-  
-  .sst-container-expandable .content {
-    min-width: auto !important;
-  }
-  
-  .sst-container-expandable table[width="100%"] {
-    min-width: auto !important;
-  }
-  
-  .redbar {
-    padding: 8px;
-    font-size: 12px;
-  }
-  
-  /* Header navigation adjustments */
-  #HeaderRow table {
-    table-layout: auto;
-  }
-  
-  #HeaderRow td {
-    width: auto !important;
-    display: block;
-    text-align: center !important;
-    padding: 5px;
-  }
-  
-  /* Content area adjustments */
-  #ContentPlaceHolder1_contentDiv {
-    padding: 15px 10px !important;
-  }
-  
-  /* Form elements mobile styling */
-  #ContentPlaceHolder1_SST table,
-  #ContentPlaceHolder1_DateEntry table,
-  #ContentPlaceHolder1_TransNoEntry table {
-    width: 100% !important;
-    display: block;
-  }
-  
-  #ContentPlaceHolder1_SST td,
-  #ContentPlaceHolder1_DateEntry td,
-  #ContentPlaceHolder1_TransNoEntry td {
-    display: block;
-    width: 100% !important;
-    padding: 5px 0 !important;
-    text-align: left !important;
-  }
-  
-  /* Input field adjustments */
-  input[type="text"], 
-  input[type="number"],
-  select {
-    width: 100% !important;
-    max-width: 300px;
-    padding: 8px;
-    font-size: 16px; /* Prevent zoom on iOS */
-    margin: 5px 0;
-  }
-  
-  /* Button adjustments */
-  input[type="submit"],
-  input[type="button"] {
-    width: 100%;
-    max-width: 200px;
-    padding: 12px;
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  /* Stack Transaction No entry below SST */
-  #ContentPlaceHolder1_TransNoEntry {
-    padding-left: 0 !important;
-    margin-top: 15px;
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .sst-container {
-    padding-bottom: 15px;
-  }
-  
-  #ContentPlaceHolder1_contentDiv {
-    padding: 10px 5px !important;
-  }
-  
-  .redbar {
-    padding: 6px;
-    font-size: 11px;
-  }
-  
-  input[type="text"], 
-  input[type="number"],
-  select {
-    max-width: 250px;
-    padding: 6px;
-  }
-  
-  input[type="submit"],
-  input[type="button"] {
-    max-width: 180px;
-    padding: 10px;
-    font-size: 14px;
-  }
 }

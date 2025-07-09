@@ -456,7 +456,7 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
   };
 
   return (
-    <div className="search-results-container expandable-content">
+    <div className="search-results-container">
       <table className="ReptGridView search-results-table" cellSpacing="10" cellPadding="10">
         <thead>
           <tr>

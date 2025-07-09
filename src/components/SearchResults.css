@@ -1,31 +1,37 @@
+/* ===== SEARCH RESULTS COMPONENT STYLES ===== */
+/* Desktop-only CSS for SearchResults component */
+
 .search-results-container {
   margin: 20px auto;
-  padding: 0 20px;
+  padding: 0;
   background-color: white;
   overflow-x: auto;
-}
-
-/* When inside expandable SST container */
-.sst-container-expandable .search-results-container {
-  margin: 20px 0;
-  padding: 0;
-  max-width: none;
+  
+  /* Allow the container to expand beyond the parent's 1024px constraint */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
+  
+  /* Center the actual table content */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .ReptGridView {
-  width: 100%;
+  width: max-content; /* Allow table to expand to fit content */
+  min-width: 800px; /* Minimum width for readability */
+  max-width: calc(100vw - 40px); /* Leave margin from viewport edges */
   border-collapse: separate;
   border-spacing: 0;
   font-size: 12px;
   border: 1px solid #ccc;
-  margin: 0 auto;
-}
-
-/* When in expandable container, allow table to expand */
-.sst-container-expandable .ReptGridView {
-  width: max-content;
-  min-width: 100%;
-  max-width: calc(100vw - 40px);
+  margin: 0;
 }
 
 .ReptGridView th {
@@ -38,6 +44,7 @@
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s;
+  white-space: nowrap; /* Prevent header text wrapping */
 }
 
 .ReptGridView th:hover {
@@ -57,6 +64,7 @@
   padding: 8px;
   border: 1px solid #ccc;
   vertical-align: top;
+  white-space: nowrap; /* Prevent cell text wrapping for better readability */
 }
 
 .ReptGridView tr.odd-row {
@@ -110,58 +118,3 @@
   font-size: 16px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .search-results-container {
-    max-width: 100%;
-    margin: 20px 0;
-    padding: 0 10px;
-  }
-  
-  .ReptGridView {
-    font-size: 11px;
-  }
-  
-  .ReptGridView th,
-  .ReptGridView td {
-    padding: 6px;
-  }
-}
-
-/* Enhanced mobile breakpoints */
-@media (max-width: 767px) {
-  .search-results-container {
-    margin: 10px 0;
-    padding: 0 5px;
-  }
-  
-  .ReptGridView {
-    font-size: 10px;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  
-  .ReptGridView th,
-  .ReptGridView td {
-    padding: 4px;
-    min-width: 60px;
-  }
-  
-  .no-results {
-    padding: 20px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ReptGridView {
-    font-size: 9px;
-  }
-  
-  .ReptGridView th,
-  .ReptGridView td {
-    padding: 3px;
-    min-width: 50px;
-  }
-}
