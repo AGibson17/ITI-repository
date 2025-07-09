@@ -1,8 +1,15 @@
 .search-results-container {
-  max-width: 1024px;
   margin: 20px auto;
   padding: 0 20px;
   background-color: white;
+  overflow-x: auto;
+}
+
+/* When inside expandable SST container */
+.sst-container-expandable .search-results-container {
+  margin: 20px 0;
+  padding: 0;
+  max-width: none;
 }
 
 .ReptGridView {
@@ -11,6 +18,14 @@
   border-spacing: 0;
   font-size: 12px;
   border: 1px solid #ccc;
+  margin: 0 auto;
+}
+
+/* When in expandable container, allow table to expand */
+.sst-container-expandable .ReptGridView {
+  width: max-content;
+  min-width: 100%;
+  max-width: calc(100vw - 40px);
 }
 
 .ReptGridView th {

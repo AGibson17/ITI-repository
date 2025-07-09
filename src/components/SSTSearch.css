@@ -13,6 +13,19 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Expandable container for when search results are shown */
+.sst-container-expandable {
+  max-width: none !important;
+  margin: 0 20px !important;
+  box-shadow: none !important;
+}
+
+/* Make all internal tables expand with container */
+.sst-container-expandable table[width="100%"] {
+  min-width: 1024px; /* Minimum width to maintain layout */
+  width: auto; /* Allow expansion */
+}
+
 /* ===== HEADER SECTION ===== */
 .sst-header {
   background-color: #17456d;
@@ -34,6 +47,28 @@
   padding: 10px;
   font-size: 14px;
   border-top: 3px solid white;
+}
+
+/* Expandable header elements */
+.sst-container-expandable .sst-header {
+  width: 100%;
+}
+
+.sst-container-expandable .header-img-search {
+  width: 100%;
+  min-width: 1024px;
+  object-fit: cover;
+}
+
+.sst-container-expandable .redbar {
+  width: 100%;
+  text-align: center;
+}
+
+/* Make content sections expand */
+.sst-container-expandable .content {
+  width: 100% !important;
+  min-width: 1024px;
 }
 
 /* ===== NAVIGATION BUTTONS ===== */
@@ -178,6 +213,23 @@ table {
     margin: 0;
     box-shadow: none;
     padding-bottom: 20px;
+  }
+  
+  .sst-container-expandable {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  .sst-container-expandable .header-img-search {
+    min-width: auto;
+  }
+  
+  .sst-container-expandable .content {
+    min-width: auto !important;
+  }
+  
+  .sst-container-expandable table[width="100%"] {
+    min-width: auto !important;
   }
   
   .redbar {

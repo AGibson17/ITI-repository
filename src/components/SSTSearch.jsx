@@ -132,7 +132,7 @@ export default function SSTSearch({ onNavigate }) {
   };
 
   return (
-    <div className="sst-container">
+    <div className={`sst-container ${showResults ? 'sst-container-expandable' : ''}`}>
       {/* Header */}
       <div className="sst-header" style={getHeaderStyle()}>
         <img
