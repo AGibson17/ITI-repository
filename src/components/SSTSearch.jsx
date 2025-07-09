@@ -531,10 +531,10 @@ export default function SSTSearch({ onNavigate }) {
           results={searchResults}
           currentState={stateConfig?.code}
           onTransactionClick={(transaction) => {
-            // Open transaction details in a new tab
-            const baseUrl = window.location.origin + window.location.pathname;
-            const transactionUrl = `${baseUrl}?page=transactionDetails&transactionId=${transaction['SST Trans']}`;
-            window.open(transactionUrl, '_blank');
+            // Navigate to transaction details within the same page (for LMS embedding)
+            if (onNavigate) {
+              onNavigate('transactionDetails', { transactionId: transaction['SST Trans'] });
+            }
           }}
         />
       )}

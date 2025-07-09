@@ -28,11 +28,20 @@ export default function App() {
     return urlParams.get('transactionId') || null;
   });
 
-  const handleNavigation = (page, transactionId = null) => {
+  const handleNavigation = (page, params = null) => {
     setCurrentPage(page);
-    if (transactionId) {
-      setSelectedTransactionId(transactionId);
+    
+    // Handle different parameter formats for backward compatibility
+    if (params) {
+      if (typeof params === 'string') {
+        // Legacy format: transactionId passed as string
+        setSelectedTransactionId(params);
+      } else if (params.transactionId) {
+        // New format: params object with transactionId
+        setSelectedTransactionId(params.transactionId);
+      }
     }
+    
     // Save the current page to localStorage
     localStorage.setItem('currentPage', page);
   };
