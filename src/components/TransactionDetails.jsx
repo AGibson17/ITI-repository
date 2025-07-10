@@ -97,11 +97,14 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
 
   // Get status color based on transaction status
   const getStatusColor = (status) => {
-    if (status === 'Completed' || status === 'Complete (Errors)') {
+    // Remove parentheses for color determination but keep full status for display
+    const cleanStatus = status ? status.replace(/\s*\([^)]*\)/g, '').trim() : '';
+    
+    if (cleanStatus === 'Completed') {
       return 'Green';
-    } else if (status === 'Incomplete' || status === 'Incomplete (Errors)') {
+    } else if (cleanStatus === 'Incomplete') {
       return 'Red';
-    } else if (status === 'Ineligible' || status === 'Cancelled') {
+    } else if (cleanStatus === 'Ineligible' || cleanStatus === 'Cancelled') {
       return 'Black';
     }
     return 'Black'; // Default to black for any other status
