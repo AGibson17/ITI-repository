@@ -565,6 +565,72 @@ export const STATE_CONFIGS = {
       ],
     },
   },
+
+  NV: {
+    code: "NV",
+    name: "Nevada",
+    fullName: "Nevada",
+    isActive: true,
+    colors: {
+      primary: "#CCCCCC",
+      secondary: "#CCF0FF",
+      accent: "#c00",
+      text: "#009ADD",
+      background: "#ffffff",
+    },
+    terminology: {
+      sst: "SST",
+      transaction: "Transaction",
+      vehicle: "Vehicle",
+      renewal: "Renewal",
+      plate: "Plate",
+      vin: "VIN",
+      department: "DMV",
+    },
+    assets: {
+      dashboardHeaderImage: "images/NV/header-short.png", // Dashboard-specific header
+      pageHeaderImage: "images/NV/text.png", // Page headers with colored background
+      logoPath: "images/NV/",
+      welcomeImage: "images/NV/welcome.png",
+      adminImage: "images/NV/admin.png",
+      documentsImage: "images/NV/documents.png",
+      findTransactionsImage: "images/NV/find-transactions.png",
+      viewReportsImage: "images/NV/view-reports.png",
+      showReportBtn: "images/NV/btn-ShowReport.png",
+      bgHeaderImage: "images/NV/background.png", // NV-specific background header
+    },
+
+    dataFiles: {
+      mainScenarios: "TransData/NV/NV-main-scenarios.json",
+      auxScenarios: false,
+      historicalTransactions: "TransData/NV/NV_Historical_Transactions.json",
+    },
+    features: {
+      hasAuxiliaryData: false,
+      hasHistoricalData: true,
+      hasVIPSearch: false,
+      hasDLNSearch: true,
+      defaultSearchType: "plate", // NV defaults to Plate search
+    },
+
+    vehicleDataSchema: {
+      // Define the vehicle data structure for Nevada
+      fields: [
+        { key: "Plate", label: "Plate", type: "string", required: true },
+        { key: "Expires", label: "Expires", type: "date", required: true },
+        { key: "VIN", label: "VIN", type: "string", required: true },
+        { key: "Vehicle", label: "Vehicle", type: "string", required: true },
+        { key: "Owner", label: "Owner", type: "string", required: true },
+        { key: "Fees", label: "Fees", type: "currency", required: true },
+      ],
+
+      optionalFields: [
+        { key: "Contact Info", label: "Contact Info", type: "string" },
+        { key: "ContactInfo", label: "Contact Info", type: "string" },
+        { key: "Renew Type", label: "Renew Type", type: "string" },
+      ],
+    },
+  },
 };
 
 /**

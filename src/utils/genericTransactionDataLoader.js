@@ -120,6 +120,7 @@ export const loadStateTransactionData = async (stateCode) => {
         Vehicles: detail.Vehicles || [],
         'Session Length': detail['Session Length'] || '',
         Payments: payments,
+        CashDetails: detail.Payments && detail.Payments.CashDetails ? detail.Payments.CashDetails : null,
         'Last Form': detail['Last Form'] || '',
         Language: detail.Language || 'English',
         Errors: (() => {
@@ -150,7 +151,7 @@ export const loadStateTransactionData = async (stateCode) => {
         // Historical metadata
         ScenarioType: record.ScenarioType || 'HistoricalTransaction',
         Plate: record.Plate || '',
-        TransactionNumber: record.TransactionNumber || record['SST Trans'] || '',
+        TransactionNumber: record.TransNo || record.TransactionNumber || '',
         IssueCategory: '',
         IssueDetail: '',
         Prompt: '',
@@ -159,28 +160,28 @@ export const loadStateTransactionData = async (stateCode) => {
         
         // Normalized transaction details
         SST: record.SST || '',
-        TransStatus: record.TransStatus || '',
+        TransStatus: record.Status || '',
         Product: record.Product || '',
-        'SST Trans': record['SST Trans'] || record.TransactionNumber || '',
+        'SST Trans': record.TransNo || record['SST Trans'] || '',
         Date: record.Date || '',
         'Request Info': record['Request Info'] || '',
         Grade: '',
-        Vehicles: record.L4VIN ? [{
+        Vehicles: record.VIN ? [{
           Plate: record.Plate || '',
-          VIN: record.L4VIN || '',
+          VIN: record.VIN || '',
           Owner: record.Owner || '',
-          PayType: record.PayType || '',
-          PayAmt: record.PayAmt || ''
+          Vehicle: record.Vehicle || '',
+          Fees: record.Amt || ''
         }] : [],
         'Session Length': '',
         Payments: record.PayType ? [{
           PayType: record.PayType || '',
-          Amt: record.PayAmt || '',
-          PayStatus: record.TransStatus === 'Completed' ? 'Approved' : 'Pending'
+          Amt: record.Amt || '',
+          PayStatus: record.Status === 'Completed' ? 'Approved' : 'Pending'
         }] : [],
         'Last Form': '',
         Language: 'English',
-        Errors: record.TransStatus === 'Incomplete' ? 'Transaction Incomplete' : 'None'
+        Errors: record.Status === 'Incomplete' ? 'Transaction Incomplete' : 'None'
       };
     });
 
