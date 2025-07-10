@@ -214,3 +214,67 @@ input[type="image"]:hover {
   object-fit: contain;
   width: 100%;
 }
+
+/* ===== NO-WRAP FIXES ===== */
+/* Prevent text wrapping in main content */
+.sst-container {
+  min-width: 1024px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Ensure navigation buttons don't wrap */
+#UpdatePanelNavBtns {
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+#UpdatePanelNavBtns table {
+  width: auto;
+  min-width: fit-content;
+}
+
+#UpdatePanelNavBtns td {
+  white-space: nowrap;
+  padding: 2px;
+}
+
+/* Prevent wrapping in data cells */
+.ReptGridView td {
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+/* Allow wrapping only for long content in specific cases */
+.ReptGridView td:last-child {
+  white-space: normal; /* Allow wrapping for the last column if needed */
+  word-break: break-word;
+}
+
+/* Ensure the main table expands horizontally */
+#MainTable {
+  width: 100%;
+  min-width: 1024px;
+  table-layout: auto;
+}
+
+/* Header row should not wrap */
+#HeaderRow {
+  white-space: nowrap;
+}
+
+#HeaderRow td {
+  white-space: nowrap;
+}
+
+/* Headline text should not wrap */
+.headline, .headlineSmaller {
+  white-space: nowrap;
+}
+
+/* Ensure content area expands horizontally */
+.content {
+  min-width: 1024px;
+  width: 100%;
+  overflow-x: auto;
+}

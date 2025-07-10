@@ -97,17 +97,22 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
 
   // Get status color based on transaction status
   const getStatusColor = (status) => {
-    // Remove parentheses for color determination but keep full status for display
+    // Remove parentheses for color determination
     const cleanStatus = status ? status.replace(/\s*\([^)]*\)/g, '').trim() : '';
     
     if (cleanStatus === 'Completed') {
-      return 'Green';
+      return 'green';
     } else if (cleanStatus === 'Incomplete') {
-      return 'Red';
+      return 'red';
     } else if (cleanStatus === 'Ineligible' || cleanStatus === 'Cancelled') {
-      return 'Black';
+      return 'black';
     }
-    return 'Black'; // Default to black for any other status
+    return 'black'; // Default to black for any other status
+  };
+
+  // Helper function to clean status text for display
+  const getDisplayStatus = (status) => {
+    return status ? status.replace(/\s*\([^)]*\)/g, '').trim() : '';
   };
 
   // Check if we're in a popup window (opened via window.open)
@@ -298,7 +303,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                       <tr style={{ backgroundColor: '#E7E7E7', borderColor: 'White' }}>
                                         <td>Status:</td>
                                         <td style={{ color: getStatusColor(transactionData.TransStatus) }}>
-                                          <b>{transactionData.TransStatus}</b>
+                                          <b>{getDisplayStatus(transactionData.TransStatus)}</b>
                                         </td>
                                         <td className="HideCol">{getStatusColor(transactionData.TransStatus)}</td>
                                       </tr>
