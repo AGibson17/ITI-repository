@@ -457,7 +457,7 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
 
   return (
     <div className="search-results-container">
-      <table className="ReptGridView search-results-table" cellSpacing="10" cellPadding="10">
+      <table className="ReptGridView search-results-table" cellSpacing="0" cellPadding="0">
         <thead>
           <tr>
             {columnOrder.map(column => {

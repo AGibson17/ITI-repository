@@ -7,29 +7,28 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #e0e0e0; /* Slightly darker background to frame the centered content */
+  overflow-x: hidden; /* Prevent horizontal body scrolling */
 }
 
 .app {
   min-height: 100vh;
   background-color: #ffffff;
-  width: 100%;
-  min-width: 1024px; /* Minimum width for normal content, can expand as needed */
+  width: fit-content; /* Allow expansion as needed */
+  min-width: 1024px; /* Minimum width, can expand beyond this */
   margin: 0 auto; /* Center the application */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
 }
 
-/* Allow specific content to expand beyond 1024px when needed */
+/* Allow specific content to expand naturally without viewport constraints */
 .expandable-content {
-  width: max-content;
+  width: fit-content;
   min-width: 100%;
-  max-width: calc(100vw - 40px); /* Leave some margin on sides */
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
 }
 
-/* Specific styles for search results and transaction details tables */
+/* Excel-like table behavior: columns size to content */
 .search-results-table, .transaction-details-table {
-  width: max-content; /* Expand to fit content */
-  min-width: 100%;
+  width: auto; /* Natural sizing */
+  table-layout: auto; /* Let columns size to content */
   white-space: nowrap; /* Prevent text wrapping */
 }
 
@@ -38,10 +37,10 @@ body {
   padding: 8px 12px;
 }
 
-/* Allow the container to scroll horizontally when table is too wide */
+/* Remove horizontal scrolling - let the page expand naturally */
 .search-results-container, .transaction-details-container {
-  overflow-x: auto;
-  max-width: calc(100vw - 40px); /* Leave margin from viewport edges */
+  width: fit-content;
+  min-width: 100%;
 }
 
 /* Header Styles */

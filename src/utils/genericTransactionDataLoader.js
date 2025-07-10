@@ -7,6 +7,26 @@ import { getAssetPath } from './paths';
 import { getStateConfig } from '../config/stateConfig';
 
 /**
+ * Generate a random SST location for testing purposes
+ * This randomly assigns transactions to SST locations for demo purposes
+ * @param {string} stateCode - State code
+ * @returns {string} Random SST location ID
+ */
+const generateRandomSSTLocation = (stateCode) => {
+  // Define some test SST locations per state
+  const sstLocations = {
+    CA: ['SST001', 'SST002', 'SST003', 'SST004'],
+    NV: ['NV001', 'NV002', 'NV003'],
+    HI: ['HI001', 'HI002', 'HI003'],
+    IN: ['IN001', 'IN002', 'IN003'],
+    OH: ['OH001', 'OH002', 'OH003']
+  };
+  
+  const locations = sstLocations[stateCode] || sstLocations.CA;
+  return locations[Math.floor(Math.random() * locations.length)];
+};
+
+/**
  * Load and combine transaction data for any state
  * @param {string} stateCode - Two-letter state code (e.g., 'CA', 'CO', 'FL')
  * @returns {Promise<Array>} Combined and normalized transaction data
@@ -108,6 +128,7 @@ export const loadStateTransactionData = async (stateCode) => {
         Prompt: scenario.Prompt || '',
         IsClickable: true, // Live transactions are clickable
         StateCode: stateCode, // Add state identifier
+        SSTLocation: scenario.SSTLocation || detail.SSTLocation || generateRandomSSTLocation(stateCode), // Add SST location
         
         // Normalized transaction details
         SST: detail.SST || '',
@@ -224,6 +245,7 @@ export const searchTransactions = (transactions, searchCriteria, stateCode = 'CA
   const { 
     product = '<ALL>', 
     searchBy = 'sst-dates', 
+    sstLocation = '<ALL>', // Add SST location parameter
     plateValue = '', 
     plateSearchType = 'Full', // Add plateSearchType parameter
     transValue = '', 
@@ -235,6 +257,11 @@ export const searchTransactions = (transactions, searchCriteria, stateCode = 'CA
   return transactions.filter(transaction => {
     // First filter by product if not <ALL>
     if (product !== '<ALL>' && transaction.Product !== product) {
+      return false;
+    }
+
+    // Filter by SST location if specified and not <ALL>
+    if (sstLocation !== '<ALL>' && transaction.SSTLocation && transaction.SSTLocation !== sstLocation) {
       return false;
     }
 
