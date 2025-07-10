@@ -485,18 +485,18 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                                 // Check if errors are objects with Type, Code, Msg
                                                 if (errors.length > 0 && typeof errors[0] === 'object' && errors[0].Type) {
                                                   return (
-                                                    <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top', width: '100%' }}>
+                                                    <table cellSpacing="0" cellPadding="0" style={{ verticalAlign: 'top', width: '100%', borderCollapse: 'collapse' }}>
                                                       <tbody>
-                                                        <tr style={{ fontStyle: 'italic' }}>
-                                                          <td><strong>Type</strong></td>
-                                                          <td><strong>Code</strong></td>
-                                                          <td><strong>Msg</strong></td>
+                                                        <tr style={{ fontStyle: 'italic', backgroundColor: '#f0f0f0' }}>
+                                                          <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold' }}>Type</td>
+                                                          <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold' }}>Code</td>
+                                                          <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold' }}>Msg</td>
                                                         </tr>
                                                         {errors.map((error, index) => (
                                                           <tr key={index}>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Type || ''}</td>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Code || ''}</td>
-                                                            <td style={{ fontWeight: 'bold', color: 'red' }}>{error.Msg || ''}</td>
+                                                            <td style={{ border: '1px solid #ccc', padding: '4px 6px', color: 'red', fontSize: '13px' }}>{error.Type || ''}</td>
+                                                            <td style={{ border: '1px solid #ccc', padding: '4px 6px', color: 'red', fontSize: '13px' }}>{error.Code || ''}</td>
+                                                            <td style={{ border: '1px solid #ccc', padding: '4px 6px', color: 'red', fontSize: '13px' }}>{error.Msg || ''}</td>
                                                           </tr>
                                                         ))}
                                                       </tbody>

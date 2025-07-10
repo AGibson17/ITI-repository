@@ -1,0 +1,586 @@
+[
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVM936",
+  "TransactionNumber": "162197",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Printer Connection Failure",
+  "Prompt": "Issue: Customer reports they paid for their Nevada vehicle registration but nothing printed at the kiosk. They received a dynamic error message on the screen. Goal: Review the repository details, identify the failure, and determine correct next steps.",
+  "TransactionDetail": {
+    "SST": "Albertsons Elko - 157",
+    "Status": "Completed (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "162197",
+    "Date": "10/20/2024 4:01:14 PM",
+    "Request Info": "AccType: 02 Plate: NVM936 VIN: 1C4RJFBG2EC205634",
+    "Vehicles": [
+      {
+        "Plate": "NVM936",
+        "Expires": "10/21/2025",
+        "VIN": "1C4RJFBG2EC205634",
+        "Vehicle": "2014 JEEP GRAND CHEROKEE LIMITED",
+        "Owner": "CERDA,AIMEE MICHELLE",
+        "Fees": "$136.00"
+      }
+    ],
+    "Session Length": "4 mins. 51 secs.",
+    "Payments": [
+      {
+        "PayID": "8520220",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$136.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "7294654330866228103076"
+      }
+    ],
+    "Last Form": "ErrorDynamicMessage",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "NetPrinterClass.sendMsgNow - maximum tries = 2"
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVK812",
+  "TransactionNumber": "193284",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Printer Connection Failure",
+  "Prompt": "Issue: Customer reports paying at the Albertsons Blue Diamond kiosk but walked away with nothing. The kiosk displayed an error message after payment. What can you learn from the repository, and what is the next correct action?",
+  "TransactionDetail": {
+    "SST": "Albertsons Blue Diamond - 162",
+    "Status": "Completed (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "193284",
+    "Date": "11/14/2024 11:17:09 AM",
+    "Request Info": "AccType: 02 Plate: NVK812 VIN: 3C6UR5FL9FG558111",
+    "Vehicles": [
+      {
+        "Plate": "NVK812",
+        "Expires": "11/15/2025",
+        "VIN": "3C6UR5FL9FG558111",
+        "Vehicle": "2015 RAM 2500",
+        "Owner": "CHEN, DAVID",
+        "Fees": "$202.00"
+      }
+    ],
+    "Session Length": "6 mins. 28 secs.",
+    "Payments": [
+      {
+        "PayID": "8651994",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$202.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "2518847920018472900139"
+      }
+    ],
+    "Last Form": "ErrorDynamicMessage",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;3.1.4.9;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer: Unable to connect to network device after payment processed."
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.9;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer: NetPrinterClass.sendMsgNow - maximum tries = 2"
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVZ221",
+  "TransactionNumber": "181155",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Unable to Print",
+  "Prompt": "Issue: Customer at Raleys Gardnerville completed payment, but the kiosk flashed an error and failed to provide their registration. What do you see in the transaction details, and how should you proceed?",
+  "TransactionDetail": {
+    "SST": "Raleys Gardnerville - 159",
+    "Status": "Completed (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "181155",
+    "Date": "12/08/2024 4:45:33 PM",
+    "Request Info": "AccType: 02 Plate: NVZ221 VIN: 2GCEK19T341378521",
+    "Vehicles": [
+      {
+        "Plate": "NVZ221",
+        "Expires": "12/09/2025",
+        "VIN": "2GCEK19T341378521",
+        "Vehicle": "2004 CHEVY SILVERADO",
+        "Owner": "GARCIA, MARIA",
+        "Fees": "$187.00"
+      }
+    ],
+    "Session Length": "4 mins. 11 secs.",
+    "Payments": [
+      {
+        "PayID": "8821345",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$187.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "9812374981379481234"
+      }
+    ],
+    "Last Form": "ErrorDynamicMessage",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "RIGHT Printer: Device failed to respond after print request."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVC511",
+  "TransactionNumber": "176343",
+  "IssueCategory": "Registration Printer",
+  "IssueDetail": "Unable to Print",
+  "Prompt": "Issue: After paying for their registration at Smiths Carson City, the customer received a long error message and nothing printed. What do the error logs reveal, and what should you do next according to training?",
+  "TransactionDetail": {
+    "SST": "Smiths Carson City - 183",
+    "Status": "Completed (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "176343",
+    "Date": "09/30/2024 10:29:27 AM",
+    "Request Info": "AccType: 02 Plate: NVC511 VIN: 1HGCM82633A876411",
+    "Vehicles": [
+      {
+        "Plate": "NVC511",
+        "Expires": "10/01/2025",
+        "VIN": "1HGCM82633A876411",
+        "Vehicle": "2003 HONDA ACCORD",
+        "Owner": "JOHNSON, LISA",
+        "Fees": "$104.00"
+      }
+    ],
+    "Session Length": "5 mins. 37 secs.",
+    "Payments": [
+      {
+        "PayID": "8932510",
+        "PayType": "Credit",
+        "CardType": "",
+        "Last4": "",
+        "Amt": "$104.00",
+        "Status": "Authorized",
+        "Error": "None",
+        "Conf": "9213847192384712394"
+      }
+    ],
+    "Last Form": "ErrorDynamicMessage",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not respond."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVX130",
+  "TransactionNumber": "203572",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Card Reader Not Initializing",
+  "Prompt": "Issue: Customer at Albertsons S Highway 160 states the kiosk would not accept their card and displayed an error before ending the session. Based on the repository, what can you confirm and how should you proceed?",
+  "TransactionDetail": {
+    "SST": "Albertsons S Highway 160 - 181",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "203572",
+    "Date": "01/15/2025 3:29:18 PM",
+    "Request Info": "AccType: 02 Plate: NVX130 VIN: 1FAHP2E84FG199310",
+    "Vehicles": [
+      {
+        "Plate": "NVX130",
+        "Expires": "01/16/2026",
+        "VIN": "1FAHP2E84FG199310",
+        "Vehicle": "2015 FORD TAURUS",
+        "Owner": "KIM, ANDREW",
+        "Fees": "$156.00"
+      }
+    ],
+    "Session Length": "2 mins. 03 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      "None"
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVW541",
+  "TransactionNumber": "204014",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Card Reader Failed to Initialize",
+  "Prompt": "Issue: At Raleys Wedge Parkway, the customer could not pay because the kiosk never accepted any card and showed a payment method error. What does the repository detail indicate and what are your recommended steps?",
+  "TransactionDetail": {
+    "SST": "Raleys Wedge Parkway - 160",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "204014",
+    "Date": "02/02/2025 10:48:41 AM",
+    "Request Info": "AccType: 02 Plate: NVW541 VIN: JHMFA36217S011392",
+    "Vehicles": [
+      {
+        "Plate": "NVW541",
+        "Expires": "02/03/2026",
+        "VIN": "JHMFA36217S011392",
+        "Vehicle": "2007 HONDA CIVIC HYBRID",
+        "Owner": "ROBERTS, JENNIFER",
+        "Fees": "$129.00"
+      }
+    ],
+    "Session Length": "1 min. 22 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      "None"
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVF990",
+  "TransactionNumber": "212883",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "No Payment Method Detected",
+  "Prompt": "Issue: Customer at Smiths Bonanza reports being unable to pay—the kiosk would not read their card and ended the transaction with an error. Review the repository transaction details and explain your next steps.",
+  "TransactionDetail": {
+    "SST": "Smiths Bonanza - 185",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "212883",
+    "Date": "03/08/2025 2:12:56 PM",
+    "Request Info": "AccType: 02 Plate: NVF990 VIN: 1G1ZD5ST7LF036650",
+    "Vehicles": [
+      {
+        "Plate": "NVF990",
+        "Expires": "03/09/2026",
+        "VIN": "1G1ZD5ST7LF036650",
+        "Vehicle": "2020 CHEVROLET MALIBU",
+        "Owner": "PATEL, JAY",
+        "Fees": "$215.00"
+      }
+    ],
+    "Session Length": "2 mins. 16 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      "None"
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVB445",
+  "TransactionNumber": "214632",
+  "IssueCategory": "Card Reader",
+  "IssueDetail": "Device Communication Failure",
+  "Prompt": "Issue: Customer using the Albertsons Flamingo kiosk says the machine failed to read any cards and displayed an error message about payment method not being available. Use the repository details to confirm the cause and describe how you would handle the call.",
+  "TransactionDetail": {
+    "SST": "Albertsons Flamingo - 138",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "214632",
+    "Date": "03/20/2025 1:44:12 PM",
+    "Request Info": "AccType: 02 Plate: NVB445 VIN: 5XYKT3A10EG006201",
+    "Vehicles": [
+      {
+        "Plate": "NVB445",
+        "Expires": "03/21/2026",
+        "VIN": "5XYKT3A10EG006201",
+        "Vehicle": "2014 KIA SORENTO",
+        "Owner": "RAMIREZ, MIGUEL",
+        "Fees": "$149.00"
+      }
+    ],
+    "Session Length": "1 min. 55 secs.",
+    "Payments": "None",
+    "Last Form": "ErrNoPaymentMethodAvailable",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;3.1.4.7;",
+        "Code": "FATAL",
+        "Msg": "CardReaderManager failed to initialize device during payment setup."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVT219",
+  "TransactionNumber": "312847",
+  "IssueCategory": "Cash Dispenser",
+  "IssueDetail": "Not Dispensing Cash",
+  "Prompt": "Issue: A customer at Albertsons Farm Rd completed their registration and deposited cash, but the kiosk did not dispense any bills and displayed a dispenser error. What do the repository details indicate, and what action should you take?",
+  "TransactionDetail": {
+    "SST": "Albertsons Farm Rd - 145",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "312847",
+    "Date": "06/12/2025 2:14:37 PM",
+    "Request Info": "AccType: 03 Plate: NVT219 VIN: 1FTFW1ET9DKF13879",
+    "Vehicles": [
+      {
+        "Plate": "NVT219",
+        "Expires": "06/13/2026",
+        "VIN": "1FTFW1ET9DKF13879",
+        "Vehicle": "2013 FORD F-150",
+        "Owner": "HARPER, NINA",
+        "Fees": "$179.00"
+      }
+    ],
+    "Session Length": "3 mins. 44 secs.",
+    "Payments": "None",
+    "CashDetails": {
+      "Deposited": "($20 x 9) $180.00",
+      "ToBeDispensed": "$1.00",
+      "ActualDispensed": "$0.00",
+      "Withheld": "$1.00",
+      "Reason Withheld": "Cash Dispenser Error."
+    },
+    "Last Form": "ErrorCashDispenser",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "MFSCashDispenser.GetStatus produced an error (LastError): CONTINUITY_5_TIMES_REJECT_ERROR"
+      },
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "WARNING",
+        "Msg": "Current GetStatus result returned false. Cannot dispense bills. Please reset the Cash Dispenser."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVS881",
+  "TransactionNumber": "318290",
+  "IssueCategory": "Cash Dispenser",
+  "IssueDetail": "Not Dispensing Cash",
+  "Prompt": "Issue: At Raleys Incline Village, a customer paid their fees in cash, but the kiosk withheld the full amount and showed an error. What do the error logs and cash details reveal, and what would be your next step?",
+  "TransactionDetail": {
+    "SST": "Raleys Incline Village - 182",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "318290",
+    "Date": "07/19/2025 11:53:02 AM",
+    "Request Info": "AccType: 03 Plate: NVS881 VIN: 4T1BF1FK0HU373456",
+    "Vehicles": [
+      {
+        "Plate": "NVS881",
+        "Expires": "07/20/2026",
+        "VIN": "4T1BF1FK0HU373456",
+        "Vehicle": "2017 TOYOTA CAMRY",
+        "Owner": "WATTS, STEPHEN",
+        "Fees": "$237.00"
+      }
+    ],
+    "Session Length": "4 mins. 19 secs.",
+    "Payments": "None",
+    "CashDetails": {
+      "Deposited": "($100 x 2, $20 x 2) $240.00",
+      "ToBeDispensed": "$3.00",
+      "ActualDispensed": "$0.00",
+      "Withheld": "$3.00",
+      "Reason Withheld": "Cash Dispenser Error."
+    },
+    "Last Form": "ErrorCashDispenser",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "MFSCashDispenser.GetStatus produced an error: DISPENSE_TIMEOUT - Failed to dispense bills in allotted time window."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVL502",
+  "TransactionNumber": "328201",
+  "IssueCategory": "Cash Dispenser",
+  "IssueDetail": "Not Dispensing Cash",
+  "Prompt": "Issue: At Albertsons S Stephanie, a customer deposited cash but received nothing in return, and the kiosk displayed a hardware error. Based on the error logs and cash details, what happened and how should you proceed?",
+  "TransactionDetail": {
+    "SST": "Albertsons S Stephanie - 168",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "328201",
+    "Date": "08/11/2025 1:21:46 PM",
+    "Request Info": "AccType: 03 Plate: NVL502 VIN: 3FA6P0HD5ER217553",
+    "Vehicles": [
+      {
+        "Plate": "NVL502",
+        "Expires": "08/12/2026",
+        "VIN": "3FA6P0HD5ER217553",
+        "Vehicle": "2014 FORD FUSION",
+        "Owner": "REED, LAUREN",
+        "Fees": "$191.00"
+      }
+    ],
+    "Session Length": "3 mins. 27 secs.",
+    "Payments": "None",
+    "CashDetails": {
+      "Deposited": "($20 x 10) $200.00",
+      "ToBeDispensed": "$9.00",
+      "ActualDispensed": "$0.00",
+      "Withheld": "$9.00",
+      "Reason Withheld": "Cash Dispenser Error."
+    },
+    "Last Form": "ErrorCashDispenser",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "CDM4000.DispenseBills: Bill transport error, reject path engaged, check cassette sensors."
+      },
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "WARNING",
+        "Msg": "GetStatus: Cassette 1 not responding; controller communication timeout."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVH337",
+  "TransactionNumber": "342789",
+  "IssueCategory": "Cash Dispenser",
+  "IssueDetail": "Not Dispensing Cash",
+  "Prompt": "Issue: Customer at Smiths Carson City was owed change after paying with cash, but the kiosk withheld the amount and showed a dispenser malfunction. What do the technical logs suggest, and how should this be resolved?",
+  "TransactionDetail": {
+    "SST": "Smiths Carson City - 183",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "342789",
+    "Date": "09/03/2025 9:09:59 AM",
+    "Request Info": "AccType: 03 Plate: NVH337 VIN: 5NPE24AF7FH106532",
+    "Vehicles": [
+      {
+        "Plate": "NVH337",
+        "Expires": "09/04/2026",
+        "VIN": "5NPE24AF7FH106532",
+        "Vehicle": "2015 HYUNDAI SONATA",
+        "Owner": "DUNN, DAVID",
+        "Fees": "$224.00"
+      }
+    ],
+    "Session Length": "2 mins. 50 secs.",
+    "Payments": "None",
+    "CashDetails": {
+      "Deposited": "($100 x 2, $20 x 2) $240.00",
+      "ToBeDispensed": "$16.00",
+      "ActualDispensed": "$0.00",
+      "Withheld": "$16.00",
+      "Reason Withheld": "Cash Dispenser Error."
+    },
+    "Last Form": "ErrorCashDispenser",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "CashDispenser.DispenseMoney: DISPENSE_FAILURE - Bills did not reach output slot. Actuator feedback missing."
+      }
+    ]
+  }
+},
+{
+  "ScenarioType": "LiveTransaction",
+  "Plate": "NVR294",
+  "TransactionNumber": "355176",
+  "IssueCategory": "Cash Dispenser",
+  "IssueDetail": "Not Dispensing Cash",
+  "Prompt": "Issue: At Albertsons Nellis, a customer deposited more cash than required but the machine failed to pay out any change and logged multiple hardware errors. Review the repository details and outline the correct action.",
+  "TransactionDetail": {
+    "SST": "Albertsons Nellis - 142",
+    "Status": "Incomplete (Errors)",
+    "Product": "Vehicle Reg Renewal",
+    "SST Trans": "355176",
+    "Date": "10/14/2025 6:44:23 PM",
+    "Request Info": "AccType: 03 Plate: NVR294 VIN: 2T1BU4EE9DC987654",
+    "Vehicles": [
+      {
+        "Plate": "NVR294",
+        "Expires": "10/15/2026",
+        "VIN": "2T1BU4EE9DC987654",
+        "Vehicle": "2013 TOYOTA COROLLA",
+        "Owner": "RILEY, AMANDA",
+        "Fees": "$142.00"
+      }
+    ],
+    "Session Length": "4 mins. 18 secs.",
+    "Payments": "None",
+    "CashDetails": {
+      "Deposited": "($100 x 2, $20 x 1, $5 x 1) $225.00",
+      "ToBeDispensed": "$83.00",
+      "ActualDispensed": "$0.00",
+      "Withheld": "$83.00",
+      "Reason Withheld": "Cash Dispenser Error."
+    },
+    "Last Form": "ErrorCashDispenser",
+    "Language": "English",
+    "Errors": [
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "GetStatus: MFSCashDispenser reported ALL_CASSETTES_LOCKED - Unable to release payout sequence."
+      },
+      {
+        "Type": "Application:SSTNevada;4.0.1.0;",
+        "Code": "Critical",
+        "Msg": "Bill path continuity sensor open - possible foreign object detected in dispenser module."
+      }
+    ]
+  }
+}
+
+]

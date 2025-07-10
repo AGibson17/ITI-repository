@@ -198,14 +198,22 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
 
   // Get status color based on transaction status
   const getStatusColor = (status) => {
-    if (status === 'Completed' || status === 'Complete (Errors)') {
+    // Remove parentheses for color determination
+    const cleanStatus = status ? status.replace(/\s*\([^)]*\)/g, '').trim() : '';
+    
+    if (cleanStatus === 'Completed') {
       return 'green';
-    } else if (status === 'Incomplete' || status === 'Incomplete (Errors)') {
+    } else if (cleanStatus === 'Incomplete') {
       return 'red';
-    } else if (status === 'Ineligible' || status === 'Cancelled') {
+    } else if (cleanStatus === 'Ineligible' || cleanStatus === 'Cancelled') {
       return 'black';
     }
     return 'black'; // Default to black for any other status
+  };
+
+  // Helper function to clean status text for display
+  const getDisplayStatus = (status) => {
+    return status ? status.replace(/\s*\([^)]*\)/g, '').trim() : '';
   };
 
   const getColumnHeader = (column) => {
@@ -374,7 +382,7 @@ const SearchResults = ({ results, onTransactionClick, currentState }) => {
       case 'Status':
         return (
           <td key={column} className="status" style={{ color: statusColor }}>
-            <strong>{transaction.TransStatus}</strong>
+            <strong>{getDisplayStatus(transaction.TransStatus)}</strong>
           </td>
         );
       default:

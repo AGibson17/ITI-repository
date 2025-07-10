@@ -74,14 +74,14 @@
   width: 100%;
   border-collapse: collapse;
   margin: 0;
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
 }
 
 .ReptGridView td table td {
-  padding: 3px 5px;
+  padding: 4px 6px; /* Slightly increased padding */
   border: none;
   border-bottom: 1px solid #ddd;
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
 }
 
 .ReptGridView td table tr:first-child td {
@@ -102,12 +102,12 @@
   }
   
   .ReptGridView td table {
-    font-size: 10px;
+    font-size: 12px; /* Increased from 10px */
   }
   
   .ReptGridView td table td {
-    padding: 2px 3px;
-    font-size: 10px;
+    padding: 3px 4px; /* Slightly increased */
+    font-size: 12px; /* Increased from 10px */
   }
 }
 
@@ -129,13 +129,13 @@
   }
   
   .ReptGridView td table {
-    font-size: 9px;
+    font-size: 11px; /* Increased from 9px */
     min-width: 400px;
   }
   
   .ReptGridView td table td {
-    padding: 1px 2px;
-    font-size: 9px;
+    padding: 2px 3px; /* Slightly increased */
+    font-size: 11px; /* Increased from 9px */
     white-space: nowrap;
   }
   
