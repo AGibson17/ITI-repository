@@ -418,7 +418,43 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                         <td className="HideCol">&nbsp;</td>
                                       </tr>
                                       
-                                      <tr style={{ borderColor: 'White' }}>
+                                      {/* Cash Details Section - Only show if CashDetails exists */}
+                                      {transactionData.CashDetails && (
+                                        <tr style={{ borderColor: 'White' }}>
+                                          <td>Cash Details:</td>
+                                          <td>
+                                            <table cellSpacing="0" cellPadding="0" style={{ width: '100%' }}>
+                                              <tbody>
+                                                <tr>
+                                                  <td style={{ paddingRight: '10px', fontWeight: 'normal' }}>Deposited:</td>
+                                                  <td>{transactionData.CashDetails.Deposited}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style={{ paddingRight: '10px', fontWeight: 'normal' }}>To Be Dispensed:</td>
+                                                  <td>{transactionData.CashDetails.ToBeDispensed}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style={{ paddingRight: '10px', fontWeight: 'normal' }}>Actual Dispensed:</td>
+                                                  <td>{transactionData.CashDetails.ActualDispensed}</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style={{ paddingRight: '10px', fontWeight: 'normal' }}>Withheld:</td>
+                                                  <td>{transactionData.CashDetails.Withheld}</td>
+                                                </tr>
+                                                {transactionData.CashDetails['Reason Withheld'] && (
+                                                  <tr>
+                                                    <td style={{ paddingRight: '10px', fontWeight: 'normal' }}>Reason Withheld:</td>
+                                                    <td>{transactionData.CashDetails['Reason Withheld']}</td>
+                                                  </tr>
+                                                )}
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                          <td className="HideCol">&nbsp;</td>
+                                        </tr>
+                                      )}
+                                      
+                                      <tr style={{ backgroundColor: '#E7E7E7', borderColor: 'White' }}>
                                         <td>Last Form:</td>
                                         <td>{transactionData['Last Form']}</td>
                                         <td className="HideCol">&nbsp;</td>
