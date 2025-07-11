@@ -197,14 +197,12 @@ input[type="image"]:hover {
 /* ===== HEADER SECTION ===== */
 /* Blue header section to match other components */
 .sst-container .header {
-  background-color: #17456d;
-  padding: 0;
+  padding: 0 12px;
   margin: 0;
 }
 
 .sst-container .header td {
-  background-color: #17456d;
-  padding: 0;
+  padding: 0 12px;
   margin: 0;
 }
 
@@ -212,7 +210,6 @@ input[type="image"]:hover {
   height: auto;
   display: block;
   object-fit: contain;
-  width: 100%;
 }
 
 /* ===== NO-WRAP FIXES ===== */
