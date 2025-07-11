@@ -1,9 +1,32 @@
-/* Import base SST styles */
-@import './SSTSearch.css';
+.sst-container {
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000;
+  padding-bottom: 40px;
+  padding-top: 5px;
+  width: fit-content;
+  min-width: 1024px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Override and extend styles for Transaction Details */
+.sst-container.transaction-details-container {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  min-width: 1024px;
+  width: fit-content;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 
-/* Loading and Error States */
+.sst-container.expandable-content {
+  width: fit-content;
+  min-width: 1024px;
+  max-width: 100%;
+}
+
 .loading,
 .error {
   text-align: center;
@@ -19,31 +42,42 @@
   color: #dc3545;
 }
 
-/* Hide the color column */
 .HideCol {
   display: none;
 }
 
-/* Table styling to match the original */
 .ReptGridView {
+  width: auto;
+  table-layout: auto;
   border-collapse: separate;
   border-spacing: 0;
-  width: 100%;
-  font-family: tahoma, arial, sans-serif;
   font-size: 12px;
+  border: 1px solid #ccc;
+  margin: 0;
+  font-family: tahoma, arial, sans-serif;
 }
 
 .ReptGridView th {
-  background-color: #f0f0f0;
-  padding: 8px;
+  background-color: #f5f5f5;
+  padding: 8px 12px;
   border: 1px solid #ccc;
   font-weight: bold;
   text-align: left;
   cursor: pointer;
+  white-space: nowrap;
+  width: auto;
+  min-width: 0;
+  color: #333;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.ReptGridView th:hover {
+  background-color: #e8e8e8;
 }
 
 .ReptGridView th a {
-  color: inherit;
+  color: #333;
   text-decoration: none;
 }
 
@@ -52,12 +86,26 @@
 }
 
 .ReptGridView td {
-  padding: 8px;
+  padding: 8px 12px;
   border: 1px solid #ccc;
   vertical-align: top;
+  white-space: nowrap;
+  width: auto;
+  min-width: 0;
 }
 
-/* Ensure Label column is wide enough to prevent wrapping */
+.ReptGridView tr.odd-row {
+  background-color: white;
+}
+
+.ReptGridView tr.even-row {
+  background-color: #E7E7E7;
+}
+
+.ReptGridView tr {
+  border-color: white;
+}
+
 .ReptGridView td:first-child {
   width: 120px;
   min-width: 120px;
@@ -69,61 +117,69 @@
   min-width: 120px;
 }
 
-/* Nested table styling for Vehicles and Payments */
 .ReptGridView td table {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
   border-collapse: collapse;
   margin: 0;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .ReptGridView td table td {
-  padding: 3px 5px;
+  padding: 5px 8px;
   border: none;
   border-bottom: 1px solid #ddd;
-  font-size: 11px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ReptGridView td table tr:first-child td {
-  font-style: italic;
   font-weight: bold;
-  border-bottom: 2px solid #999;
-  background-color: #f5f5f5;
+  white-space: nowrap;
+  max-width: none;
 }
 
-/* Ensure consistent styling with existing components */
+.ReptGridView td table[style*="borderCollapse: 'collapse'"] {
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+}
+
+.ReptGridView td table[style*="borderCollapse: 'collapse'"] td {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 600px;
+  min-width: 100px;
+  text-overflow: clip;
+}
+
 .sst-container #MainTable {
-  width: 100%;
-  min-width: 800px;
+  width: auto;
+  min-width: 1024px;
+  max-width: 100vw;
+  table-layout: auto;
 }
 
-.sst-container .content {
-  padding: 10px;
-  background-color: white;
-}
-
-/* Button hover effects */
 input[type="image"]:hover {
   opacity: 0.8;
   transform: scale(1.05);
   transition: all 0.2s ease;
 }
 
-/* Status color styling */
 .ReptGridView td b {
   font-weight: bold;
 }
 
-/* ===== HEADER SECTION ===== */
-/* Blue header section to match other components */
 .sst-container .header {
-  background-color: #17456d;
   padding: 0;
   margin: 0;
 }
 
 .sst-container .header td {
-  background-color: #17456d;
   padding: 0;
   margin: 0;
 }
@@ -132,5 +188,61 @@ input[type="image"]:hover {
   height: auto;
   display: block;
   object-fit: contain;
+}
+
+.sst-header {
+  background-color: #17456d;
+  padding: 0;
+  margin: 0;
+}
+
+.header-img-search {
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.redbar {
+  background-color: #c00;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 3px solid white;
+}
+
+.header-section {
   width: 100%;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.headline {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 24px;
+  color: #271f50;
+  padding: 5px 0px 0px 0px;
+  margin: 0;
+  font-weight: black;
+}
+
+.headlineSmaller {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 16px;
+  color: #271f50;
+  padding: 2px 0px 0px 0px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.content {
+  padding: 10px;
+  background-color: white;
+  max-width: calc(100vw - 20px);
 }

@@ -6,44 +6,40 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #e0e0e0; /* Slightly darker background to frame the centered content */
-  overflow-x: hidden; /* Prevent horizontal body scrolling */
+  background-color: #e0e0e0;
+  overflow-x: hidden;
+  min-width: 1024px;
 }
 
 .app {
   min-height: 100vh;
   background-color: #ffffff;
-  width: fit-content; /* Allow expansion as needed */
-  min-width: 1024px; /* Minimum width, can expand beyond this */
-  margin: 0 auto; /* Center the application */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
+  width: fit-content;
+  min-width: 1024px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Allow specific content to expand naturally without viewport constraints */
 .expandable-content {
   width: fit-content;
   min-width: 100%;
 }
 
-/* Excel-like table behavior: columns size to content */
 .search-results-table, .transaction-details-table {
-  width: auto; /* Natural sizing */
-  table-layout: auto; /* Let columns size to content */
-  white-space: nowrap; /* Prevent text wrapping */
+  width: auto;
+  table-layout: auto;
+  white-space: nowrap;
 }
 
 .search-results-table td, .transaction-details-table td {
-  white-space: nowrap; /* Prevent text wrapping in cells */
+  white-space: nowrap;
   padding: 8px 12px;
 }
 
-/* Remove horizontal scrolling - let the page expand naturally */
 .search-results-container, .transaction-details-container {
   width: fit-content;
   min-width: 100%;
 }
-
-/* Header Styles */
 
 .logo-section {
   display: flex;
@@ -92,7 +88,6 @@ body {
   color: #1e3a8a;
 }
 
-/* Banner Styles */
 .banner {
   background-color: #dc2626;
   color: white;
@@ -102,7 +97,6 @@ body {
   font-size: 14px;
 }
 
-/* Main Content */
 .main-content {
   max-width: 800px;
   margin: 20px auto 0 auto;
@@ -120,7 +114,6 @@ body {
   text-align: left;
 }
 
-/* Form Styles */
 .search-form {
   display: flex;
   flex-direction: column;

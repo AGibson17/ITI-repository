@@ -149,17 +149,8 @@ export const loadStateTransactionData = async (stateCode) => {
             return 'None';
           }
           if (Array.isArray(detail.Errors)) {
-            return detail.Errors.map(error => {
-              // Handle error objects vs strings
-              if (typeof error === 'object' && error !== null) {
-                // Format as "TYPE CODE: MSG" (e.g., "AUTH ERR 999: TIMEOUT")
-                const type = error.Type || '';
-                const code = error.Code || '';
-                const msg = error.Msg || '';
-                return `${type} ${code}: ${msg}`.trim();
-              }
-              return error; // Already a string
-            }).join('; ');
+            // Keep the structured error objects for proper table rendering
+            return detail.Errors.filter(error => error && error !== 'None');
           }
           return detail.Errors; // Single string
         })()

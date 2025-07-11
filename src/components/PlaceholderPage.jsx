@@ -1,7 +1,6 @@
 import React from 'react';
 import { getStateAssetPath, getAssetPath } from '../utils/paths';
 import { useStateContext } from '../context/useStateContext';
-import '../styles/defaultStyles.css';
 
 const PlaceholderPage = ({ title, onNavigate }) => {
   const { stateConfig } = useStateContext();

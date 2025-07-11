@@ -42,17 +42,17 @@
       {
         "Type": "Application:SSTNevada;3.1.4.8;",
         "Code": "FATAL",
-        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
-      },
-      {
-        "Type": "Application:SSTNevada;3.1.4.8;",
-        "Code": "FATAL",
-        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
-      },
-      {
-        "Type": "Application:SSTNevada;3.1.4.8;",
-        "Code": "FATAL",
         "Msg": "NetPrinterClass.sendMsgNow - maximum tries = 2"
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
+      },
+      {
+        "Type": "Application:SSTNevada;3.1.4.8;",
+        "Code": "FATAL",
+        "Msg": "LEFT Printer, msg: System.Net.Sockets.SocketException (0x80004005): A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags) at System.Net.Sockets.Socket.Receive(Byte[] buffer) at DeviceManagement.NetPrinterClass.sendMsgNow(String printer, Int32 msgID, String data)"
       },
       {
         "Type": "Application:SSTNevada;3.1.4.8;",

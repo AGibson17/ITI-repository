@@ -46,6 +46,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: false,
+      hasGradeField: true, // CA displays Grade field in transaction details
       defaultSearchType: "sst-dates", // CA defaults to SST/Dates search
     },
     vehicleDataSchema: {
@@ -120,6 +121,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: true,
+      hasGradeField: true, // CO displays Grade field in transaction details
       defaultSearchType: "sst-dates", // CO defaults to SST/Dates search
     },
   },
@@ -166,6 +168,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: true,
+      hasGradeField: false, // FL does not display Grade field in transaction details
       defaultSearchType: "sst-dates", // FL defaults to SST/Dates search
     },
   },
@@ -212,6 +215,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: true,
       hasDLNSearch: false,
+      hasGradeField: true, // MI displays Grade field in transaction details
       defaultSearchType: "plate", // MI defaults to Plate search
     },
   },
@@ -259,6 +263,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: false,
+      hasGradeField: false, // HI does not display Grade field in transaction details
       defaultSearchType: "plate", // HI defaults to Plate search
     },
     vehicleDataSchema: {
@@ -337,6 +342,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: false,
+      hasGradeField: true, // NM displays Grade field in transaction details
       defaultSearchType: "plate", // NM defaults to Plate search
     },
     
@@ -450,6 +456,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: true,
+      hasGradeField: false, // OH does not display Grade field in transaction details
       defaultSearchType: "plate", // OH defaults to Plate search
     },
 
@@ -530,6 +537,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: true,
+      hasGradeField: true, // IN displays Grade field in transaction details
       defaultSearchType: "plate", // IN defaults to Plate search
     },
 
@@ -610,6 +618,7 @@ export const STATE_CONFIGS = {
       hasHistoricalData: true,
       hasVIPSearch: false,
       hasDLNSearch: true,
+      hasGradeField: true, // NV displays Grade field in transaction details
       defaultSearchType: "plate", // NV defaults to Plate search
     },
 

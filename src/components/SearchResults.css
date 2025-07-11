@@ -1,17 +1,14 @@
-/* ===== SEARCH RESULTS COMPONENT STYLES ===== */
-/* Desktop-only CSS for SearchResults component */
-
 .search-results-container {
   margin: 20px auto;
   padding: 20px;
   background-color: white;
   min-width: 1024px;
-  width: fit-content; /* Expand to fit content */
+  width: fit-content;
 }
 
 .ReptGridView {
-  width: auto; /* Excel-like behavior: size to content */
-  table-layout: auto; /* Allow columns to size automatically */
+  width: auto;
+  table-layout: auto;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 12px;
@@ -21,7 +18,7 @@
 
 .ReptGridView th {
   background-color: #f5f5f5;
-  padding: 8px 12px; /* Consistent padding */
+  padding: 8px 12px;
   text-align: left;
   border: 1px solid #ccc;
   font-weight: bold;
@@ -29,9 +26,9 @@
   cursor: pointer;
   user-select: none;
   transition: background-color 0.2s;
-  white-space: nowrap; /* Prevent header text wrapping */
-  width: auto; /* Let column size to content */
-  min-width: 0; /* Allow shrinking if needed */
+  white-space: nowrap;
+  width: auto;
+  min-width: 0;
 }
 
 .ReptGridView th:hover {
@@ -48,12 +45,12 @@
 }
 
 .ReptGridView td {
-  padding: 8px 12px; /* Match header padding */
+  padding: 8px 12px;
   border: 1px solid #ccc;
   vertical-align: top;
-  white-space: nowrap; /* Prevent cell text wrapping for better readability */
-  width: auto; /* Excel-like behavior: size to content */
-  min-width: 0; /* Allow shrinking if needed */
+  white-space: nowrap;
+  width: auto;
+  min-width: 0;
 }
 
 .ReptGridView tr.odd-row {

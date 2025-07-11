@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import SearchResults from './SearchResults';
-import '../styles/defaultStyles.css';
 import '../components/SSTSearch.css';
 import { getGlobalImagePath, getAssetPath } from '../utils/paths';
 import { loadStateTransactionData, searchTransactions } from '../utils/genericTransactionDataLoader';

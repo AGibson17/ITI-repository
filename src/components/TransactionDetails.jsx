@@ -107,6 +107,22 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     return 'Black'; // Default to black for any other status
   };
 
+  // Header style with conditional background image or color (matching SSTSearch)
+  const getHeaderStyle = () => {
+    if (stateConfig?.assets?.bgHeaderImage) {
+      return {
+        backgroundImage: `url(${getAssetPath(stateConfig.assets.bgHeaderImage)})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      };
+    } else {
+      return {
+        backgroundColor: stateConfig?.colors?.secondary
+      };
+    }
+  };
+
   // Check if we're in a popup window (opened via window.open)
   const isPopupWindow = window.opener !== null;
 
@@ -121,75 +137,85 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
     }
   };
 
-  // Helper function to render errors table
-  const renderErrorsTable = (errors) => {
-    // Handle different error formats
-    if (!errors || errors === 'None' || (Array.isArray(errors) && errors.length === 1 && errors[0] === 'None')) {
-      return <span>None</span>;
+  // Parse errors data to display as table (adapted from master branch)
+  const parseErrors = (errors) => {
+    if (!errors || errors === 'None') {
+      return 'None';
     }
-
-    // If errors is an array of objects with Type, Code, Msg properties
-    if (Array.isArray(errors) && errors.length > 0 && typeof errors[0] === 'object') {
-      return (
-        <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top', border: '1px solid #ccc', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ fontStyle: 'italic', backgroundColor: '#f0f0f0' }}>
-              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Type</th>
-              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Code</th>
-              <th style={{ padding: '5px', border: '1px solid #ccc', fontWeight: 'bold' }}>Msg</th>
-            </tr>
-          </thead>
-          <tbody>
-            {errors.map((error, index) => (
-              <tr key={index}>
-                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
-                  <span 
-                    style={{ 
-                      fontWeight: error.Type && error.Type !== 'None' ? 'bold' : 'normal',
-                      color: error.Type && error.Type !== 'None' ? 'red' : 'inherit'
-                    }}
-                  >
-                    {error.Type || ''}
-                  </span>
-                </td>
-                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
-                  <span 
-                    style={{ 
-                      fontWeight: error.Code && error.Code !== 'None' ? 'bold' : 'normal',
-                      color: error.Code && error.Code !== 'None' ? 'red' : 'inherit'
-                    }}
-                  >
-                    {error.Code || ''}
-                  </span>
-                </td>
-                <td style={{ padding: '5px', border: '1px solid #ccc' }}>
-                  <span 
-                    style={{ 
-                      fontWeight: error.Msg && error.Msg !== 'None' ? 'bold' : 'normal',
-                      color: error.Msg && error.Msg !== 'None' ? 'red' : 'inherit'
-                    }}
-                  >
-                    {error.Msg || ''}
-                  </span>
-                </td>
+    
+    if (Array.isArray(errors)) {
+      // Handle array of errors
+      if (errors.length === 0 || (errors.length === 1 && errors[0] === 'None')) {
+        return 'None';
+      }
+      
+      // Check if errors are objects with Type, Code, Msg
+      if (errors.length > 0 && typeof errors[0] === 'object' && errors[0].Type) {
+        return (
+          <table style={{ 
+            verticalAlign: 'top', 
+            width: 'auto', 
+            maxWidth: '100%',
+            tableLayout: 'auto',
+            borderCollapse: 'collapse' 
+          }}>
+            <tbody>
+              <tr style={{ backgroundColor: '#f0f0f0' }}>
+                <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Type</td>
+                <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Code</td>
+                <td style={{ border: '1px solid #ccc', padding: '4px 6px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>Msg</td>
               </tr>
-            ))}
-          </tbody>
-        </table>
+              {errors.map((error, index) => (
+                <tr key={index}>
+                  <td style={{ 
+                    border: '1px solid #ccc',
+                    padding: '4px 6px', 
+                    color: 'red', 
+                    fontSize: '12px',
+                    whiteSpace: 'nowrap'
+                  }}>{error.Type || ''}</td>
+                  <td style={{ 
+                    border: '1px solid #ccc', 
+                    padding: '4px 6px', 
+                    color: 'red', 
+                    fontSize: '12px',
+                    whiteSpace: 'nowrap'
+                  }}>{error.Code || ''}</td>
+                  <td style={{ 
+                    border: '1px solid #ccc', 
+                    padding: '4px 6px', 
+                    color: 'red', 
+                    fontSize: '12px',
+                    whiteSpace: 'normal',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word',
+                    minWidth: 1024
+                  }}>{error.Msg || ''}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        );
+      }
+      
+      // Handle array of strings
+      return (
+        <span style={{ fontWeight: 'bold', color: 'red' }}>
+          {errors.join('; ')}
+        </span>
       );
     }
-
-    // Fallback for simple string errors
-    return (
-      <span 
-        style={{ 
-          fontWeight: errors && errors.toLowerCase() !== 'none' ? 'bold' : 'normal',
-          color: errors && errors.toLowerCase() !== 'none' ? 'red' : 'inherit'
-        }}
-      >
-        {errors}
-      </span>
-    );
+    
+    // Handle string errors
+    if (typeof errors === 'string' && errors.toLowerCase() !== 'none') {
+      return (
+        <span style={{ fontWeight: 'bold', color: 'red' }}>
+          {errors}
+        </span>
+      );
+    }
+    
+    return 'None';
   };
 
   if (isLoading) {
@@ -218,10 +244,10 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
 
   return (
     <div className="sst-container transaction-details-container expandable-content">
-      <table id="MainTable" className="container transaction-details-table" cellPadding="0" cellSpacing="0">
+      <table id="MainTable" cellPadding="0" cellSpacing="0">
         <tbody>
           {/* Header Row */}
-          <tr id="ImageRow" className="header">
+          <tr id="ImageRow" className="header" style={getHeaderStyle()}>
             <td>
               <img 
                 src={getAssetPath(stateConfig?.assets?.pageHeaderImage)} 
@@ -337,7 +363,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
           <tr id="DataSection">
             <td>
               <div className="content">
-                <table id="ReportBody" width="100%">
+                <table id="ReportBody" width="auto">
                   <tbody>
                     <tr id="DataRow">
                       <td>
@@ -347,7 +373,7 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                               <td>
                                 <br />
                                 <div>
-                                  <table className="ReptGridView" cellSpacing="10" cellPadding="10" style={{ fontSize: '12px' }}>
+                                  <table className="ReptGridView">
                                     <tbody>
                                       <tr>
                                         <th title="Click to sort by Label" scope="col">Label</th>
@@ -393,8 +419,8 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                         <td className="HideCol">&nbsp;</td>
                                       </tr>
                                       
-                                      {/* Only show Grade if status is not Ineligible */}
-                                      {transactionData.TransStatus !== 'Ineligible' && (
+                                      {/* Only show Grade if state supports it and status is not Ineligible */}
+                                      {stateConfig?.features?.hasGradeField && transactionData.TransStatus !== 'Ineligible' && (
                                         <tr style={{ borderColor: 'White' }}>
                                           <td>Grade:</td>
                                           <td>{transactionData.Grade}</td>
@@ -417,9 +443,14 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                               const tableHeaders = getVehicleTableHeaders(stateConfig, vehiclesData);
                                               
                                               return (
-                                                <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
+                                                <table style={{ 
+                                                  verticalAlign: 'top',
+                                                  width: 'auto',
+                                                  maxWidth: '100%',
+                                                  tableLayout: 'auto'
+                                                }}>
                                                   <tbody>
-                                                    <tr style={{ fontStyle: 'italic' }}>
+                                                    <tr style={{ fontWeight: 'bold' }}>
                                                       {tableHeaders.map((header, index) => (
                                                         <td key={index}>{header.label}</td>
                                                       ))}
@@ -452,9 +483,14 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                         <td>Payments:</td>
                                         <td>
                                           {transactionData.Payments && transactionData.Payments.length > 0 ? (
-                                            <table cellSpacing="5" cellPadding="5" style={{ verticalAlign: 'top' }}>
+                                            <table style={{ 
+                                              verticalAlign: 'top',
+                                              width: 'auto',
+                                              maxWidth: '100%',
+                                              tableLayout: 'auto'
+                                            }}>
                                               <tbody>
-                                                <tr style={{ fontStyle: 'italic' }}>
+                                                <tr style={{ fontWeight: 'bold' }}>
                                                   <td>PayID</td>
                                                   <td>PayType</td>
                                                   <td>CardType</td>
@@ -538,7 +574,9 @@ const TransactionDetails = ({ transactionId, onNavigate }) => {
                                       <tr style={{ borderColor: 'White' }}>
                                         <td>Errors:</td>
                                         <td>
-                                          {renderErrorsTable(transactionData.Errors)}
+                                          {(() => {
+                                            return parseErrors(transactionData.Errors);
+                                          })()}
                                         </td>
                                         <td className="HideCol">&nbsp;</td>
                                       </tr>
