@@ -6,27 +6,40 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #e0e0e0; /* Slightly darker background to frame the centered content */
+  background-color: #e0e0e0;
+  overflow-x: hidden;
+  min-width: 1024px;
 }
 
 .app {
   min-height: 100vh;
   background-color: #ffffff;
-  max-width: 1024px; /* Match the header image width */
-  margin: 0 auto; /* Center the entire application */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for definition */
+  width: fit-content;
+  min-width: 1024px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile-first responsive design */
-@media (max-width: 767px) {
-  .app {
-    margin: 0;
-    box-shadow: none;
-    max-width: 100%;
-  }
+.expandable-content {
+  width: fit-content;
+  min-width: 100%;
 }
 
-/* Header Styles */
+.search-results-table, .transaction-details-table {
+  width: auto;
+  table-layout: auto;
+  white-space: nowrap;
+}
+
+.search-results-table td, .transaction-details-table td {
+  white-space: nowrap;
+  padding: 8px 12px;
+}
+
+.search-results-container, .transaction-details-container {
+  width: fit-content;
+  min-width: 100%;
+}
 
 .logo-section {
   display: flex;
@@ -75,7 +88,6 @@ body {
   color: #1e3a8a;
 }
 
-/* Banner Styles */
 .banner {
   background-color: #dc2626;
   color: white;
@@ -85,7 +97,6 @@ body {
   font-size: 14px;
 }
 
-/* Main Content */
 .main-content {
   max-width: 800px;
   margin: 20px auto 0 auto;
@@ -93,16 +104,6 @@ body {
   padding: 0 30px 30px 30px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Mobile adjustments for main content */
-@media (max-width: 767px) {
-  .main-content {
-    margin: 10px;
-    padding: 15px;
-    border-radius: 0;
-    max-width: calc(100% - 20px);
-  }
 }
 
 .search-title {
@@ -113,16 +114,6 @@ body {
   text-align: left;
 }
 
-/* Mobile title adjustments */
-@media (max-width: 767px) {
-  .search-title {
-    font-size: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-}
-
-/* Form Styles */
 .search-form {
   display: flex;
   flex-direction: column;
@@ -188,14 +179,6 @@ body {
   width: 200px;
 }
 
-/* Mobile input adjustments */
-@media (max-width: 767px) {
-  .plate-input {
-    width: 100%;
-    max-width: 250px;
-  }
-}
-
 .plate-options {
   display: flex;
   gap: 15px;
@@ -204,102 +187,4 @@ body {
 .button-section {
   text-align: right;
   margin-top: 20px;
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  
-  .nav-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .form-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .radio-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .plate-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
-
-/* Enhanced mobile breakpoints */
-@media (max-width: 767px) {
-  .header-content {
-    padding: 10px;
-  }
-  
-  .nav-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    min-width: 120px;
-  }
-  
-  .form-label {
-    min-width: auto;
-    font-size: 14px;
-  }
-  
-  .radio-label {
-    font-size: 16px;
-    padding: 8px 0;
-  }
-  
-  .plate-options {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .button-section {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  .show-report-btn {
-    width: 100%;
-    max-width: 250px;
-    padding: 12px 25px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-section {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .repository-text {
-    font-size: 18px;
-  }
-  
-  .banner {
-    padding: 12px 8px;
-    font-size: 12px;
-  }
-  
-  .nav-buttons {
-    gap: 5px;
-  }
-  
-  .nav-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-    min-width: 100px;
-  }
 }

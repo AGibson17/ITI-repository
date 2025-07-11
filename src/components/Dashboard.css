@@ -4,7 +4,7 @@
   color: #000;
   min-height: 100vh;
   width: 100%;
-  max-width: 1024px; /* Match the header image width */
+  min-width: 1024px; /* Minimum width, can expand as needed */
   margin: 0 auto; /* Center the entire page */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Add shadow for definition */
 }
@@ -93,66 +93,4 @@ td {
 /* Specific styling for menu icon table cells */
 .menu-icons-row td {
   padding: 10px 5px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .homeSelections {
-    max-width: 150px;
-    margin: 10px;
-  }
-  
-  .content {
-    padding: 10px;
-  }
-}
-
-/* Enhanced mobile breakpoints */
-@media (max-width: 767px) {
-  .dashboard-container {
-    margin: 0;
-    box-shadow: none;
-  }
-  
-  .content {
-    padding: 15px 10px;
-  }
-  
-  .redbar {
-    padding: 8px;
-    font-size: 12px;
-  }
-  
-  .homeSelections {
-    max-width: 120px;
-    margin: 8px;
-  }
-  
-  .LoginEntryFlds {
-    width: 100%;
-    max-width: 250px;
-    padding: 8px;
-    margin: 8px 0;
-    font-size: 16px; /* Prevent zoom on iOS */
-  }
-  
-  .welcome {
-    margin: 15px auto;
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .homeSelections {
-    max-width: 100px;
-    margin: 5px;
-  }
-  
-  .content {
-    padding: 10px 5px;
-  }
-  
-  .menu-icons-row td {
-    padding: 5px 2px;
-  }
 }

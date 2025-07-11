@@ -1,0 +1,120 @@
+{
+  "CA": [
+    {
+      "id": "SST001",
+      "name": "Los Angeles Main Office",
+      "address": "123 Main St, Los Angeles, CA 90012",
+      "isActive": true
+    },
+    {
+      "id": "SST002", 
+      "name": "San Francisco Downtown",
+      "address": "456 Market St, San Francisco, CA 94102",
+      "isActive": true
+    },
+    {
+      "id": "SST003",
+      "name": "San Diego Regional",
+      "address": "789 Harbor Dr, San Diego, CA 92101",
+      "isActive": true
+    },
+    {
+      "id": "SST004",
+      "name": "Sacramento Capitol",
+      "address": "321 Capitol Mall, Sacramento, CA 95814",
+      "isActive": true
+    },
+    {
+      "id": "SST005",
+      "name": "Fresno Valley Center",
+      "address": "654 Fresno St, Fresno, CA 93721",
+      "isActive": false
+    }
+  ],
+  "NV": [
+    {
+      "id": "NV001",
+      "name": "Las Vegas Main",
+      "address": "555 Las Vegas Blvd, Las Vegas, NV 89101",
+      "isActive": true
+    },
+    {
+      "id": "NV002",
+      "name": "Reno Downtown",
+      "address": "100 N Virginia St, Reno, NV 89501",
+      "isActive": true
+    },
+    {
+      "id": "NV003",
+      "name": "Henderson Branch",
+      "address": "200 Water St, Henderson, NV 89015",
+      "isActive": true
+    }
+  ],
+  "HI": [
+    {
+      "id": "HI001",
+      "name": "Honolulu Central",
+      "address": "1000 Alakea St, Honolulu, HI 96813",
+      "isActive": true
+    },
+    {
+      "id": "HI002",
+      "name": "Hilo Big Island",
+      "address": "75 Aupuni St, Hilo, HI 96720",
+      "isActive": true
+    },
+    {
+      "id": "HI003",
+      "name": "Kahului Maui",
+      "address": "95 Mahalani St, Kahului, HI 96732",
+      "isActive": true
+    }
+  ],
+  "IN": [
+    {
+      "id": "IN001",
+      "name": "Indianapolis Main",
+      "address": "100 N Senate Ave, Indianapolis, IN 46204",
+      "isActive": true
+    },
+    {
+      "id": "IN002",
+      "name": "Fort Wayne North",
+      "address": "200 E Berry St, Fort Wayne, IN 46802",
+      "isActive": true
+    },
+    {
+      "id": "IN003",
+      "name": "Evansville South",
+      "address": "300 Main St, Evansville, IN 47708",
+      "isActive": true
+    },
+    {
+      "id": "IN004",
+      "name": "Gary Northwest",
+      "address": "400 Broadway, Gary, IN 46402",
+      "isActive": false
+    }
+  ],
+  "OH": [
+    {
+      "id": "OH001",
+      "name": "Columbus Central",
+      "address": "1970 W Broad St, Columbus, OH 43223",
+      "isActive": true
+    },
+    {
+      "id": "OH002",
+      "name": "Cleveland East",
+      "address": "13025 Euclid Ave, Cleveland, OH 44112",
+      "isActive": true
+    },
+    {
+      "id": "OH003",
+      "name": "Cincinnati Southwest",
+      "address": "2150 Beekman St, Cincinnati, OH 45214",
+      "isActive": true
+    }
+  ]
+}

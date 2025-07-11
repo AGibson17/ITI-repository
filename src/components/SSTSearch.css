@@ -1,19 +1,20 @@
-/* ===== SST SEARCH COMPONENT STYLES ===== */
-/* Clean, organized CSS for SSTSearch component */
-/* ===== MAIN CONTAINER ===== */
 .sst-container {
   font-family: Tahoma, Verdana, Arial, sans-serif;
   background-color: #ffffff;
   color: #000;
   padding-bottom: 40px;
-  padding-top: 5px;;
-  width: 100%;
-  max-width: 1024px;
+  padding-top: 5px;
+  width: fit-content;
+  min-width: 1024px;
   margin: 0 auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== HEADER SECTION ===== */
+.sst-container-expandable {
+  width: fit-content;
+  min-width: 1024px;
+}
+
 .sst-header {
   background-color: #17456d;
   padding: 0;
@@ -36,23 +37,146 @@
   border-top: 3px solid white;
 }
 
-/* ===== NAVIGATION BUTTONS ===== */
-#HeaderRow {
+.header-section {
   width: 100%;
 }
 
-#HeaderRow table {
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.page-title-area {
+  flex: 1;
+}
+
+.nav-buttons-area {
+  display: flex;
+  gap: 2px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.data-section {
   width: 100%;
-  table-layout: fixed;
 }
 
-#HeaderRow td[align="right"] {
-  text-align: right;
-  width: 30%;
-  padding-right: 5px !important;
+.report-body {
+  padding: 20px;
 }
 
-/* ===== PAGE TITLE ===== */
+.criteria-row-1 {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.product-select {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 200px;
+}
+
+.search-by-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.search-by-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.search-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.search-option input[type="radio"] {
+  margin: 0;
+}
+
+.search-option label {
+  font-size: 12px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.criteria-row-2 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.search-inputs {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.sst-entry,
+.date-entry,
+.plate-entry,
+.vin-entry,
+.vip-entry,
+.dln-entry,
+.transno-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sst-select {
+  width: 350px;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.plate-search-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.search-type-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.search-type-option input[type="radio"] {
+  margin: 0;
+}
+
+.show-report-area {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 20px;
+}
+
 .headline {
   font-family: "Arial Black", Gadget, sans-serif;
   font-size: 24px;
@@ -62,20 +186,6 @@
   font-weight: black;
 }
 
-/* ===== CONTENT AREAS ===== */
-
-
-#HeaderSection .content {
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
-#DataSection .content {
-  padding: 5px;
-}
-
-/* ===== FORM ELEMENTS ===== */
 .labelBlue {
   color: #26608f;
   font-weight: bold;
@@ -109,170 +219,4 @@
   padding: 3px;
   font-size: 12px;
   width: 100px;
-}
-
-
-/* Search By column */
-#ContentPlaceHolder1_SearchByList {
-  vertical-align: middle !important;
-}
-
-/* ===== CRITERIA ROW 2 LAYOUT ===== */
-#ContentPlaceHolder1_CriteriaRow2 td {
-  vertical-align: middle;
-}
-
-/* Show Report button alignment */
-#ShowReport {
-  padding-left: 20px;
-}
-
-/* ===== GENERAL TABLE STYLING ===== */
-table {
-  font-family: tahoma, arial, sans-serif;
-  font-size: 12px;
-  vertical-align: middle;
-  max-width: 1024px;
-}
-
-
-/* ===== SST SELECTOR STYLING ===== */
-/* SST Entry section for SST/Dates search - positioned to the left of date fields */
-#ContentPlaceHolder1_SSTEntry td {
-  padding: 0;
-  vertical-align: middle;
-}
-
-/* SST label and radio buttons on same line */
-#ContentPlaceHolder1_SSTEntry div[style*="float"] {
-  vertical-align: middle;
-}
-
-#ContentPlaceHolder1_DateEntry td {
-  padding: 2px 8px 2px 0;
-  vertical-align: top;
-}
-
-/* Transaction No entry styling - positioned to the right of SST */
-#ContentPlaceHolder1_TransNoEntry {
-  vertical-align: top;
-  padding-left: 10px;
-}
-
-#ContentPlaceHolder1_TransNoEntry table {
-  width: auto;
-  border-spacing: 0;
-  margin: 0;
-}
-
-#ContentPlaceHolder1_TransNoEntry td {
-  padding: 2px 0;
-  vertical-align: top;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-/* Mobile breakpoints for SST Search */
-
-@media (max-width: 767px) {
-  .sst-container {
-    margin: 0;
-    box-shadow: none;
-    padding-bottom: 20px;
-  }
-  
-  .redbar {
-    padding: 8px;
-    font-size: 12px;
-  }
-  
-  /* Header navigation adjustments */
-  #HeaderRow table {
-    table-layout: auto;
-  }
-  
-  #HeaderRow td {
-    width: auto !important;
-    display: block;
-    text-align: center !important;
-    padding: 5px;
-  }
-  
-  /* Content area adjustments */
-  #ContentPlaceHolder1_contentDiv {
-    padding: 15px 10px !important;
-  }
-  
-  /* Form elements mobile styling */
-  #ContentPlaceHolder1_SST table,
-  #ContentPlaceHolder1_DateEntry table,
-  #ContentPlaceHolder1_TransNoEntry table {
-    width: 100% !important;
-    display: block;
-  }
-  
-  #ContentPlaceHolder1_SST td,
-  #ContentPlaceHolder1_DateEntry td,
-  #ContentPlaceHolder1_TransNoEntry td {
-    display: block;
-    width: 100% !important;
-    padding: 5px 0 !important;
-    text-align: left !important;
-  }
-  
-  /* Input field adjustments */
-  input[type="text"], 
-  input[type="number"],
-  select {
-    width: 100% !important;
-    max-width: 300px;
-    padding: 8px;
-    font-size: 16px; /* Prevent zoom on iOS */
-    margin: 5px 0;
-  }
-  
-  /* Button adjustments */
-  input[type="submit"],
-  input[type="button"] {
-    width: 100%;
-    max-width: 200px;
-    padding: 12px;
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  /* Stack Transaction No entry below SST */
-  #ContentPlaceHolder1_TransNoEntry {
-    padding-left: 0 !important;
-    margin-top: 15px;
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .sst-container {
-    padding-bottom: 15px;
-  }
-  
-  #ContentPlaceHolder1_contentDiv {
-    padding: 10px 5px !important;
-  }
-  
-  .redbar {
-    padding: 6px;
-    font-size: 11px;
-  }
-  
-  input[type="text"], 
-  input[type="number"],
-  select {
-    max-width: 250px;
-    padding: 6px;
-  }
-  
-  input[type="submit"],
-  input[type="button"] {
-    max-width: 180px;
-    padding: 10px;
-    font-size: 14px;
-  }
 }

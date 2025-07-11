@@ -1,4 +1,3 @@
-import '../styles/defaultStyles.css';
 import '../components/Dashboard.css';
 import { getGlobalImagePath } from '../utils/paths';
 import { useStateContext } from '../context/useStateContext';
